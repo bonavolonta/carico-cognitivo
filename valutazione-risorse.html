@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Valutazione, Audit, Prompt P03 e Bibliografia — Carico Cognitivo</title>
+  <meta name="description" content="Griglia di audit cognitivo, Diario DAM, Prompt operativo P03, test interattivo di 10 quesiti, mappa risorse e bibliografia scientifica.">
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Salta al contenuto principale</a>
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar"></div></div>
+
+  <header class="topbar">
+    <div class="topbar-nav-row">
+      <div class="topbar-brand">
+        <a class="topbar-home-link" href="index.html">
+          <span class="topbar-title">Carico Cognitivo &amp; Accessibilità</span>
+        </a>
+        <span class="topbar-title-sub">Didattica Speciale e Progettazione Inclusiva</span>
+      </div>
+
+      <button type="button" id="menu-toggle-btn" class="menu-toggle-btn" popovertarget="site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Apri menu di navigazione">
+        ☰ Menu
+      </button>
+
+      <nav id="site-nav" class="site-nav" popover="auto" aria-label="Navigazione principale del sito">
+          <a href="index.html">Fondamenti</a>
+          <a href="multimedialita.html">Multimedialità</a>
+          <a href="inclusione.html">Inclusione</a>
+          <a href="laboratori.html">Laboratori &amp; 3D</a>
+          <a href="schemi-didattici.html">Schemi Didattici</a>
+          <a href="valutazione-risorse.html" aria-current="page">Valutazione &amp; Risorse</a>
+      </nav>
+    </div>
+
+    <div class="topbar-udl-row">
+      <div class="topbar-controls" role="toolbar" aria-label="Controlli UDL di lettura e tema">
+        <button type="button" id="mobile-toc-toggle" class="ctrl-btn mobile-toc-btn" aria-expanded="false" aria-controls="sidebar-nav">Sezioni</button>
+        <button type="button" id="udl-font" class="ctrl-btn" aria-pressed="false" title="Attiva carattere ad alta leggibilità">Font Leggibile</button>
+        <button type="button" id="udl-spacing" class="ctrl-btn" aria-pressed="false" title="Aumenta interlinea e spaziatura">Spaziatura +</button>
+        <button type="button" id="udl-clean" class="ctrl-btn" aria-pressed="false" title="Nasconde i riquadri di approfondimento e schemi contestuali">Solo Testo</button>
+        <span aria-hidden="true" style="width:1px;height:20px;background:var(--border-subtle);margin:0 0.1rem;"></span>
+        <button type="button" id="theme-auto" class="ctrl-btn" aria-pressed="true">Auto</button>
+        <button type="button" id="theme-light" class="ctrl-btn" aria-pressed="false">Chiaro</button>
+        <button type="button" id="theme-dark" class="ctrl-btn" aria-pressed="false">Scuro</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="workspace-shell">
+    <aside class="sidebar-nav" id="sidebar-nav" aria-label="Indice di pagina e ricerca globale">
+      <div class="search-box">
+        <label for="doc-search-input" class="search-label">Cerca nel sito e in questa pagina</label>
+        <div class="search-input-row">
+          <input type="search" id="doc-search-input" class="search-input" placeholder="Es. split-attention, Ianes, fading..." autocomplete="off">
+          <button type="button" id="doc-search-clear" class="ctrl-btn" aria-label="Pulisci ricerca" title="Pulisci ricerca">✕</button>
+        </div>
+        <div id="doc-search-status" class="search-status" aria-live="polite"></div>
+        <div id="global-search-results" class="global-search-results" hidden aria-label="Risultati nelle altre pagine"></div>
+      </div>
+
+      <nav class="sidebar-pages" aria-label="Pagine del portale">
+        <a class="sidebar-page-link" href="index.html"><span>Fondamenti</span></a>
+        <a class="sidebar-page-link" href="multimedialita.html"><span>Multimedialità</span></a>
+        <a class="sidebar-page-link" href="inclusione.html"><span>Inclusione</span></a>
+        <a class="sidebar-page-link" href="laboratori.html"><span>Laboratori &amp; 3D</span></a>
+        <a class="sidebar-page-link" href="schemi-didattici.html"><span>Schemi Didattici</span></a>
+        <a class="sidebar-page-link" href="valutazione-risorse.html" aria-current="page"><span>Valutazione &amp; Risorse</span></a>
+      </nav>
+
+      <nav class="toc-nav" aria-label="Indice delle sezioni in questa pagina">
+        <ul class="toc-list">
+          <li><a class="toc-sublink" href="#74-strumenti-operativi-per-il-docente-specializzato-griglia-di-auditing-dam-e-traccia-ia-p03">7.4 Strumenti operativi per il docente specializzato: Griglia di Auditing, DAM e Traccia IA P03</a></li>
+          <li><a class="" href="#8-prove-di-autoverifica-formativa-con-soluzioni-commentate-e-bibliografia-ragionata">8. Prove di Autoverifica Formativa (con Soluzioni Commentate) e Bibliografia Ragionata</a></li>
+          <li><a class="toc-sublink" href="#81-test-di-autovalutazione-formativa-10-quesiti-a-scelta-multipla">8.1 Test di Autovalutazione Formativa (10 Quesiti a Scelta Multipla)</a></li>
+          <li><a class="toc-sublink" href="#82-chiave-di-correzione-e-commento-analitico">8.2 Chiave di Correzione e Commento Analitico</a></li>
+          <li><a class="toc-sublink" href="#83-mappa-delle-risorse-del-corso-sul-carico-cognitivo">8.3 Mappa delle Risorse del Corso sul Carico Cognitivo</a></li>
+          <li><a class="toc-sublink" href="#84-bibliografia-scientifica-di-riferimento">8.4 Bibliografia Scientifica di Riferimento</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main id="main-content" class="content-column" tabindex="-1">
+      <h1 class="sr-only">Strumenti Operativi, Autoverifica Formativa e Bibliografia</h1>
+      <nav class="breadcrumb" aria-label="Percorso">
+  <a href="index.html">Fondamenti</a>
+  <span aria-hidden="true">/</span>
+  <span aria-current="page">Valutazione &amp; Risorse</span>
+</nav>
+      <section class="chapter-card lazy-section" id="sec-74-strumenti-operativi" tabindex="-1" aria-labelledby="title-74-strumenti-operativi-per-il-docente-specializzato-griglia-di-auditing-dam-e-traccia-ia-p03">
+<div class="subsection-block" id="74-strumenti-operativi-per-il-docente-specializzato-griglia-di-auditing-dam-e-traccia-ia-p03" tabindex="-1">
+<h3 id="title-74-strumenti-operativi-per-il-docente-specializzato-griglia-di-auditing-dam-e-traccia-ia-p03">7.4 Strumenti operativi per il docente specializzato: Griglia di Auditing, DAM e Traccia IA P03</h3>
+<h4 id="1-griglia-di-auditing-del-carico-cognitivo-in-10-indicatori-checklist-di-progettazione">1. Griglia di Auditing del Carico Cognitivo in 10 Indicatori (Checklist di Progettazione)</h4>
+<p>Prima di somministrare una scheda, una presentazione o una videolezione, il docente di sostegno verifica i seguenti 10 criteri:</p>
+<ol><li><strong>Obiettivo esplicito:</strong> lo scopo del compito è chiaro e distinto dalle operazioni accessorie?</li><li><strong>Preconoscenze e Pre-training:</strong> i termini nuovi, i simboli e i concetti prerequisiti sono stati richiamati o introdotti prima del compito?</li><li><strong>Coerenza:</strong> ogni immagine, animazione, suono o dettaglio narrativo è strettamente funzionale all&#x27;obiettivo (zero <em>seductive details</em>)?</li><li><strong>Contiguità spaziale e temporale:</strong> etichette, legende, domande e spazio di risposta sono fisicamente integrati agli elementi visivi cui si riferiscono (zero <em>split-attention</em>)?</li><li><strong>Assenza di ridondanza nociva:</strong> nelle presentazioni visive o nei video è evitata la lettura parola per parola di blocchi testuali lunghi presenti sullo schermo?</li><li><strong>Segnalazione (<em>Signaling</em>):</strong> parole-chiave, passaggi critici e gerarchie logiche sono evidenziati visivamente?</li><li><strong>Segmentazione e Sequenziamento:</strong> le consegne complesse sono spezzate in sotto-compiti numerati e ordinati dal semplice al complesso (<em>chunking</em>)?</li><li><strong>Equilibrio tra Modalità e Pacing:</strong> nelle spiegazioni complesse sono abbinati schemi visivi e voce orale, lasciando tempo di elaborazione (<em>wait-time</em> / controlli di ritmo)?</li><li><strong>Supporto graduato (<em>Worked Example <span class="math-inline">→</span> Fading</em>):</strong> per i novizi o alunni in difficoltà è previsto un primo esempio modellato, con graduale riduzione degli aiuti all&#x27;aumentare della padronanza?</li><li><strong>Verifica osservabile:</strong> è previsto un momento concreto in cui lo studente riformula, autospiega o applica lo schema per verificare l&#x27;avvenuta comprensione?</li></ol>
+<aside class="enrichment-block didactic-lab" id="lab-audit" aria-labelledby="lab-audit-title">
+  <span class="enrichment-badge">Laboratorio Interattivo 5 · Griglia Operativa di Auditing</span>
+  <h4 id="lab-audit-title" class="lab-title">Valuta dal vivo una tua scheda o presentazione secondo i 10 Indicatori CLT</h4>
+  <p class="lab-lead">Applica i 10 criteri elencati sopra a un materiale didattico reale della tua classe: ottieni subito il punteggio di accessibilità cognitiva e copia l'elenco mirato delle correzioni da apportare.</p>
+  <form id="audit-interactive-form" class="audit-list">
+    <div class="audit-row">
+  <div class="audit-label"><span data-ind-title="1">1. Obiettivo esplicito</span> <span style="font-weight:400; color:var(--text-muted);">— lo scopo del compito è chiaro e distinto dalle operazioni accessorie?</span></div>
+  <div class="audit-radios" role="group" aria-label="Valutazione indicatore 1">
+    <label><input type="radio" name="ind-1" value="1" checked> Sì (1)</label>
+    <label><input type="radio" name="ind-1" value="0.5"> Parziale (0.5)</label>
+    <label><input type="radio" name="ind-1" value="0"> Critico (0)</label>
+  </div>
+</div><div class="audit-row">
+  <div class="audit-label"><span data-ind-title="2">2. Preconoscenze e Pre-training</span> <span style="font-weight:400; color:var(--text-muted);">— i termini nuovi, i simboli e i concetti prerequisiti sono stati richiamati o introdotti prima?</span></div>
+  <div class="audit-radios" role="group" aria-label="Valutazione indicatore 2">
+    <label><input type="radio" name="ind-2" value="1" checked> Sì (1)</label>
+    <label><input type="radio" name="ind-2" value="0.5"> Parziale (0.5)</label>
+    <label><input type="radio" name="ind-2" value="0"> Critico (0)</label>
+  </div>
+</div><div class="audit-row">
+  <div class="audit-label"><span data-ind-title="3">3. Coerenza</span> <span style="font-weight:400; color:var(--text-muted);">— ogni immagine, animazione, suono o dettaglio narrativo è strettamente funzionale all&#x27;obiettivo?</span></div>
+  <div class="audit-radios" role="group" aria-label="Valutazione indicatore 3">
+    <label><input type="radio" name="ind-3" value="1" checked> Sì (1)</label>
+    <label><input type="radio" name="ind-3" value="0.5"> Parziale (0.5)</label>
+    <label><input type="radio" name="ind-3" value="0"> Critico (0)</label>
+  </div>
+</div><div class="audit-row">
+  <div class="audit-label"><span data-ind-title="4">4. Contiguità spaziale e temporale</span> <span style="font-weight:400; color:var(--text-muted);">— etichette, legende, domande e spazio di risposta sono integrati agli elementi visivi?</span></div>
+  <div class="audit-radios" role="group" aria-label="Valutazione indicatore 4">
+    <label><input type="radio" name="ind-4" value="1" checked> Sì (1)</label>
+    <label><input type="radio" name="ind-4" value="0.5"> Parziale (0.5)</label>
+    <label><input type="radio" name="ind-4" value="0"> Critico (0)</label>
+  </div>
+</div><div class="audit-row">
+  <div class="audit-label"><span data-ind-title="5">5. Assenza di ridondanza nociva</span> <span style="font-weight:400; color:var(--text-muted);">— è evitata la lettura parola per parola di blocchi testuali lunghi proiettati?</span></div>
+  <div class="audit-radios" role="group" aria-label="Valutazione indicatore 5">
+    <label><input type="radio" name="ind-5" value="1" checked> Sì (1)</label>
+    <label><input type="radio" name="ind-5" value="0.5"> Parziale (0.5)</label>
+    <label><input type="radio" name="ind-5" value="0"> Critico (0)</label>
+  </div>
+</div><div class="audit-row">
+  <div class="audit-label"><span data-ind-title="6">6. Segnalazione (Signaling)</span> <span style="font-weight:400; color:var(--text-muted);">— parole-chiave, passaggi critici e gerarchie logiche sono evidenziati visivamente?</span></div>
+  <div class="audit-radios" role="group" aria-label="Valutazione indicatore 6">
+    <label><input type="radio" name="ind-6" value="1" checked> Sì (1)</label>
+    <label><input type="radio" name="ind-6" value="0.5"> Parziale (0.5)</label>
+    <label><input type="radio" name="ind-6" value="0"> Critico (0)</label>
+  </div>
+</div><div class="audit-row">
+  <div class="audit-label"><span data-ind-title="7">7. Segmentazione e Sequenziamento</span> <span style="font-weight:400; color:var(--text-muted);">— le consegne complesse sono spezzate in sotto-compiti dal semplice al complesso?</span></div>
+  <div class="audit-radios" role="group" aria-label="Valutazione indicatore 7">
+    <label><input type="radio" name="ind-7" value="1" checked> Sì (1)</label>
+    <label><input type="radio" name="ind-7" value="0.5"> Parziale (0.5)</label>
+    <label><input type="radio" name="ind-7" value="0"> Critico (0)</label>
+  </div>
+</div><div class="audit-row">
+  <div class="audit-label"><span data-ind-title="8">8. Equilibrio tra Modalità e Pacing</span> <span style="font-weight:400; color:var(--text-muted);">— schemi visivi + voce orale + tempo di elaborazione (wait-time / ritmo)?</span></div>
+  <div class="audit-radios" role="group" aria-label="Valutazione indicatore 8">
+    <label><input type="radio" name="ind-8" value="1" checked> Sì (1)</label>
+    <label><input type="radio" name="ind-8" value="0.5"> Parziale (0.5)</label>
+    <label><input type="radio" name="ind-8" value="0"> Critico (0)</label>
+  </div>
+</div><div class="audit-row">
+  <div class="audit-label"><span data-ind-title="9">9. Supporto graduato (Worked Example → Fading)</span> <span style="font-weight:400; color:var(--text-muted);">— primo esempio modellato con graduale riduzione degli aiuti all&#x27;aumentare della padronanza?</span></div>
+  <div class="audit-radios" role="group" aria-label="Valutazione indicatore 9">
+    <label><input type="radio" name="ind-9" value="1" checked> Sì (1)</label>
+    <label><input type="radio" name="ind-9" value="0.5"> Parziale (0.5)</label>
+    <label><input type="radio" name="ind-9" value="0"> Critico (0)</label>
+  </div>
+</div><div class="audit-row">
+  <div class="audit-label"><span data-ind-title="10">10. Verifica osservabile</span> <span style="font-weight:400; color:var(--text-muted);">— momento concreto in cui lo studente riformula, autospiega o applica lo schema?</span></div>
+  <div class="audit-radios" role="group" aria-label="Valutazione indicatore 10">
+    <label><input type="radio" name="ind-10" value="1" checked> Sì (1)</label>
+    <label><input type="radio" name="ind-10" value="0.5"> Parziale (0.5)</label>
+    <label><input type="radio" name="ind-10" value="0"> Critico (0)</label>
+  </div>
+</div>
+  </form>
+  <div class="audit-summary-banner" aria-live="polite">
+    <div>
+      <strong style="font-size:1.05rem;">Esito Audit: <span id="audit-score-out">10 / 10</span></strong>
+      <div id="audit-status-out" style="font-size:0.86rem; color:var(--text-muted);">Scheda ben accessibile (carico cognitivo equilibrato)</div>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+      <button type="button" class="action-btn action-btn-secondary" id="audit-reset-btn">Ripristina</button>
+      <button type="button" class="action-btn" id="audit-copy-btn">Copia diagnosi audit</button>
+    </div>
+  </div>
+</aside>
+<h4 id="2-consegna-di-riflessione-per-il-diario-di-apprendimento-metacognitivo-dam--lezione-3">2. Consegna di Riflessione per il Diario di Apprendimento Metacognitivo (DAM)</h4>
+<p>Per consolidare il collegamento tra esperienza personale dello specializzando e trasposizione didattica, la domanda guida per il DAM al termine dell&#x27;unità è:</p>
+<blockquote class="source-quote" id="quote-block-7"><p><strong>Domanda DAM (L03):</strong> <em>«Nel compito o nel materiale esaminato oggi, quale difficoltà dipendeva dalla complessità intrinseca del contenuto e quale invece dipendeva dal modo in cui il compito era presentato?»</em></p></blockquote><div class="prompt-copy-bar"><button type="button" class="action-btn action-btn-secondary" data-copy-target="quote-block-7">Copia prompt negli appunti</button></div>
+<h4 id="3-traccia-ia-p03-uso-critico-e-responsabile-dellintelligenza-artificiale">3. Traccia IA P03 (Uso critico e responsabile dell&#x27;Intelligenza Artificiale)</h4>
+<p>Qualora il docente utilizzi un assistente di IA generativa per verificare l&#x27;accessibilità di una scheda didattica propria, può adottare questo prompt di controllo strutturato (con verifica finale umana obbligatoria):</p>
+<blockquote class="source-quote" id="quote-block-8"><p><em>«Rivedi questa consegna scolastica mantenendo intatto l&#x27;obiettivo di apprendimento indicato. Separa esplicitamente le modifiche che riducono barriere di accesso e carico cognitivo estraneo (impaginazione, segmentazione, contiguità, lessico procedurale) da quelle che cambierebbero la difficoltà concettuale del contenuto. Proponi un breve script di Think-Aloud per il docente e un controllo osservabile della comprensione. Segnala esplicitamente eventuali assunti sulle conoscenze pregresse non presenti nel testo fornito.»</em></p></blockquote><div class="prompt-copy-bar"><button type="button" class="action-btn action-btn-secondary" data-copy-target="quote-block-8">Copia prompt negli appunti</button></div>
+<hr>
+</div>
+</section>
+<section class="chapter-card lazy-section" id="8-prove-di-autoverifica-formativa-con-soluzioni-commentate-e-bibliografia-ragionata" tabindex="-1">
+  <h2 class="chapter-title" id="title-8-prove-di-autoverifica-formativa-con-soluzioni-commentate-e-bibliografia-ragionata">8. Prove di Autoverifica Formativa (con Soluzioni Commentate) e Bibliografia Ragionata</h2>
+  <div class="subsection-block" id="81-test-di-autovalutazione-formativa-10-quesiti-a-scelta-multipla" tabindex="-1">
+<h3 id="title-81-test-di-autovalutazione-formativa-10-quesiti-a-scelta-multipla">8.1 Test di Autovalutazione Formativa (10 Quesiti a Scelta Multipla)</h3>
+<p>Selezionare l&#x27;unica risposta corretta per ciascun quesito (quesiti allineati ai livelli della Tassonomia di Bloom e ai contenuti scientifici e operativi del percorso).</p>
+<p><strong>1. [Conoscenza] Secondo la formulazione classica della Psicologia Cognitiva ripresa nella CLT, qual è il limite biologico della Memoria di Lavoro in termini di unità informative (chunk) e durata senza reiterazione?</strong></p>
+<ul><li>a) Capacità illimitata; durata di circa 10 minuti.</li><li>b) Circa <span class="math-inline">7 ± 2</span> elementi (<em>chunk</em>) nella ritenzione immediata (e ancora meno, circa <span class="math-inline">4 ± 1</span>, nella manipolazione attiva); decadimento completo entro circa 20–30 secondi.</li><li>c) Circa <span class="math-inline">20 ± 2</span> elementi; durata di 5 minuti indipendentemente dalla ripetizione.</li><li>d) Esattamente 3 elementi visivi e 10 elementi verbali permanenti.</li></ul>
+<p><strong>2. [Conoscenza] Quale autore ha formulato il principio cardine secondo cui «il singolo fattore più importante che influenza l&#x27;apprendimento sono le conoscenze che lo studente già possiede»?</strong></p>
+<ul><li>a) John Sweller (1988).</li><li>b) Hermann Ebbinghaus (1885).</li><li>c) David Ausubel (1968).</li><li>d) Richard E. Mayer (2001).</li></ul>
+<p><strong>3. [Comprensione] Quale affermazione definisce in modo corretto il «carico cognitivo intrinseco» secondo John Sweller e Franco Landriscina?</strong></p>
+<ul><li>a) È l&#x27;impegno cognitivo sprecato a causa di istruzioni confuse, schermate affollate e rumore in aula.</li><li>b) Dipende esclusivamente dal numero di minuti di durata della lezione frontale.</li><li>c) È determinato dall&#x27;interattività tra gli elementi del contenuto da apprendere in rapporto al livello di <em>expertise</em> (schemi pregressi) dello studente.</li><li>d) È lo sforzo positivo impiegato dallo studente per integrare nuove conoscenze negli schemi della memoria a lungo termine.</li></ul>
+<p><strong>4. [Comprensione] Come spiega la Teoria del Carico Cognitivo il fatto che un esperto risolva rapidamente problemi complessi rispetto a un novizio?</strong></p>
+<ul><li>a) L&#x27;esperto possiede una Memoria di Lavoro biologicamente molto più grande in termini di slot disponibili.</li><li>b) L&#x27;esperto possiede schemi mentali ampi e automatizzati nella Memoria a Lungo Termine: ciascuno schema complesso viene recuperato e trattato nella Memoria di Lavoro come un singolo elemento unitario (<em>chunk</em>).</li><li>c) L&#x27;esperto non utilizza affatto la Memoria di Lavoro ma solo i riflessi condizionati.</li><li>d) L&#x27;esperto ripete meccanicamente le definizioni a voce bassa durante la risoluzione.</li></ul>
+<p><strong>5. [Applicazione] Un docente di scuola secondaria deve presentare una nuova procedura scientifica ad alta interattività di elementi a studenti novizi. Quale combinazione di strategie agisce direttamente per governare il carico cognitivo intrinseco?</strong></p>
+<ul><li>a) Assegnare immediatamente un problema complesso autentico senza guida per stimolare la scoperta spontanea.</li><li>b) Applicare il <em>pre-training</em> sui termini e concetti di base, segmentare il contenuto (<em>chunking</em>), sequenziare dal semplice al complesso (<em>sequencing</em>) e verificare passo dopo passo la comprensione.</li><li>c) Proiettare contemporaneamente sullo schermo la trascrizione integrale di ciò che il docente sta leggendo ad alta voce.</li><li>d) Eliminare tutti gli esempi guidati fin dalla prima lezione per favorire l&#x27;autonomia immediata.</li></ul>
+<p><strong>6. [Applicazione] In una scheda di Geometria, la figura geometrica si trova all&#x27;inizio della pagina, le misure dei lati sono descritte in una nota a piè di pagina e le lettere dei vertici sono elencate in una tabella sul retro del foglio. Quale effetto descritto dalla CLT e da Mayer si verifica inevitabilmente?</strong></p>
+<ul><li>a) Effetto della ridondanza benefica.</li><li>b) Effetto dell&#x27;attenzione divisa (<em>split-attention effect</em>), che genera carico cognitivo estraneo costringendo la memoria di lavoro a integrare informazioni separate nello spazio.</li><li>c) Effetto inverso dell&#x27;expertise (<em>expertise reversal effect</em>).</li><li>d) Effetto di sovra-apprendimento (<em>overlearning</em>).</li></ul>
+<p><strong>7. [Analisi] Un insegnante proietta schermate visive ricche di animazioni spettacolari non attinenti al tema, parla velocemente leggendo integralmente lunghi paragrafi proiettati a schermo, mentre in aula persiste un forte brusio di fondo. Qual è la valutazione corretta in termini di CLT?</strong></p>
+<ul><li>a) La situazione ottimizza il carico pertinente perché stimola più canali sensoriali contemporaneamente.</li><li>b) Si cumulano carico cognitivo estraneo (distrazioni, lettura ridondante di testo a schermo, dettagli seducenti) ed effetto di transitorietà (ritmo veloce), saturando la Memoria di Lavoro e bloccando l&#x27;apprendimento.</li><li>c) Aumenta in modo positivo la difficoltà desiderabile per tutti gli studenti.</li><li>d) Si verifica esclusivamente un sottoutilizzo generativo dovuto a eccessiva facilità.</li></ul>
+<p><strong>8. [Analisi] Secondo l&#x27;«Expertise Reversal Effect» (Kalyuga et al., 2003), cosa accade se si continuano a imporre supporti didattici molto dettagliati e guidati passo-passo a studenti divenuti ormai esperti in un argomento?</strong></p>
+<ul><li>a) Gli esperti aumentano ulteriormente la velocità di apprendimento grazie al doppio supporto.</li><li>b) I supporti pensati per ridurre il carico intrinseco dei novizi diventano superflui e si trasformano in carico estraneo per gli esperti, peggiorandone l&#x27;efficienza; occorre pertanto applicare il <em>guidance fading</em> e differenziare.</li><li>c) Non si produce alcun effetto, perché gli esperti ignorano automaticamente le spiegazioni inutili senza dispendio cognitivo.</li><li>d) Gli esperti dimenticano gli schemi già automatizzati nella memoria a lungo termine.</li></ul>
+<p><strong>9. [Valutazione — Caso Didattica Speciale] Uno studente della Scuola Secondaria di II grado con disortografia certificata deve svolgere un testo argomentativo di Storia. Quando scrive tutto in un&#x27;unica fase controllando contemporaneamente tesi storiche, coerenza sintattica e ortografia, produce testi poverissimi di contenuti e pieni di errori. Quale intervento progettuale risulta più rigoroso secondo la CLT?</strong></p>
+<ul><li>a) Esonerarlo completamente dall&#x27;elaborazione di argomentazioni storiche riducendo l&#x27;obiettivo disciplinare alla sola copia di definizioni.</li><li>b) Chiedergli di ricopiare in bella copia tre volte l&#x27;intero tema per allenare la memoria visiva delle parole.</li><li>c) Separare temporalmente e proceduralmente le fasi del compito (pianificazione su scaletta <span class="math-inline">→</span> stesura concentrata sulle idee <span class="math-inline">→</span> revisione contenutistica separata da quella ortografica con eventuale supporto compensativo), liberando così la Memoria di Lavoro per l&#x27;obiettivo argomentativo.</li><li>d) Somministrare il compito in aula rumorosa per abituarlo a inibire le distrazioni.</li></ul>
+<p><strong>10. [Valutazione — Riprogettazione Inclusiva] Nel riprogettare una consegna scolastica per renderla inclusiva alla luce della CLT e del modello di Ianes (1996), quale criterio permette di distinguere un adattamento efficace da una semplificazione impropria?</strong></p>
+<ul><li>a) L&#x27;adattamento efficace elimina ogni richiesta di ragionamento autonomo dello studente in modo che non provi mai fatica mentale.</li><li>b) L&#x27;adattamento efficace rimuove le barriere procedurali, percettive o linguistiche che generano carico estraneo, mantenendo intatto ed esplicito l&#x27;obiettivo cognitivo autentico del compito e promuovendo l&#x27;uso di strategie autoregolative.</li><li>c) L&#x27;adattamento efficace consiste esclusivamente nell&#x27;aggiungere molte clip-art colorate e audio di sottofondo motivazionale alla scheda.</li><li>d) L&#x27;adattamento efficace assegna la stessa identica guida fissa a tutta la classe per tutto l&#x27;anno scolastico, senza mai ridurre il supporto.</li></ul>
+<hr>
+<aside class="enrichment-block didactic-lab" id="lab-quiz" aria-labelledby="lab-quiz-title">
+  <div class="lab-header">
+    <div>
+      <span class="enrichment-badge">Laboratorio Interattivo 6 · Autoverifica Guidata</span>
+      <h4 id="lab-quiz-title" class="lab-title">Esercitazione Interattiva sui 10 Quesiti di Verifica</h4>
+      <p class="lab-lead">Metti alla prova la comprensione selezionando le risposte: ricevi feedback analitico immediato fedele alla sezione 8.2, con riscontro esplicativo allineato alla chiave analitica della sezione 8.2.</p>
+    </div>
+    <div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
+      <strong id="quiz-score-badge" style="padding:0.35rem 0.7rem; border-radius:var(--radius-sm); background:var(--bg-tint); color:var(--text-accent);" aria-live="polite">Punteggio: 0 / 10</strong>
+      <button type="button" class="action-btn action-btn-secondary" id="quiz-reset-btn">Azzera test</button>
+    </div>
+  </div>
+  <div id="quiz-runner-box">
+    <div class="quiz-interactive-item" data-qnum="1">
+  <div style="font-weight:700; font-size:0.93rem;">[Conoscenza] Secondo la formulazione classica della Psicologia Cognitiva ripresa nella CLT, qual è il limite biologico della Memoria di Lavoro in termini di unità informative (chunk) e durata senza reiterazione?</div>
+  <div class="quiz-options-grid">
+    <button type="button" class="quiz-choice-btn" data-choice="a"><strong>a)</strong> Capacità illimitata; durata di circa 10 minuti.</button><button type="button" class="quiz-choice-btn" data-choice="b"><strong>b)</strong> Circa <span class="math-inline">7 ± 2</span> elementi (<em>chunk</em>) nella ritenzione immediata (e ancora meno, circa <span class="math-inline">4 ± 1</span>, nella manipolazione attiva); decadimento completo entro circa 20–30 secondi.</button><button type="button" class="quiz-choice-btn" data-choice="c"><strong>c)</strong> Circa <span class="math-inline">20 ± 2</span> elementi; durata di 5 minuti indipendentemente dalla ripetizione.</button><button type="button" class="quiz-choice-btn" data-choice="d"><strong>d)</strong> Esattamente 3 elementi visivi e 10 elementi verbali permanenti.</button>
+  </div>
+  <div class="quiz-feedback" hidden aria-live="polite"></div>
+</div><div class="quiz-interactive-item" data-qnum="2">
+  <div style="font-weight:700; font-size:0.93rem;">[Conoscenza] Quale autore ha formulato il principio cardine secondo cui «il singolo fattore più importante che influenza l&#x27;apprendimento sono le conoscenze che lo studente già possiede»?</div>
+  <div class="quiz-options-grid">
+    <button type="button" class="quiz-choice-btn" data-choice="a"><strong>a)</strong> John Sweller (1988).</button><button type="button" class="quiz-choice-btn" data-choice="b"><strong>b)</strong> Hermann Ebbinghaus (1885).</button><button type="button" class="quiz-choice-btn" data-choice="c"><strong>c)</strong> David Ausubel (1968).</button><button type="button" class="quiz-choice-btn" data-choice="d"><strong>d)</strong> Richard E. Mayer (2001).</button>
+  </div>
+  <div class="quiz-feedback" hidden aria-live="polite"></div>
+</div><div class="quiz-interactive-item" data-qnum="3">
+  <div style="font-weight:700; font-size:0.93rem;">[Comprensione] Quale affermazione definisce in modo corretto il «carico cognitivo intrinseco» secondo John Sweller e Franco Landriscina?</div>
+  <div class="quiz-options-grid">
+    <button type="button" class="quiz-choice-btn" data-choice="a"><strong>a)</strong> È l&#x27;impegno cognitivo sprecato a causa di istruzioni confuse, schermate affollate e rumore in aula.</button><button type="button" class="quiz-choice-btn" data-choice="b"><strong>b)</strong> Dipende esclusivamente dal numero di minuti di durata della lezione frontale.</button><button type="button" class="quiz-choice-btn" data-choice="c"><strong>c)</strong> È determinato dall&#x27;interattività tra gli elementi del contenuto da apprendere in rapporto al livello di <em>expertise</em> (schemi pregressi) dello studente.</button><button type="button" class="quiz-choice-btn" data-choice="d"><strong>d)</strong> È lo sforzo positivo impiegato dallo studente per integrare nuove conoscenze negli schemi della memoria a lungo termine.</button>
+  </div>
+  <div class="quiz-feedback" hidden aria-live="polite"></div>
+</div><div class="quiz-interactive-item" data-qnum="4">
+  <div style="font-weight:700; font-size:0.93rem;">[Comprensione] Come spiega la Teoria del Carico Cognitivo il fatto che un esperto risolva rapidamente problemi complessi rispetto a un novizio?</div>
+  <div class="quiz-options-grid">
+    <button type="button" class="quiz-choice-btn" data-choice="a"><strong>a)</strong> L&#x27;esperto possiede una Memoria di Lavoro biologicamente molto più grande in termini di slot disponibili.</button><button type="button" class="quiz-choice-btn" data-choice="b"><strong>b)</strong> L&#x27;esperto possiede schemi mentali ampi e automatizzati nella Memoria a Lungo Termine: ciascuno schema complesso viene recuperato e trattato nella Memoria di Lavoro come un singolo elemento unitario (<em>chunk</em>).</button><button type="button" class="quiz-choice-btn" data-choice="c"><strong>c)</strong> L&#x27;esperto non utilizza affatto la Memoria di Lavoro ma solo i riflessi condizionati.</button><button type="button" class="quiz-choice-btn" data-choice="d"><strong>d)</strong> L&#x27;esperto ripete meccanicamente le definizioni a voce bassa durante la risoluzione.</button>
+  </div>
+  <div class="quiz-feedback" hidden aria-live="polite"></div>
+</div><div class="quiz-interactive-item" data-qnum="5">
+  <div style="font-weight:700; font-size:0.93rem;">[Applicazione] Un docente di scuola secondaria deve presentare una nuova procedura scientifica ad alta interattività di elementi a studenti novizi. Quale combinazione di strategie agisce direttamente per governare il carico cognitivo intrinseco?</div>
+  <div class="quiz-options-grid">
+    <button type="button" class="quiz-choice-btn" data-choice="a"><strong>a)</strong> Assegnare immediatamente un problema complesso autentico senza guida per stimolare la scoperta spontanea.</button><button type="button" class="quiz-choice-btn" data-choice="b"><strong>b)</strong> Applicare il <em>pre-training</em> sui termini e concetti di base, segmentare il contenuto (<em>chunking</em>), sequenziare dal semplice al complesso (<em>sequencing</em>) e verificare passo dopo passo la comprensione.</button><button type="button" class="quiz-choice-btn" data-choice="c"><strong>c)</strong> Proiettare contemporaneamente sullo schermo la trascrizione integrale di ciò che il docente sta leggendo ad alta voce.</button><button type="button" class="quiz-choice-btn" data-choice="d"><strong>d)</strong> Eliminare tutti gli esempi guidati fin dalla prima lezione per favorire l&#x27;autonomia immediata.</button>
+  </div>
+  <div class="quiz-feedback" hidden aria-live="polite"></div>
+</div><div class="quiz-interactive-item" data-qnum="6">
+  <div style="font-weight:700; font-size:0.93rem;">[Applicazione] In una scheda di Geometria, la figura geometrica si trova all&#x27;inizio della pagina, le misure dei lati sono descritte in una nota a piè di pagina e le lettere dei vertici sono elencate in una tabella sul retro del foglio. Quale effetto descritto dalla CLT e da Mayer si verifica inevitabilmente?</div>
+  <div class="quiz-options-grid">
+    <button type="button" class="quiz-choice-btn" data-choice="a"><strong>a)</strong> Effetto della ridondanza benefica.</button><button type="button" class="quiz-choice-btn" data-choice="b"><strong>b)</strong> Effetto dell&#x27;attenzione divisa (<em>split-attention effect</em>), che genera carico cognitivo estraneo costringendo la memoria di lavoro a integrare informazioni separate nello spazio.</button><button type="button" class="quiz-choice-btn" data-choice="c"><strong>c)</strong> Effetto inverso dell&#x27;expertise (<em>expertise reversal effect</em>).</button><button type="button" class="quiz-choice-btn" data-choice="d"><strong>d)</strong> Effetto di sovra-apprendimento (<em>overlearning</em>).</button>
+  </div>
+  <div class="quiz-feedback" hidden aria-live="polite"></div>
+</div><div class="quiz-interactive-item" data-qnum="7">
+  <div style="font-weight:700; font-size:0.93rem;">[Analisi] Un insegnante proietta schermate visive ricche di animazioni spettacolari non attinenti al tema, parla velocemente leggendo integralmente lunghi paragrafi proiettati a schermo, mentre in aula persiste un forte brusio di fondo. Qual è la valutazione corretta in termini di CLT?</div>
+  <div class="quiz-options-grid">
+    <button type="button" class="quiz-choice-btn" data-choice="a"><strong>a)</strong> La situazione ottimizza il carico pertinente perché stimola più canali sensoriali contemporaneamente.</button><button type="button" class="quiz-choice-btn" data-choice="b"><strong>b)</strong> Si cumulano carico cognitivo estraneo (distrazioni, lettura ridondante di testo a schermo, dettagli seducenti) ed effetto di transitorietà (ritmo veloce), saturando la Memoria di Lavoro e bloccando l&#x27;apprendimento.</button><button type="button" class="quiz-choice-btn" data-choice="c"><strong>c)</strong> Aumenta in modo positivo la difficoltà desiderabile per tutti gli studenti.</button><button type="button" class="quiz-choice-btn" data-choice="d"><strong>d)</strong> Si verifica esclusivamente un sottoutilizzo generativo dovuto a eccessiva facilità.</button>
+  </div>
+  <div class="quiz-feedback" hidden aria-live="polite"></div>
+</div><div class="quiz-interactive-item" data-qnum="8">
+  <div style="font-weight:700; font-size:0.93rem;">[Analisi] Secondo l&#x27;«Expertise Reversal Effect» (Kalyuga et al., 2003), cosa accade se si continuano a imporre supporti didattici molto dettagliati e guidati passo-passo a studenti divenuti ormai esperti in un argomento?</div>
+  <div class="quiz-options-grid">
+    <button type="button" class="quiz-choice-btn" data-choice="a"><strong>a)</strong> Gli esperti aumentano ulteriormente la velocità di apprendimento grazie al doppio supporto.</button><button type="button" class="quiz-choice-btn" data-choice="b"><strong>b)</strong> I supporti pensati per ridurre il carico intrinseco dei novizi diventano superflui e si trasformano in carico estraneo per gli esperti, peggiorandone l&#x27;efficienza; occorre pertanto applicare il <em>guidance fading</em> e differenziare.</button><button type="button" class="quiz-choice-btn" data-choice="c"><strong>c)</strong> Non si produce alcun effetto, perché gli esperti ignorano automaticamente le spiegazioni inutili senza dispendio cognitivo.</button><button type="button" class="quiz-choice-btn" data-choice="d"><strong>d)</strong> Gli esperti dimenticano gli schemi già automatizzati nella memoria a lungo termine.</button>
+  </div>
+  <div class="quiz-feedback" hidden aria-live="polite"></div>
+</div><div class="quiz-interactive-item" data-qnum="9">
+  <div style="font-weight:700; font-size:0.93rem;">[Valutazione — Caso Didattica Speciale] Uno studente della Scuola Secondaria di II grado con disortografia certificata deve svolgere un testo argomentativo di Storia. Quando scrive tutto in un&#x27;unica fase controllando contemporaneamente tesi storiche, coerenza sintattica e ortografia, produce testi poverissimi di contenuti e pieni di errori. Quale intervento progettuale risulta più rigoroso secondo la CLT?</div>
+  <div class="quiz-options-grid">
+    <button type="button" class="quiz-choice-btn" data-choice="a"><strong>a)</strong> Esonerarlo completamente dall&#x27;elaborazione di argomentazioni storiche riducendo l&#x27;obiettivo disciplinare alla sola copia di definizioni.</button><button type="button" class="quiz-choice-btn" data-choice="b"><strong>b)</strong> Chiedergli di ricopiare in bella copia tre volte l&#x27;intero tema per allenare la memoria visiva delle parole.</button><button type="button" class="quiz-choice-btn" data-choice="c"><strong>c)</strong> Separare temporalmente e proceduralmente le fasi del compito (pianificazione su scaletta <span class="math-inline">→</span> stesura concentrata sulle idee <span class="math-inline">→</span> revisione contenutistica separata da quella ortografica con eventuale supporto compensativo), liberando così la Memoria di Lavoro per l&#x27;obiettivo argomentativo.</button><button type="button" class="quiz-choice-btn" data-choice="d"><strong>d)</strong> Somministrare il compito in aula rumorosa per abituarlo a inibire le distrazioni.</button>
+  </div>
+  <div class="quiz-feedback" hidden aria-live="polite"></div>
+</div><div class="quiz-interactive-item" data-qnum="10">
+  <div style="font-weight:700; font-size:0.93rem;">[Valutazione — Riprogettazione Inclusiva] Nel riprogettare una consegna scolastica per renderla inclusiva alla luce della CLT e del modello di Ianes (1996), quale criterio permette di distinguere un adattamento efficace da una semplificazione impropria?</div>
+  <div class="quiz-options-grid">
+    <button type="button" class="quiz-choice-btn" data-choice="a"><strong>a)</strong> L&#x27;adattamento efficace elimina ogni richiesta di ragionamento autonomo dello studente in modo che non provi mai fatica mentale.</button><button type="button" class="quiz-choice-btn" data-choice="b"><strong>b)</strong> L&#x27;adattamento efficace rimuove le barriere procedurali, percettive o linguistiche che generano carico estraneo, mantenendo intatto ed esplicito l&#x27;obiettivo cognitivo autentico del compito e promuovendo l&#x27;uso di strategie autoregolative.</button><button type="button" class="quiz-choice-btn" data-choice="c"><strong>c)</strong> L&#x27;adattamento efficace consiste esclusivamente nell&#x27;aggiungere molte clip-art colorate e audio di sottofondo motivazionale alla scheda.</button><button type="button" class="quiz-choice-btn" data-choice="d"><strong>d)</strong> L&#x27;adattamento efficace assegna la stessa identica guida fissa a tutta la classe per tutto l&#x27;anno scolastico, senza mai ridurre il supporto.</button>
+  </div>
+  <div class="quiz-feedback" hidden aria-live="polite"></div>
+</div>
+  </div>
+</aside>
+</div>
+<div class="subsection-block" id="82-chiave-di-correzione-e-commento-analitico" tabindex="-1">
+<h3 id="title-82-chiave-di-correzione-e-commento-analitico">8.2 Chiave di Correzione e Commento Analitico</h3>
+<div tabindex="0" role="region" aria-labelledby="tbl-14-cap" class="table-wrapper">
+  <table class="data-table">
+    <caption id="tbl-14-cap">Tabella 14 — Chiave sintetica di correzione dei 10 quesiti di autovalutazione</caption>
+    <thead><tr><th scope="col" style="text-align:center">Item</th><th scope="col" style="text-align:center">Risposta Esatta</th><th scope="col" style="text-align:left">Spiegazione e Riferimento alle Fonti</th></tr></thead>
+    <tbody><tr><td style="text-align:center"><strong>1</strong></td><td style="text-align:center"><strong>b</strong></td><td style="text-align:left">Miller (1956) individuò il limite di <span class="math-inline">7 ± 2</span> <em>chunk</em> per la ritenzione immediata e un decadimento entro circa 20–30 s senza reiterazione; le revisioni successive di Cowan e Sweller riducono il limite a <span class="math-inline">4 ± 1</span> elementi quando è richiesta manipolazione attiva simultanea (Landriscina, 2007; Cowan, 2001).</td></tr><tr><td style="text-align:center"><strong>2</strong></td><td style="text-align:center"><strong>c</strong></td><td style="text-align:left">La celebre citazione apre l&#x27;opera di David Ausubel (1968) sull&#x27;<em>apprendimento significativo</em>, centrale per la connessione tra preconoscenze, schemi e carico intrinseco (Ausubel, 1968).</td></tr><tr><td style="text-align:center"><strong>3</strong></td><td style="text-align:center"><strong>c</strong></td><td style="text-align:left">Il carico intrinseco nasce dall&#x27;interazione tra la complessità (interattività degli elementi) del contenuto e il livello di <em>expertise</em> dello studente (Sweller et al., 1998; Landriscina, 2007). La risposta (a) descrive il carico estraneo; la (d) descrive il carico pertinente (<em>Germane</em>).</td></tr><tr><td style="text-align:center"><strong>4</strong></td><td style="text-align:center"><strong>b</strong></td><td style="text-align:left">La capienza biologica di base della WM è simile tra novizi ed esperti; ciò che cambia è l&#x27;archivio di schemi automatizzati nella MLT, che consente all&#x27;esperto di richiamare un intero schema complesso come singolo <em>chunk</em> (Sweller, 2003).</td></tr><tr><td style="text-align:center"><strong>5</strong></td><td style="text-align:center"><strong>b</strong></td><td style="text-align:left"><em>Pre-training</em>, <em>chunking</em> (segmentazione), <em>sequencing</em> graduale e verifiche continue della comprensione sono le azioni chiave per ridurre/governare il carico cognitivo intrinseco senza eliminare l&#x27;obiettivo (van Merriënboer &amp; Sweller, 2005; Landriscina, 2007).</td></tr><tr><td style="text-align:center"><strong>6</strong></td><td style="text-align:center"><strong>b</strong></td><td style="text-align:left">La separazione spaziale tra figura, misure e legenda costringe lo studente a dividere l&#x27;attenzione e a trattenere in WM elementi isolati mentre cerca i corrispondenti (<em>Split-Attention Effect</em>; Landriscina, 2007; Mayer, 2021).</td></tr><tr><td style="text-align:center"><strong>7</strong></td><td style="text-align:center"><strong>b</strong></td><td style="text-align:left">Animazioni non pertinenti (<em>coerenza</em>), lettura simultanea di testo integrale a schermo (<em>ridondanza</em>), rumore di fondo ambientale (Bonaiuti) e ritmo elevato (<em>transitorietà</em>) sommano carico estraneo massiccio, bloccando l&#x27;elaborazione generativa.</td></tr><tr><td style="text-align:center"><strong>8</strong></td><td style="text-align:center"><strong>b</strong></td><td style="text-align:left">L&#x27;<em>Expertise Reversal Effect</em> (Kalyuga et al., 2003) mostra che guide dettagliate diventano carico estraneo per l&#x27;esperto; da qui la necessità del <em>guidance fading</em> e della differenziazione didattica.</td></tr><tr><td style="text-align:center"><strong>9</strong></td><td style="text-align:center"><strong>c</strong></td><td style="text-align:left">Separare la fase ideativa/argomentativa dalla revisione ortografica evita che il controllo ortografico (non automatizzato nella disortografia) saturi la WM drenando risorse al ragionamento storico, preservando pienamente l&#x27;obiettivo disciplinare (Programmazione L03, B-II; Cap. 6 e 7).</td></tr><tr><td style="text-align:center"><strong>10</strong></td><td style="text-align:center"><strong>b</strong></td><td style="text-align:left">Ridurre le barriere di accesso (carico estraneo) preservando l&#x27;obiettivo di apprendimento autentico e sostenendo la strategicità dell&#x27;alunno (Ianes, 1996) è il criterio cardine della progettazione inclusiva basata sulla CLT.</td></tr></tbody>
+  </table>
+</div>
+<hr>
+</div>
+<div class="subsection-block" id="83-mappa-delle-risorse-del-corso-sul-carico-cognitivo" tabindex="-1">
+<h3 id="title-83-mappa-delle-risorse-del-corso-sul-carico-cognitivo">8.3 Mappa delle Risorse del Corso sul Carico Cognitivo</h3>
+<p>Per l&#x27;approfondimento individuale e l&#x27;integrazione con la piattaforma Moodle e NotebookLM, questo portale raccorda le seguenti fonti scientifiche e risorse operative:</p>
+<div tabindex="0" role="region" aria-labelledby="tbl-15-cap" class="table-wrapper">
+  <table class="data-table">
+    <caption id="tbl-15-cap">Tabella 15 — Mappa delle risorse del corso sul Carico Cognitivo di riferimento scientifico e didattico</caption>
+    <thead><tr><th scope="col" style="text-align:left">Tipologia</th><th scope="col" style="text-align:left">Titolo / Nome Risorsa nell&#x27;Archivio del Corso</th><th scope="col" style="text-align:left">Utilizzo Consigliato</th></tr></thead>
+    <tbody><tr><td style="text-align:left"><strong>Articolo di riferimento</strong></td><td style="text-align:left"><em>Landriscina - 2007 - Carico cognitivo.pdf</em> (<em>Ma si fanno i conti con il carico cognitivo?</em>)</td><td style="text-align:left">Lettura integrale fondamentale (12 pagine).</td></tr><tr><td style="text-align:left"><strong>Quadro Teorico Metacognizione</strong></td><td style="text-align:left"><em>SAGGIO_DISPENSA_METACOGNIZIONE_E_APPRENDIMENTO.md</em> (Cap. 3)</td><td style="text-align:left">Raccordo neurocognitivo e interazione tra CLT, EBE, EEF e UDL.</td></tr><tr><td style="text-align:left"><strong>Principi Apprendimento Multimediale</strong></td><td style="text-align:left">Mayer, R. E. (2021). <em>Evidence-based principles for how to design effective instructional videos</em></td><td style="text-align:left">Progettazione di videolezioni, schede multimediali e riduzione del carico estraneo.</td></tr><tr><td style="text-align:left"><strong>Atlante degli Schemi Didattici</strong></td><td style="text-align:left"><a href="schemi-didattici.html">14 Schemi SVG Interattivi ad Alta Accessibilità</a> (Ianes, Cornoldi, Sweller, Mayer, EEF)</td><td style="text-align:left">Ripasso visivo dual-coding, confronto immediato tra modelli e autoverifiche guidate.</td></tr><tr><td style="text-align:left"><strong>Simulatore 3D e Laboratori Operativi</strong></td><td style="text-align:left"><a href="laboratori.html#simulatore-3d">Simulatore 3D CLT &amp; Laboratori per Ordine di Scuola</a></td><td style="text-align:left">Esplorazione parametrica del carico cognitivo e riprogettazione di consegne autentiche.</td></tr><tr><td style="text-align:left"><strong>Risorse Audio e Video di Sintesi</strong></td><td style="text-align:left"><em>Teoria_del_Carico_Cognitivo.mp4</em>; <em>Come_la_Teoria_del_Carico_Cognitivo_rivoluziona_l_apprendimento.m4a</em></td><td style="text-align:left">Consolidamento multimodale e ascolto di sintesi per l&#x27;autostudio.</td></tr></tbody>
+  </table>
+</div>
+<hr>
+</div>
+<div class="subsection-block" id="84-bibliografia-scientifica-di-riferimento" tabindex="-1">
+<h3 id="title-84-bibliografia-scientifica-di-riferimento">8.4 Bibliografia Scientifica di Riferimento</h3>
+<ul><li>Atkinson, R. C., &amp; Shiffrin, R. M. (1968). Human memory: A proposed system and its control processes. In K. W. Spence &amp; J. T. Spence (Eds.), <em>The psychology of learning and motivation</em> (Vol. 2, pp. 89–195). Academic Press.</li><li>Ausubel, D. P. (1968). <em>Educational psychology: A cognitive view</em>. Holt, Rinehart and Winston.</li><li>Baddeley, A. (1992). <em>La memoria umana. Teoria e pratica</em>. Il Mulino.</li><li>Baddeley, A. (2000). The episodic buffer: A new component of working memory? <em>Trends in Cognitive Sciences</em>, 4(11), 417–423.</li><li>Baddeley, A. D., &amp; Hitch, G. (1974). Working memory. In G. H. Bower (Ed.), <em>The psychology of learning and motivation</em> (Vol. 8, pp. 47–89). Academic Press.</li><li>Bahrick, H. P., &amp; Hall, L. K. (1991). Lifetime maintenance of high school mathematics content. <em>Journal of Experimental Psychology: General</em>, 120(1), 20–33.</li><li>Bathurst-Hunt, R., &amp; MacKenzie, T. (2018). <em>Inquiry mindset: Nurturing the dreams, wonders, and curiosities of our youngest learners</em>. EdTechTeam Press.</li><li>Bonaiuti, G. (2019). Dalla cultura delle evidenze alla trasformazione delle pratiche. <em>Form@re - Open Journal per la formazione in rete</em>, 19(2), 1–14.</li><li>Calvani, A. (2007). ICT e scuola. Processi cognitivi ed ecologia dell&#x27;apprendere. In A. Calvani (a cura di), <em>Tecnologia, scuola, processi cognitivi. Per una ecologia dell&#x27;apprendere</em> (pp. 15–54). FrancoAngeli.</li><li>Calvani, A., Trinchero, R., &amp; Vivanet, G. (2018). <em>Nuovi orizzonti della ricerca scientifica in educazione</em>. Carocci.</li><li>Clark, A. (1999). <em>Dare corpo alla mente</em>. McGraw-Hill.</li><li>Clark, R. C., Nguyen, F., &amp; Sweller, J. (2006). <em>Efficiency in learning: Evidence-based guidelines to manage cognitive load</em>. Jossey-Bass Pfeiffer.</li><li>Collins, A. (1991). Cognitive apprenticeship and instructional technology. In L. Idol &amp; B. F. Jones (Eds.), <em>Educational values and cognitive instruction: Implications for reform</em> (pp. 121–138). Lawrence Erlbaum.</li><li>Cornoldi, C. (1995). <em>Metacognizione e apprendimento</em>. Il Mulino.</li><li>Cornoldi, C., Meneghetti, C., Moè, A., &amp; Zamperlin, C. (2018). <em>Processi cognitivi, motivazione e apprendimento</em>. Il Mulino.</li><li>Cottini, L. (2007). <em>La didattica metacognitiva</em> (cap. in volume sulla didattica speciale e disabilità intellettiva). Erickson / Carocci.</li><li>Dignath, C., Büttner, G., &amp; Langfeldt, H.-P. (2008). How can primary school students learn self-regulated learning strategies most effectively? A meta-analysis on self-regulation training programmes. <em>Educational Research Review</em>, 3(2), 101–129.</li><li>Ebbinghaus, H. (1885). <em>Über das Gedächtnis</em>. Duncker &amp; Humblot.</li><li>Education Endowment Foundation (EEF). (2021). <em>Metacognition and self-regulated learning: Guidance report</em>. London: EEF.</li><li>Ellis, J. A., Semb, G. B., &amp; Cole, B. (1998). Very long-term memory for information taught in school. <em>Contemporary Educational Psychology</em>, 23(4), 419–433.</li><li>Fiorella, L., &amp; Mayer, R. E. (2015). <em>Learning as a generative activity: Eight learning strategies that promote understanding</em>. Cambridge University Press.</li><li>Fontani, S. (2017). <em>Difficoltà di comprensione testuale. Strategie metacognitive per l&#x27;intervento educativo</em>.</li><li>Hattie, J. (2009). <em>Visible learning: A synthesis of over 800 meta-analyses relating to achievement</em>. Routledge.</li><li>Hattie, J., &amp; Timperley, H. (2007). The power of feedback. <em>Review of Educational Research</em>, 77(1), 81–112.</li><li>Hebb, D. O. (1949). <em>The organization of behavior: A neuropsychological theory</em>. Wiley.</li><li>Ianes, D. (1996). L&#x27;approccio metacognitivo nell&#x27;insegnamento. In D. Ianes (a cura di), <em>Metacognizione e insegnamento: Spunti teorici e applicativi</em> (pp. 13–49). Erickson.</li><li>Kalyuga, S., Ayres, P., Chandler, P., &amp; Sweller, J. (2003). The expertise reversal effect. <em>Educational Psychologist</em>, 38(1), 23–31.</li><li>Kandel, E. R. (2001). The molecular biology of memory storage: A dialogue between genes and synapses. <em>Science</em>, 294(5544), 1030–1038.</li><li>Kirschner, P. A., Sweller, J., &amp; Clark, R. E. (2006). Why minimal guidance during instruction does not work: An analysis of the failure of constructivist, discovery, problem-based, experiential, and inquiry-based teaching. <em>Educational Psychologist</em>, 41(2), 75–86.</li><li>Landriscina, F. (2007). Ma si fanno i conti con il carico cognitivo? <em>Journal of e-Learning and Knowledge Society (Je-LKS)</em>, 3(1), 63–74.</li><li>Mayer, R. E. (2001). <em>Multimedia learning</em>. Cambridge University Press.</li><li>Mayer, R. E. (2021). Evidence-based principles for how to design effective instructional videos. <em>Journal of Applied Research in Memory and Cognition</em>, 10(2), 229–240.</li><li>Mayer, R. E., &amp; Moreno, R. (2002). Verbal redundancy in multimedia learning: When reading helps listening. <em>Journal of Educational Psychology</em>, 94(1), 153–155.</li><li>Miller, G. A. (1956). The magical number seven, plus or minus two: Some limits on our capacity for processing information. <em>Psychological Review</em>, 63(2), 81–97.</li><li>Paas, F., &amp; van Merriënboer, J. J. G. (1993). The efficiency of instructional conditions: An approach to combine mental effort and performance measures. <em>Human Factors</em>, 35(4), 737–743.</li><li>Paivio, A. (1986, 2006). <em>Mental representations: A dual coding approach</em>. Oxford University Press.</li><li>Pfeifer, R., &amp; Bongard, J. C. (2006). <em>How the body shapes the way we think: A new view of intelligence</em>. MIT Press.</li><li>Prensky, M. (2001). <em>Digital game-based learning</em>. McGraw-Hill.</li><li>Pressley, M., Harris, K. R., &amp; Marks, M. B. (1992). But good strategy instructors are constructivists! <em>Educational Psychology Review</em>, 4(1), 3–31.</li><li>Rowe, M. B. (1986). Wait time: Slowing down may be a way of speeding up! <em>Journal of Teacher Education</em>, 37(1), 43–50.</li><li>Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. <em>Cognitive Science</em>, 12(2), 257–285.</li><li>Sweller, J. (2003). Evolution of human cognitive architecture. In B. Ross (Ed.), <em>The psychology of learning and motivation</em> (Vol. 43, pp. 215–266). Academic Press.</li><li>Sweller, J., Ayres, P., &amp; Kalyuga, S. (2011). <em>Cognitive load theory</em>. Springer.</li><li>Sweller, J., &amp; Cooper, G. A. (1985). The use of worked examples as a substitute for problem solving in learning algebra. <em>Cognition and Instruction</em>, 2(1), 59–89.</li><li>Sweller, J., van Merriënboer, J. J. G., &amp; Paas, F. (1998). Cognitive architecture and instructional design. <em>Educational Psychology Review</em>, 10(3), 251–296.</li><li>van Merriënboer, J. J. G., &amp; Sweller, J. (2005). Cognitive load theory and complex learning: Recent developments and future directions. <em>Educational Psychology Review</em>, 17(2), 147–177.</li><li>Willingham, D. T. (2018). <em>Perché agli studenti non piace la scuola?</em> UTET.</li><li>Wittrock, M. C. (1989). Generative processes of comprehension. <em>Educational Psychologist</em>, 24(4), 345–376.</li></ul>
+</div>
+</section>
+
+      <nav class="page-pager" aria-label="Navigazione tra pagine">
+        <a class="pager-link" href="schemi-didattici.html"><span class="pager-dir">← Pagina precedente</span><span class="pager-name">Schemi Didattici</span></a>
+        <span class="pager-spacer" aria-hidden="true"></span>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <strong>Carico Cognitivo &amp; Accessibilità</strong> · Risorsa scientifica e operativa per la didattica inclusiva
+      </div>
+      <div>
+        <a href="index.html">Fondamenti</a> · <a href="schemi-didattici.html">Schemi Didattici</a> · <a href="laboratori.html">Laboratori &amp; 3D</a> · <a href="valutazione-risorse.html">Valutazione &amp; Risorse</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="schema-modal" closedby="any" aria-labelledby="schema-modal-title">
+    <div class="schema-modal-shell">
+      <div class="schema-modal-head">
+        <h2 id="schema-modal-title" style="margin:0; font-size:1.02rem; color:var(--brand-navy);">Schema didattico</h2>
+        <div style="display:flex; gap:0.45rem; align-items:center;">
+          <button type="button" id="schema-modal-prev" class="ctrl-btn" aria-label="Schema precedente">← Prec</button>
+          <button type="button" id="schema-modal-next" class="ctrl-btn" aria-label="Schema successivo">Succ →</button>
+          <button type="button" id="schema-modal-close" class="ctrl-btn" autofocus aria-label="Chiudi finestra">Chiudi ✕</button>
+        </div>
+      </div>
+      <div id="schema-modal-body" class="schema-modal-body"></div>
+      <div class="schema-modal-foot">
+        <span id="schema-modal-caption" style="color:var(--text-muted);"></span>
+        <span style="font-size:0.78rem; color:var(--text-muted);">Esc per chiudere · Frecce ←/→ per navigare</span>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="search-index.js" defer></script>
+  
+  <script src="app.js" defer></script>
+  
+</body>
+</html>

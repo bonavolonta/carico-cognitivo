@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Laboratori Operativi e Simulatore 3D — Carico Cognitivo</title>
+  <meta name="description" content="Simulatore 3D interattivo del carico cognitivo, Think-Aloud e quattro laboratori prima/dopo dall&#x27;Infanzia alla Secondaria II grado.">
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Salta al contenuto principale</a>
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar"></div></div>
+
+  <header class="topbar">
+    <div class="topbar-nav-row">
+      <div class="topbar-brand">
+        <a class="topbar-home-link" href="index.html">
+          <span class="topbar-title">Carico Cognitivo &amp; Accessibilità</span>
+        </a>
+        <span class="topbar-title-sub">Didattica Speciale e Progettazione Inclusiva</span>
+      </div>
+
+      <button type="button" id="menu-toggle-btn" class="menu-toggle-btn" popovertarget="site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Apri menu di navigazione">
+        ☰ Menu
+      </button>
+
+      <nav id="site-nav" class="site-nav" popover="auto" aria-label="Navigazione principale del sito">
+          <a href="index.html">Fondamenti</a>
+          <a href="multimedialita.html">Multimedialità</a>
+          <a href="inclusione.html">Inclusione</a>
+          <a href="laboratori.html" aria-current="page">Laboratori &amp; 3D</a>
+          <a href="schemi-didattici.html">Schemi Didattici</a>
+          <a href="valutazione-risorse.html">Valutazione &amp; Risorse</a>
+      </nav>
+    </div>
+
+    <div class="topbar-udl-row">
+      <div class="topbar-controls" role="toolbar" aria-label="Controlli UDL di lettura e tema">
+        <button type="button" id="mobile-toc-toggle" class="ctrl-btn mobile-toc-btn" aria-expanded="false" aria-controls="sidebar-nav">Sezioni</button>
+        <button type="button" id="udl-font" class="ctrl-btn" aria-pressed="false" title="Attiva carattere ad alta leggibilità">Font Leggibile</button>
+        <button type="button" id="udl-spacing" class="ctrl-btn" aria-pressed="false" title="Aumenta interlinea e spaziatura">Spaziatura +</button>
+        <button type="button" id="udl-clean" class="ctrl-btn" aria-pressed="false" title="Nasconde i riquadri di approfondimento e schemi contestuali">Solo Testo</button>
+        <span aria-hidden="true" style="width:1px;height:20px;background:var(--border-subtle);margin:0 0.1rem;"></span>
+        <button type="button" id="theme-auto" class="ctrl-btn" aria-pressed="true">Auto</button>
+        <button type="button" id="theme-light" class="ctrl-btn" aria-pressed="false">Chiaro</button>
+        <button type="button" id="theme-dark" class="ctrl-btn" aria-pressed="false">Scuro</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="workspace-shell">
+    <aside class="sidebar-nav" id="sidebar-nav" aria-label="Indice di pagina e ricerca globale">
+      <div class="search-box">
+        <label for="doc-search-input" class="search-label">Cerca nel sito e in questa pagina</label>
+        <div class="search-input-row">
+          <input type="search" id="doc-search-input" class="search-input" placeholder="Es. split-attention, Ianes, fading..." autocomplete="off">
+          <button type="button" id="doc-search-clear" class="ctrl-btn" aria-label="Pulisci ricerca" title="Pulisci ricerca">✕</button>
+        </div>
+        <div id="doc-search-status" class="search-status" aria-live="polite"></div>
+        <div id="global-search-results" class="global-search-results" hidden aria-label="Risultati nelle altre pagine"></div>
+      </div>
+
+      <nav class="sidebar-pages" aria-label="Pagine del portale">
+        <a class="sidebar-page-link" href="index.html"><span>Fondamenti</span></a>
+        <a class="sidebar-page-link" href="multimedialita.html"><span>Multimedialità</span></a>
+        <a class="sidebar-page-link" href="inclusione.html"><span>Inclusione</span></a>
+        <a class="sidebar-page-link" href="laboratori.html" aria-current="page"><span>Laboratori &amp; 3D</span></a>
+        <a class="sidebar-page-link" href="schemi-didattici.html"><span>Schemi Didattici</span></a>
+        <a class="sidebar-page-link" href="valutazione-risorse.html"><span>Valutazione &amp; Risorse</span></a>
+      </nav>
+
+      <nav class="toc-nav" aria-label="Indice delle sezioni in questa pagina">
+        <ul class="toc-list">
+          <li><a class="" href="#simulatore-3d">Simulatore 3D dell&#x27;Architettura Cognitiva e dei Carichi (CLT + CTML)</a></li>
+          <li><a class="" href="#7-laboratorio-didattico-riprogettare-le-consegne-modellare-con-il-think-aloud-e-differenziare">7. Laboratorio Didattico: Riprogettare le Consegne, Modellare con il Think-Aloud e Differenziare</a></li>
+          <li><a class="toc-sublink" href="#71-il-cuore-operativo-distinguere-barriera-di-accesso-e-obiettivo-didattico">7.1 Il cuore operativo dell&#x27;intervento: distinguere barriera di accesso e obiettivo didattico</a></li>
+          <li><a class="toc-sublink" href="#72-protocollo-operativo-di-think-aloud-modellamento-del-pensiero-ad-alta-voce">7.2 Protocollo operativo di Think-Aloud (modellamento del pensiero ad alta voce)</a></li>
+          <li><a class="toc-sublink" href="#73-quattro-laboratori-di-riprogettazione-prima--dopo-per-ordine-scolastico">7.3 Quattro Laboratori di Riprogettazione &quot;Prima / Dopo&quot; per Ordine Scolastico</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main id="main-content" class="content-column" tabindex="-1">
+      <h1 class="sr-only">Simulatore 3D e Laboratori Didattici Prima / Dopo</h1>
+      <nav class="breadcrumb" aria-label="Percorso">
+  <a href="index.html">Fondamenti</a>
+  <span aria-hidden="true">/</span>
+  <span aria-current="page">Laboratori &amp; 3D</span>
+</nav>
+      <aside class="sim3d-section enrichment-block keep-in-clean" id="simulatore-3d" tabindex="-1" aria-labelledby="sim3d-heading">
+  <div class="lab-header">
+    <div>
+      <span class="enrichment-badge">Simulazione 3D Interattiva · WebGL</span>
+      <h3 id="sim3d-heading" class="lab-title">Simulatore 3D dell'Architettura Cognitiva e dei Carichi (CLT + CTML)</h3>
+      <p class="lab-lead">Ruota (trascina) e zooma il modello 3D: osserva in tempo reale come l'<em>Expertise</em> comprime gli elementi in un singolo schema-chunk nella Memoria a Lungo Termine, come il canale uditivo alleggerisce il canale visivo (Effetto Modalità) e come il carico estraneo o l'eccesso di guida per esperti (<em>Expertise Reversal</em>) satura i 4±1 slot della Memoria di Lavoro.</p>
+    </div>
+    <button type="button" class="ctrl-btn" id="sim3d-toggle-anim">Pausa animazione</button>
+  </div>
+
+  <div class="sim3d-grid">
+    <div class="sim3d-viewport-wrap">
+      <div class="sim3d-stage">
+        <canvas id="sim3d-canvas" tabindex="0" aria-describedby="sim3d-kb-hint" aria-label="Simulazione tridimensionale interattiva dell'architettura cognitiva umana tra canali sensoriali, memoria di lavoro e memoria a lungo termine">Il tuo browser non supporta il canvas HTML5.</canvas>
+        <div class="sim3d-pin-layer" aria-hidden="true">
+          <span class="sim3d-pin" id="pin-sensory">1. Doppi Canali Sensoriali</span>
+          <span class="sim3d-pin" id="pin-bottleneck">2. Collo di Bottiglia (4±1)</span>
+          <span class="sim3d-pin" id="pin-wm">3. Memoria di Lavoro (WM)</span>
+          <span class="sim3d-pin" id="pin-mlt">4. Schemi MLT</span>
+        </div>
+        <div class="sim3d-hud-top">
+          <span class="sim3d-pill-status" id="sim3d-status-badge" data-state="optimal" aria-live="polite">Equilibrio Generativo Ottimale</span>
+          <span class="sim3d-pill-status" id="sim3d-engine-mode">Inizializzazione 3D...</span>
+        </div>
+      </div>
+      <p class="sim3d-kb-hint" id="sim3d-kb-hint">Interazione 3D: trascina o usa le Frecce per ruotare, +/- per zoomare, 0 per resettare la vista.</p>
+      <div class="sim3d-cam-bar" role="group" aria-label="Inquadrature predefinite simulatore 3D">
+        <button type="button" class="cam-btn is-active" data-cam="overview">Vista d'insieme</button>
+        <button type="button" class="cam-btn" data-cam="channels">Doppi Canali CTML</button>
+        <button type="button" class="cam-btn" data-cam="wm">Focus Memoria di Lavoro</button>
+        <button type="button" class="cam-btn" data-cam="mlt">Rete Schemi MLT</button>
+      </div>
+      <div class="sim3d-legend">
+        <span><span class="legend-dot" style="background:#d97706;"></span>Carico Intrinseco</span>
+        <span><span class="legend-dot" style="background:#dc2626;"></span>Carico Estraneo / Overflow</span>
+        <span><span class="legend-dot" style="background:#059669;"></span>Carico Rilevante (Germane)</span>
+        <span><span class="legend-dot" style="background:#38bdf8;"></span>Canale Uditivo</span>
+        <span><span class="legend-dot" style="background:#10b981;"></span>Canale Visivo</span>
+        <span><span class="legend-dot" style="background:#eab308;"></span>Schemi Automatizzati MLT</span>
+      </div>
+    </div>
+
+    <div class="sim3d-controls-panel">
+      <div>
+        <strong style="font-size:0.86rem;">Scenari didattici pronti:</strong>
+        <div class="preset-grid" style="margin-top:0.4rem;">
+          <button type="button" class="preset-btn is-active" data-preset="optimal">Equilibrio Ottimale</button>
+          <button type="button" class="preset-btn" data-preset="novice_aspirin">Novizio (Ac. Acetilsalicilico)</button>
+          <button type="button" class="preset-btn" data-preset="expert_aspirin">Esperto (1 Chunk)</button>
+          <button type="button" class="preset-btn" data-preset="split_overload">Sovraccarico Estraneo</button>
+          <button type="button" class="preset-btn" data-preset="modality_gain">Effetto Modalità</button>
+          <button type="button" class="preset-btn" data-preset="expertise_reversal">Expertise Reversal</button>
+          <button type="button" class="preset-btn" data-preset="underload">Underload (Noia)</button>
+        </div>
+      </div>
+
+      <p id="sim3d-scenario-desc" style="margin:0; font-size:0.84rem; color:var(--text-muted); background:var(--bg-surface); padding:0.55rem 0.7rem; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);"></p>
+
+      <div class="slider-field">
+        <label class="slider-label-row" for="sim3d-complexity">
+          <span>Complessità / Interattività elementi</span>
+          <span id="val-complexity">5 / 10</span>
+        </label>
+        <input type="range" id="sim3d-complexity" min="1" max="10" step="1" value="5">
+      </div>
+
+      <div class="slider-field">
+        <label class="slider-label-row" for="sim3d-expertise">
+          <span>Expertise (Schemi pregressi MLT)</span>
+          <span id="val-expertise">55%</span>
+        </label>
+        <input type="range" id="sim3d-expertise" min="0" max="100" step="1" value="55">
+      </div>
+
+      <div class="slider-field">
+        <label class="slider-label-row" for="sim3d-extraneous">
+          <span>Carico Estraneo (Split-Attention / Rumore)</span>
+          <span id="val-extraneous">10%</span>
+        </label>
+        <input type="range" id="sim3d-extraneous" min="0" max="100" step="1" value="10">
+      </div>
+
+      <div class="slider-field">
+        <label class="slider-label-row" for="sim3d-modality">
+          <span>Integrazione Uditivo + Visivo (Modalità)</span>
+          <span id="val-modality">85%</span>
+        </label>
+        <input type="range" id="sim3d-modality" min="0" max="100" step="1" value="85">
+      </div>
+
+      <div class="slider-field">
+        <label class="slider-label-row" for="sim3d-scaffolding">
+          <span>Guida passo-passo (Scaffolding / Fading)</span>
+          <span id="val-scaffolding">35%</span>
+        </label>
+        <input type="range" id="sim3d-scaffolding" min="0" max="100" step="1" value="35">
+      </div>
+
+      <div>
+        <div class="slider-label-row" style="margin-bottom:0.25rem;">
+          <span>Saturazione della Memoria di Lavoro</span>
+          <span id="metric-wm-total">--%</span>
+        </div>
+        <div class="wm-meter-stack" role="presentation">
+          <div class="wm-seg-intrinsic" id="wm-seg-int" style="width:30%"></div>
+          <div class="wm-seg-extraneous" id="wm-seg-ext" style="width:10%"></div>
+          <div class="wm-seg-germane" id="wm-seg-ger" style="width:35%"></div>
+        </div>
+      </div>
+
+      <div class="sim3d-readout-grid" aria-live="polite">
+        <div class="metric-chip">Chunk WM attivi:<br><strong id="metric-wm-chunks">--</strong></div>
+        <div class="metric-chip">Margine Germane:<br><strong id="metric-wm-germane">--%</strong></div>
+        <div class="metric-chip" style="grid-column: span 2;">Rischio Expertise Reversal: <strong id="metric-wm-reversal">Assente</strong></div>
+      </div>
+    </div>
+  </div>
+</aside>
+<section class="chapter-card lazy-section" id="7-laboratorio-didattico-riprogettare-le-consegne-modellare-con-il-think-aloud-e-differenziare" tabindex="-1">
+  <h2 class="chapter-title" id="title-7-laboratorio-didattico-riprogettare-le-consegne-modellare-con-il-think-aloud-e-differenziare">7. Laboratorio Didattico: Riprogettare le Consegne, Modellare con il <em>Think-Aloud</em> e Differenziare</h2>
+  <div class="subsection-block" id="71-il-cuore-operativo-distinguere-barriera-di-accesso-e-obiettivo-didattico" tabindex="-1">
+<h3 id="title-71-il-cuore-operativo-distinguere-barriera-di-accesso-e-obiettivo-didattico">7.1 Il cuore operativo dell&#x27;intervento: distinguere barriera di accesso e obiettivo didattico</h3>
+<p>Coerentemente con la programmazione dell&#x27;insegnamento (<em>L03. Insegnare strategie dentro i compiti: carico cognitivo e accessibilità</em>), il risultato atteso del percorso per i docenti specializzati è la capacità di:</p>
+<ol><li><strong>Diagnosticare il carico cognitivo</strong> nascosto in una consegna scolastica o in un materiale didattico;</li><li><strong>Riprogettare la consegna</strong> separando rigorosamente gli interventi che <strong>riducono le barriere di accesso (carico estraneo)</strong> da quelli che alterano la difficoltà concettuale dell&#x27;obiettivo (<strong>carico intrinseco</strong>);</li><li><strong>Progettare la triade procedurale d&#x27;aula:</strong> <em>Modellamento esplicito (Think-Aloud)</em> <span class="math-inline">→</span> <em>Pratica guidata con fading</em> <span class="math-inline">→</span> <em>Verifica osservabile della comprensione</em>.</li></ol>
+<hr>
+</div>
+<div class="subsection-block" id="72-protocollo-operativo-di-think-aloud-modellamento-del-pensiero-ad-alta-voce" tabindex="-1">
+<h3 id="title-72-protocollo-operativo-di-think-aloud-modellamento-del-pensiero-ad-alta-voce">7.2 Protocollo operativo di <em>Think-Aloud</em> (modellamento del pensiero ad alta voce)</h3>
+<p>Il <em>Think-Aloud</em> (Raccomandazione 3 EEF) permette di «rendere visibile l&#x27;invisibile»: invece di mostrare soltanto il prodotto finito perfetto alla lavagna, l&#x27;insegnante espone passo dopo passo il proprio dialogo interno davanti a un ostacolo, mostrando come un esperto gestisce il proprio carico cognitivo senza farsi travolgere. Un protocollo agile in <strong>4 mosse</strong> prevede:</p>
+<div tabindex="0" role="region" aria-labelledby="tbl-9-cap" class="table-wrapper">
+  <table class="data-table">
+    <caption id="tbl-9-cap">Tabella 9 — Protocollo operativo di Think-Aloud: mosse didattiche e funzione sul carico cognitivo</caption>
+    <thead><tr><th scope="col" style="text-align:left">Mossa</th><th scope="col" style="text-align:left">Funzione sul Carico Cognitivo</th><th scope="col" style="text-align:left">Esempio di Script Verbale del Docente</th></tr></thead>
+    <tbody><tr><td style="text-align:left"><strong>1. Orientamento e Obiettivo</strong></td><td style="text-align:left">Fissa il traguardo ed evita sforzi dispersivi (riduce carico estraneo).</td><td style="text-align:left"><em>«Prima di iniziare, mi fermo un secondo: qual è esattamente l&#x27;obiettivo di questo compito? Cosa devo produrre alla fine?»</em></td></tr><tr><td style="text-align:left"><strong>2. Attivazione Preconoscenze</strong></td><td style="text-align:left">Richiama schemi dalla MLT per trasformare dettagli in <em>chunk</em> (governa carico intrinseco).</td><td style="text-align:left"><em>«Questo argomento mi ricorda qualcosa che abbiamo già visto la scorsa settimana... Quali parole-chiave conosco già?»</em></td></tr><tr><td style="text-align:left"><strong>3. Scomposizione e Gestione dell&#x27;Ostacolo</strong></td><td style="text-align:left">Applica <em>chunking</em> e autoregolazione davanti alla saturazione della WM.</td><td style="text-align:left"><em>«Questo testo è troppo lungo tutto insieme, se provo a leggerlo di corsa mi confondo. Lo divido in tre piccoli pezzi e sottolineo un concetto per blocco... Qui c&#x27;è una parola difficile: prima vedo se il contesto me la spiega.»</em></td></tr><tr><td style="text-align:left"><strong>4. Controllo e Verifica</strong></td><td style="text-align:left">Attiva carico pertinente (<em>Germane</em>) ed esita in controllo dell&#x27;errore.</td><td style="text-align:left"><em>«Finito il primo pezzo, provo a chiudere gli occhi e a dirlo a voce bassa. Ha senso rispetto alla domanda iniziale?»</em></td></tr></tbody>
+  </table>
+</div>
+<hr>
+</div>
+<article class="schema-card enrichment-block" data-schema-ref="schema-14" data-schema-cat="inclusione" aria-labelledby="schema-14-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 14 · Progettazione Operativa</span>
+      <h4 class="schema-card-title" id="schema-14-title">Flusso Decisionale di Riprogettazione Inclusiva e Think-Aloud a 4 Mosse</h4>
+      <p class="schema-card-subtitle">Come trasformare una consegna opaca in un percorso strutturato preservando l'obiettivo cognitivo.</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-14" aria-label="Espandi schema 14: Flusso Decisionale di Riprogettazione Inclusiva e Think-Aloud a 4 Mosse">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Flusso Decisionale di Riprogettazione Inclusiva e Think-Aloud a 4 Mosse">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">Flusso Barriera vs Obiettivo</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">Think-Aloud in 4 Mosse (Ciclo EEF)</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 170" role="img" aria-label="Flusso decisionale in 4 stadi: Isola l'obiettivo autentico, Individua le barriere estranee, Governa l'intrinseco con pre-training ed esempi svolti, Verifica e applica fading">
+  <rect x="14" y="25" width="166" height="120" rx="8" fill="#1e3a8a"/>
+  <text x="97" y="55" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">1. Obiettivo Autentico</text>
+  <text x="97" y="80" text-anchor="middle" fill="#dbeafe" font-size="10.5">Cosa deve saper</text>
+  <text x="97" y="96" text-anchor="middle" fill="#dbeafe" font-size="10.5">pensare lo studente?</text>
+
+  <rect x="202" y="25" width="166" height="120" rx="8" fill="#b91c1c"/>
+  <text x="285" y="55" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">2. Taglia l'Estraneo</text>
+  <text x="285" y="80" text-anchor="middle" fill="#fee2e2" font-size="10.5">Elimina split-attention,</text>
+  <text x="285" y="96" text-anchor="middle" fill="#fee2e2" font-size="10.5">ambiguità e rumore</text>
+
+  <rect x="390" y="25" width="166" height="120" rx="8" fill="#b45309"/>
+  <text x="473" y="55" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">3. Modula Intrinseco</text>
+  <text x="473" y="80" text-anchor="middle" fill="#fef3c7" font-size="10.5">Pre-training, chunk</text>
+  <text x="473" y="96" text-anchor="middle" fill="#fef3c7" font-size="10.5">e Worked Examples</text>
+
+  <rect x="578" y="25" width="168" height="120" rx="8" fill="#047857"/>
+  <text x="662" y="55" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">4. Fading &amp; Verifica</text>
+  <text x="662" y="80" text-anchor="middle" fill="#d1fae5" font-size="10.5">Rimuovi gli aiuti</text>
+  <text x="662" y="96" text-anchor="middle" fill="#d1fae5" font-size="10.5">quando cresce la MLT</text>
+</svg></div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-compare-grid">
+  <div class="schema-mini-box"><strong>Mossa 1 · Pianificazione</strong>«Prima di iniziare, che cosa ci chiede esattamente il compito? Quali parole devo capire subito?»</div>
+  <div class="schema-mini-box"><strong>Mossa 2 · Selezione Strategica</strong>«Quale schema o esempio guida uso per non dover tenere tutto a mente insieme?»</div>
+  <div class="schema-mini-box"><strong>Mossa 3 · Monitoraggio &amp; Correzione</strong>«Qui mi fermo: sto ancora rispondendo alla domanda iniziale o mi sono perso in un dettaglio?»</div>
+  <div class="schema-mini-box"><strong>Mossa 4 · Autovalutazione</strong>«Questo risultato ha senso rispetto ai dati? Cosa terrei come regola per la prossima volta?»</div>
+</div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · Qual è il criterio per distinguere un buon adattamento da una semplificazione impropria?</summary>
+    <p>Il buon adattamento elimina le barriere accessorie di lettura, formato e procedura lasciando intatta e leggibile la sfida cognitiva disciplinare.</p>
+  </details>
+</article>
+
+<div class="subsection-block" id="73-quattro-laboratori-di-riprogettazione-prima--dopo-per-ordine-scolastico" tabindex="-1">
+<h3 id="title-73-quattro-laboratori-di-riprogettazione-prima--dopo-per-ordine-scolastico">7.3 Quattro Laboratori di Riprogettazione &quot;Prima / Dopo&quot; per Ordine Scolastico</h3>
+<p>In coerenza con la differenziazione verticale del corso (<strong>Gruppo A</strong>: Infanzia e Primaria; <strong>Gruppo B</strong>: Secondaria di I e II grado), seguono quattro schede operative complete per il laboratorio operativo d&#x27;aula.</p>
+<h4 id="a-scuola-dellinfanzia-gruppo-a--sequenza-concreta-visiva-e-mediazione-corporea">A. Scuola dell&#x27;Infanzia (Gruppo A) — <em>Sequenza concreta, visiva e mediazione corporea</em></h4>
+<div tabindex="0" role="region" aria-labelledby="tbl-10-cap" class="table-wrapper">
+  <table class="data-table">
+    <caption id="tbl-10-cap">Tabella 10 — Laboratorio A (Scuola dell&#x27;Infanzia): Riprogettazione «Prima / Dopo»</caption>
+    <thead><tr><th scope="col" style="text-align:left">Elemento del Laboratorio</th><th scope="col" style="text-align:left">Descrizione Analitica</th></tr></thead>
+    <tbody><tr><td style="text-align:left"><strong>Obiettivo didattico autentico</strong></td><td style="text-align:left">Classificare o mettere in sequenza temporale/logica 4 elementi concreti o immagini di una routine, esplicitando il criterio scelto (<em>«Perché viene prima / perché vanno insieme?»</em>).</td></tr><tr><td style="text-align:left"><strong>Consegna Originale (&quot;Prima&quot;)</strong></td><td style="text-align:left">Il docente spiega velocemente a voce all&#x27;intero cerchio una serie di quattro istruzioni consecutive (<em>«Prendete le tessere dal cestino, guardate bene l&#x27;animale, poi mettetelo nel cerchio rosso se vola o blu se nuota, ma ricordatevi che quelli con due zampe...»</em>) mentre sullo sfondo ci sono altri giochi sparsi sui tavoli.</td></tr><tr><td style="text-align:left"><strong>Diagnosi CLT (Barriere)</strong></td><td style="text-align:left"><strong>Carico estraneo altissimo</strong> (rumore/oggetti visivi distrattori sui tavoli, doppio criterio verbale in sequenza rapida); <strong>Effetto di transitorietà</strong> (le istruzioni orali svaniscono dopo pochi secondi dalla WM di bambini di 4–5 anni).</td></tr><tr><td style="text-align:left"><strong>Consegna Riprogettata (&quot;Dopo&quot;)</strong></td><td style="text-align:left">1) Setting pulito: sul tavolo restano solo i materiali dell&#x27;attività (<em>coerenza</em>). 2) <strong>Sequenza concreta e visiva</strong> di 3 pittogrammi sul tavolo: <strong>1. PENSO (guardo)</strong> <span class="math-inline">→</span> <strong>2. PROVO (metto nel cerchio)</strong> <span class="math-inline">→</span> <strong>3. CONTROLLO</strong>. 3) <strong>Segmentazione:</strong> prima classificazione su un solo criterio semplice (tessere nel cerchio con icona-guida); solo dopo averlo automatizzato si introduce il secondo elemento.</td></tr><tr><td style="text-align:left"><strong>Think-Aloud dell&#x27;insegnante</strong></td><td style="text-align:left"><em>«Guardo la mia carta... Mmm, è un pesce! Prima guardo i due cerchi: questo ha disegnato il cielo con le nuvole, questo ha l&#x27;acqua. Il pesce vive nell&#x27;acqua! Allora lo appoggio qui e poi controllo con l&#x27;occhio se nuota davvero.»</em></td></tr><tr><td style="text-align:left"><strong>Barriera ridotta vs Richiesta mantenuta</strong></td><td style="text-align:left"><strong>Ridotta:</strong> la necessità di tenere a mente lunghe istruzioni verbali simultanee. <strong>Mantenuta:</strong> la capacità cognitiva di categorizzazione logica e giustificazione verbale o gestuale della scelta.</td></tr><tr><td style="text-align:left"><strong>Verifica osservabile</strong></td><td style="text-align:left">Il bambino sposta il cartellino dell&#x27;icona <em>Penso–Provo–Controllo</em> o indica la regola visiva spiegando (a parole o gesti) il criterio di abbinamento.</td></tr></tbody>
+  </table>
+</div>
+<hr>
+<h4 id="b-scuola-primaria-gruppo-a--problema-in-quattro-mosse-e-semaforo-della-comprensione">B. Scuola Primaria (Gruppo A) — <em>«Problema in quattro mosse» e «Semaforo della comprensione»</em></h4>
+<div tabindex="0" role="region" aria-labelledby="tbl-11-cap" class="table-wrapper">
+  <table class="data-table">
+    <caption id="tbl-11-cap">Tabella 11 — Laboratorio B (Scuola Primaria): «Problema in quattro mosse» e «Semaforo della comprensione»</caption>
+    <thead><tr><th scope="col" style="text-align:left">Elemento del Laboratorio</th><th scope="col" style="text-align:left">Descrizione Analitica</th></tr></thead>
+    <tbody><tr><td style="text-align:left"><strong>Obiettivo didattico autentico</strong></td><td style="text-align:left">Comprendere la struttura relazionale di un problema aritmetico a due operazioni e selezionare i dati pertinenti e le operazioni adeguate per risolverlo.</td></tr><tr><td style="text-align:left"><strong>Consegna Originale (&quot;Prima&quot;)</strong></td><td style="text-align:left">Scheda cartacea densa con illustrazioni decorative colorate di nessun legame con il testo (<em>seductive details</em>), un testo narrativo lungo pieno di dati superflui (<em>«Marco va al mercato con la nonna Lucia che ha 68 anni e compra...»</em>) e in fondo la richiesta unica: <em>«Risolvi il problema sul quaderno»</em>.</td></tr><tr><td style="text-align:left"><strong>Diagnosi CLT (Barriere)</strong></td><td style="text-align:left"><strong>Split-Attention</strong> (passaggio continuo da scheda a quaderno); <strong>Carico estraneo</strong> (decorazioni inutili e trappole narrative non mediate); <strong>Sovraccarico intrinseco</strong> per alunni con difficoltà di decodifica o di attenzione, che arrivano alla fine del testo avendo dimenticato la domanda iniziale.</td></tr><tr><td style="text-align:left"><strong>Consegna Riprogettata (&quot;Dopo&quot;)</strong></td><td style="text-align:left">1) <strong>Pre-training lessicale</strong> su eventuali termini-chiave (<em>spesa totale</em>, <em>resto</em>). 2) <strong>Layout integrato</strong> senza illustrazioni decorative, con spazio di lavoro direttamente sotto al testo. 3) <strong>Dispositivo «Problema in quattro mosse»</strong>: [1] <em>Cerchio i dati utili e sottolineo la domanda</em> <span class="math-inline">→</span> [2] <em>Rappresento con un disegno/schema a barre</em> <span class="math-inline">→</span> [3] <em>Scelgo le operazioni</em> <span class="math-inline">→</span> [4] <em>Controllo se il numero finale è plausibile</em>. 4) <strong>Semaforo della comprensione</strong> (Verde = ho capito i dati; Giallo = ho un dubbio su un passaggio; Rosso = mi serve aiuto per sbloccarmi) prima di iniziare il calcolo. 5) Primo esempio già risolto (<em>Worked Example</em>) con il passo 4 lasciato da completare (<em>Backward Fading</em>).</td></tr><tr><td style="text-align:left"><strong>Think-Aloud dell&#x27;insegnante</strong></td><td style="text-align:left"><em>«Leggo tutto il problema una prima volta per capire la storia. Vedo &quot;la nonna ha 68 anni&quot;: questo numero mi serve per sapere quanto spende Marco per le mele? No, è un dato intruso! Lo barro leggero così non occupa spazio nella mia testa. Ora uso la Mossa 2 e disegno le mele prima di fare i conti.»</em></td></tr><tr><td style="text-align:left"><strong>Barriera ridotta vs Richiesta mantenuta</strong></td><td style="text-align:left"><strong>Ridotta:</strong> lo sforzo dispersivo di copia dal foglio al quaderno, la fatica visiva e l&#x27;impulsività di calcolo alla cieca. <strong>Mantenuta:</strong> il ragionamento logico-matematico di individuazione della relazione tra i dati e scelta dell&#x27;operazione.</td></tr><tr><td style="text-align:left"><strong>Verifica osservabile</strong></td><td style="text-align:left">L&#x27;alunno utilizza il semaforo coerentemente rispetto alle difficoltà reali e produce la rappresentazione schematica dei dati prima di impostare l&#x27;algoritmo di calcolo.</td></tr></tbody>
+  </table>
+</div>
+<hr>
+<h4 id="c-scuola-secondaria-di-i-grado-gruppo-b--idea-centrale-struttura-del-testo-e-riformulazione">C. Scuola Secondaria di I Grado (Gruppo B) — <em>Idea centrale, struttura del testo e riformulazione</em></h4>
+<div tabindex="0" role="region" aria-labelledby="tbl-12-cap" class="table-wrapper">
+  <table class="data-table">
+    <caption id="tbl-12-cap">Tabella 12 — Laboratorio C (Scuola Secondaria di I Grado): Struttura del testo e riformulazione</caption>
+    <thead><tr><th scope="col" style="text-align:left">Elemento del Laboratorio</th><th scope="col" style="text-align:left">Descrizione Analitica</th></tr></thead>
+    <tbody><tr><td style="text-align:left"><strong>Obiettivo didattico autentico</strong></td><td style="text-align:left">Analizzare un testo espositivo disciplinare (es. Scienze: <em>permeabilità dei suoli</em> o Storia: <em>crisi del Trecento</em>), individuare l&#x27;idea centrale di ciascuna sezione e riformulare il nesso causale con parole proprie.</td></tr><tr><td style="text-align:left"><strong>Consegna Originale (&quot;Prima&quot;)</strong></td><td style="text-align:left"><em>«Leggi da pagina 84 a pagina 87 del manuale, sottolinea le cose importanti e poi fai il riassunto sul quaderno rispondendo alle domande alla fine del capitolo (a pagina 89).»</em></td></tr><tr><td style="text-align:left"><strong>Diagnosi CLT (Barriere)</strong></td><td style="text-align:left"><strong>Consegna vaga</strong> (cosa significa &quot;importante&quot;? Il novizio sottolinea tutto creando carico estraneo); <strong>Split-Attention severo</strong> (leggere pp. 84–87 mentre le domande guida sono a p. 89); assenza di segmentazione e di un organizzatore per cogliere i nessi causali.</td></tr><tr><td style="text-align:left"><strong>Consegna Riprogettata (&quot;Dopo&quot;)</strong></td><td style="text-align:left">1) <strong>Chunking testuale:</strong> il brano è suddiviso in 3 paragrafi brevi numerati con titoletti orientativi (<em>segnalazione</em>). 2) <strong>Organizzatore grafico integrato</strong> a fianco del testo (schema a 3 colonne: <em>Paragrafo <span class="math-inline">→</span> Parola-chiave / Idea centrale <span class="math-inline">→</span> Effetto o Conseguenza</em>). 3) <strong>Pratica guidata:</strong> per il Paragrafo 1 l&#x27;idea centrale è già modellata come esempio (<em>Worked Example</em>); per il Paragrafo 2 si fornisce un completamento parziale; per il Paragrafo 3 lo studente lavora autonomamente e produce una <strong>riformulazione orale o scritta in 2 righe</strong> senza copiare dal testo.</td></tr><tr><td style="text-align:left"><strong>Think-Aloud dell&#x27;insegnante</strong></td><td style="text-align:left"><em>«Guardando il paragrafo 1, ci sono tante parole difficili. Non le sottolineo tutte! Cerco il verbo che indica cosa succede al suolo quando piove forte. Ah, &quot;l&#x27;argilla trattiene l&#x27;acqua&quot;: questa è l&#x27;idea centrale, la scrivo nello schema accanto con tre parole mie.»</em></td></tr><tr><td style="text-align:left"><strong>Barriera ridotta vs Richiesta mantenuta</strong></td><td style="text-align:left"><strong>Ridotta:</strong> l&#x27;incertezza della consegna indeterminata e il continuo sfogliare tra pagina di lettura e pagina di domande. <strong>Mantenuta:</strong> la capacità di estrarre il nucleo concettuale, collegare causa-effetto e riformulare semanticamente il testo.</td></tr><tr><td style="text-align:left"><strong>Verifica osservabile</strong></td><td style="text-align:left">La riformulazione finale contiene i concetti essenziali e il legame causale espressi con lessico proprio anziché mediante copia meccanica di periodi del manuale.</td></tr></tbody>
+  </table>
+</div>
+<hr>
+<h4 id="d-scuola-secondaria-di-ii-grado-gruppo-b--testo-complesso-con-prova-di-recupero-e-separazione-delle-fasi-di-scrittura">D. Scuola Secondaria di II Grado (Gruppo B) — <em>Testo complesso con prova di recupero e separazione delle fasi di scrittura</em></h4>
+<div tabindex="0" role="region" aria-labelledby="tbl-13-cap" class="table-wrapper">
+  <table class="data-table">
+    <caption id="tbl-13-cap">Tabella 13 — Laboratorio D (Scuola Secondaria di II Grado): Testo complesso e separazione delle fasi di scrittura</caption>
+    <thead><tr><th scope="col" style="text-align:left">Elemento del Laboratorio</th><th scope="col" style="text-align:left">Descrizione Analitica</th></tr></thead>
+    <tbody><tr><td style="text-align:left"><strong>Obiettivo didattico autentico</strong></td><td style="text-align:left">Analizzare un testo storiografico o filosofico complesso, consolidarne i nodi argomentativi nella MLT e redigere una breve argomentazione strutturata sostenuta da prove testuali.</td></tr><tr><td style="text-align:left"><strong>Consegna Originale (&quot;Prima&quot;)</strong></td><td style="text-align:left"><em>«Dopo aver studiato il saggio di 8 pagine sulle trasformazioni economico-sociali, scrivi in 45 minuti un testo argomentativo ben curato nella forma, corretto ortograficamente e ricco di collegamenti storici.»</em></td></tr><tr><td style="text-align:left"><strong>Diagnosi CLT (Barriere)</strong></td><td style="text-align:left"><strong>Sovraccarico simultaneo multi-compito nella scrittura:</strong> pretendere nello stesso istante di recuperare argomenti complessi dalla memoria, organizzarne la coerenza logica, generare frasi sintatticamente elevate e vigilare sull&#x27;ortografia (per allievi con DSA/disortografia o fragilità esecutive ciò satura al 100% la WM); inoltre, lo studio per semplice rilettura genera <em>illusione di competenza</em> senza recupero attivo.</td></tr><tr><td style="text-align:left"><strong>Consegna Riprogettata (&quot;Dopo&quot;)</strong></td><td style="text-align:left">1) <strong>Segmentazione con Prova di Recupero (<em>Retrieval Practice</em>):</strong> lettura del testo complesso in 2 segmenti con attivazione di una breve <strong>prova di recupero a libro chiuso</strong> (3 minuti: <em>«Scrivi in elenco puntato 3 tesi e 2 prove tratte dal testo senza guardarlo, poi confronta con la fonte e integra ciò che mancava»</em>). 2) <strong>Separazione procedurale della scrittura in 3 fasi distinte nel tempo:</strong> Fase A: <em>Pianificazione su mappa/scaletta</em> (tesi, argomento 1, prova, contro-argomento); Fase B: <em>Stesura fluida dei contenuti</em> (concentrandosi esclusivamente sul senso logico delle idee, rinviando la forma); Fase C: <em>Revisione in due passaggi separati</em> — <strong>prima revisione contenutistica/argomentativa</strong> (mediante checklist di coerenza), <strong>poi revisione linguistico-ortografica</strong> dedicata (eventualmente con correttore o sintetizzatore vocale per studenti con PDP).</td></tr><tr><td style="text-align:left"><strong>Think-Aloud dell&#x27;insegnante</strong></td><td style="text-align:left"><em>«Se mentre scrivo l&#x27;argomentazione sulla Rivoluzione industriale continuo a fermarmi ogni parola per controllare se ci vuole una doppia o se la virgola sta bene, perdo il filo del mio ragionamento! In Fase B lascio correre la bozza e metto un asterisco vicino ai dubbi di forma; dedicherò gli ultimi 8 minuti esclusivamente alla revisione ortografica con la mia checklist.»</em></td></tr><tr><td style="text-align:left"><strong>Barriera ridotta vs Richiesta mantenuta</strong></td><td style="text-align:left"><strong>Ridotta:</strong> l&#x27;interferenza parallela tra esecuzione ortografica/formale di basso livello e pianificazione argomentativa di alto livello, oltre all&#x27;illusione di sapere da mera rilettura passiva. <strong>Mantenuta:</strong> il rigore argomentativo, l&#x27;uso critico delle evidenze storiche e la padronanza concettuale del tema.</td></tr><tr><td style="text-align:left"><strong>Verifica osservabile</strong></td><td style="text-align:left">Presenza della bozza di pianificazione (scaletta), esito della mini-prova di recupero corretta dallo studente stesso e miglioramento documentato tra la bozza iniziale e la revisione contenutistica finale.</td></tr></tbody>
+  </table>
+</div>
+<hr>
+</div>
+</section>
+
+      <nav class="page-pager" aria-label="Navigazione tra pagine">
+        <a class="pager-link" href="inclusione.html"><span class="pager-dir">← Pagina precedente</span><span class="pager-name">Inclusione</span></a>
+        <a class="pager-link pager-next" href="schemi-didattici.html"><span class="pager-dir">Pagina successiva →</span><span class="pager-name">Schemi Didattici</span></a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <strong>Carico Cognitivo &amp; Accessibilità</strong> · Risorsa scientifica e operativa per la didattica inclusiva
+      </div>
+      <div>
+        <a href="index.html">Fondamenti</a> · <a href="schemi-didattici.html">Schemi Didattici</a> · <a href="laboratori.html">Laboratori &amp; 3D</a> · <a href="valutazione-risorse.html">Valutazione &amp; Risorse</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="schema-modal" closedby="any" aria-labelledby="schema-modal-title">
+    <div class="schema-modal-shell">
+      <div class="schema-modal-head">
+        <h2 id="schema-modal-title" style="margin:0; font-size:1.02rem; color:var(--brand-navy);">Schema didattico</h2>
+        <div style="display:flex; gap:0.45rem; align-items:center;">
+          <button type="button" id="schema-modal-prev" class="ctrl-btn" aria-label="Schema precedente">← Prec</button>
+          <button type="button" id="schema-modal-next" class="ctrl-btn" aria-label="Schema successivo">Succ →</button>
+          <button type="button" id="schema-modal-close" class="ctrl-btn" autofocus aria-label="Chiudi finestra">Chiudi ✕</button>
+        </div>
+      </div>
+      <div id="schema-modal-body" class="schema-modal-body"></div>
+      <div class="schema-modal-foot">
+        <span id="schema-modal-caption" style="color:var(--text-muted);"></span>
+        <span style="font-size:0.78rem; color:var(--text-muted);">Esc per chiudere · Frecce ←/→ per navigare</span>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="search-index.js" defer></script>
+  <script src="sim3d.js" defer></script>
+  <script src="app.js" defer></script>
+  
+</body>
+</html>

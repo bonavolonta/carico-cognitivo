@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Didattica Inclusiva, BES, UDL e Accessibilità — Carico Cognitivo</title>
+  <meta name="description" content="Profili funzionali DSA, ADHD e Disabilità Intellettiva, educazione alla regolazione del carico e Universal Design for Learning.">
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Salta al contenuto principale</a>
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar"></div></div>
+
+  <header class="topbar">
+    <div class="topbar-nav-row">
+      <div class="topbar-brand">
+        <a class="topbar-home-link" href="index.html">
+          <span class="topbar-title">Carico Cognitivo &amp; Accessibilità</span>
+        </a>
+        <span class="topbar-title-sub">Didattica Speciale e Progettazione Inclusiva</span>
+      </div>
+
+      <button type="button" id="menu-toggle-btn" class="menu-toggle-btn" popovertarget="site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Apri menu di navigazione">
+        ☰ Menu
+      </button>
+
+      <nav id="site-nav" class="site-nav" popover="auto" aria-label="Navigazione principale del sito">
+          <a href="index.html">Fondamenti</a>
+          <a href="multimedialita.html">Multimedialità</a>
+          <a href="inclusione.html" aria-current="page">Inclusione</a>
+          <a href="laboratori.html">Laboratori &amp; 3D</a>
+          <a href="schemi-didattici.html">Schemi Didattici</a>
+          <a href="valutazione-risorse.html">Valutazione &amp; Risorse</a>
+      </nav>
+    </div>
+
+    <div class="topbar-udl-row">
+      <div class="topbar-controls" role="toolbar" aria-label="Controlli UDL di lettura e tema">
+        <button type="button" id="mobile-toc-toggle" class="ctrl-btn mobile-toc-btn" aria-expanded="false" aria-controls="sidebar-nav">Sezioni</button>
+        <button type="button" id="udl-font" class="ctrl-btn" aria-pressed="false" title="Attiva carattere ad alta leggibilità">Font Leggibile</button>
+        <button type="button" id="udl-spacing" class="ctrl-btn" aria-pressed="false" title="Aumenta interlinea e spaziatura">Spaziatura +</button>
+        <button type="button" id="udl-clean" class="ctrl-btn" aria-pressed="false" title="Nasconde i riquadri di approfondimento e schemi contestuali">Solo Testo</button>
+        <span aria-hidden="true" style="width:1px;height:20px;background:var(--border-subtle);margin:0 0.1rem;"></span>
+        <button type="button" id="theme-auto" class="ctrl-btn" aria-pressed="true">Auto</button>
+        <button type="button" id="theme-light" class="ctrl-btn" aria-pressed="false">Chiaro</button>
+        <button type="button" id="theme-dark" class="ctrl-btn" aria-pressed="false">Scuro</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="workspace-shell">
+    <aside class="sidebar-nav" id="sidebar-nav" aria-label="Indice di pagina e ricerca globale">
+      <div class="search-box">
+        <label for="doc-search-input" class="search-label">Cerca nel sito e in questa pagina</label>
+        <div class="search-input-row">
+          <input type="search" id="doc-search-input" class="search-input" placeholder="Es. split-attention, Ianes, fading..." autocomplete="off">
+          <button type="button" id="doc-search-clear" class="ctrl-btn" aria-label="Pulisci ricerca" title="Pulisci ricerca">✕</button>
+        </div>
+        <div id="doc-search-status" class="search-status" aria-live="polite"></div>
+        <div id="global-search-results" class="global-search-results" hidden aria-label="Risultati nelle altre pagine"></div>
+      </div>
+
+      <nav class="sidebar-pages" aria-label="Pagine del portale">
+        <a class="sidebar-page-link" href="index.html"><span>Fondamenti</span></a>
+        <a class="sidebar-page-link" href="multimedialita.html"><span>Multimedialità</span></a>
+        <a class="sidebar-page-link" href="inclusione.html" aria-current="page"><span>Inclusione</span></a>
+        <a class="sidebar-page-link" href="laboratori.html"><span>Laboratori &amp; 3D</span></a>
+        <a class="sidebar-page-link" href="schemi-didattici.html"><span>Schemi Didattici</span></a>
+        <a class="sidebar-page-link" href="valutazione-risorse.html"><span>Valutazione &amp; Risorse</span></a>
+      </nav>
+
+      <nav class="toc-nav" aria-label="Indice delle sezioni in questa pagina">
+        <ul class="toc-list">
+          <li><a class="" href="#6-carico-cognitivo-metacognizione-e-didattica-speciale-inclusiva-bes-dsa-adhd-disabilità-intellettiva">6. Carico Cognitivo, Metacognizione e Didattica Speciale Inclusiva (BES, DSA, ADHD, Disabilità Intellettiva)</a></li>
+          <li><a class="toc-sublink" href="#61-profili-funzionali-e-vulnerabilità-al-sovraccarico-cognitivo-nei-bisogni-educativi-speciali">6.1 Profili funzionali e vulnerabilità al sovraccarico cognitivo nei Bisogni Educativi Speciali</a></li>
+          <li><a class="toc-sublink" href="#62-educare-gli-studenti-a-riconoscere-e-gestire-il-proprio-carico-cognitivo">6.2 Educare gli studenti a riconoscere e gestire il proprio Carico Cognitivo</a></li>
+          <li><a class="toc-sublink" href="#63-accessibilità-strumenti-compensativi-e-universal-design-for-learning-udl-alla-luce-della-clt">6.3 Accessibilità, Strumenti Compensativi e Universal Design for Learning (UDL) alla luce della CLT</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main id="main-content" class="content-column" tabindex="-1">
+      <h1 class="sr-only">Carico Cognitivo, Metacognizione e Didattica Speciale Inclusiva</h1>
+      <nav class="breadcrumb" aria-label="Percorso">
+  <a href="index.html">Fondamenti</a>
+  <span aria-hidden="true">/</span>
+  <span aria-current="page">Inclusione</span>
+</nav>
+      <section class="chapter-card lazy-section" id="6-carico-cognitivo-metacognizione-e-didattica-speciale-inclusiva-bes-dsa-adhd-disabilità-intellettiva" tabindex="-1">
+  <h2 class="chapter-title" id="title-6-carico-cognitivo-metacognizione-e-didattica-speciale-inclusiva-bes-dsa-adhd-disabilità-intellettiva">6. Carico Cognitivo, Metacognizione e Didattica Speciale Inclusiva (BES, DSA, ADHD, Disabilità Intellettiva)</h2>
+  <div class="subsection-block" id="61-profili-funzionali-e-vulnerabilità-al-sovraccarico-cognitivo-nei-bisogni-educativi-speciali" tabindex="-1">
+<h3 id="title-61-profili-funzionali-e-vulnerabilità-al-sovraccarico-cognitivo-nei-bisogni-educativi-speciali">6.1 Profili funzionali e vulnerabilità al sovraccarico cognitivo nei Bisogni Educativi Speciali</h3>
+<p>L&#x27;integrazione tra Teoria del Carico Cognitivo e Didattica Speciale (Ianes, 1996; Cottini, 2007; Cornoldi et al., 2018; Fontani, 2017) illumina in profondità le difficoltà quotidiane incontrate dagli alunni con fragilità cognitive, neuroevolutive o dell&#x27;apprendimento:</p>
+<div tabindex="0" role="region" aria-labelledby="tbl-8-cap" class="table-wrapper">
+  <table class="data-table">
+    <caption id="tbl-8-cap">Tabella 8 — Profili funzionali BES, DSA, ADHD e meccanismi di saturazione della WM</caption>
+    <thead><tr><th scope="col" style="text-align:left">Condizione / Profilo Funzionale</th><th scope="col" style="text-align:left">Meccanismo di Drenaggio o Saturazione della WM</th><th scope="col" style="text-align:left">Ricaduta Didattica ed Errore Tipico da Evitare</th></tr></thead>
+    <tbody><tr><td style="text-align:left"><strong>DSA (Dislessia, Disortografia, Discalculia)</strong></td><td style="text-align:left">La mancata automatizzazione di processi strumentali di base (decodifica grafo-fonemica, controllo ortografico, recupero dei fatti aritmetici) fa sì che tali azioni consumino la quasi totalità della Memoria di Lavoro. Non resta capacità libera per comprendere il senso globale del testo o per pianificare la soluzione del problema (Fontani, 2017).</td><td style="text-align:left"><strong>Errore da evitare:</strong> chiedere contemporaneamente in un compito complesso ideazione contenutistica, correttezza ortografica e controllo formale senza strumenti compensativi o separazione delle fasi.</td></tr><tr><td style="text-align:left"><strong>ADHD e Fragilità delle Funzioni Esecutive</strong></td><td style="text-align:left">Deficit nei meccanismi inibitori dell&#x27;esecutivo centrale: l&#x27;allievo fatica a filtrare stimoli ambientali e dettagli irrilevanti (<em>seductive details</em>). Il <strong>carico cognitivo estraneo</strong> (pagine affollate, consegne lunghe, brusio in aula) invade immediatamente la WM, causando impulsività o abbandono del compito.</td><td style="text-align:left"><strong>Errore da evitare:</strong> schede ricche di decorazioni grafiche, font misti, consegne multi-step racchiuse in un unico blocco di testo senza numerazione visiva.</td></tr><tr><td style="text-align:left"><strong>Disabilità Intellettiva e Funzionamento Intellettivo Limite (FIL)</strong></td><td style="text-align:left">Riduzione strutturale dello <em>span</em> di Memoria di Lavoro, velocità di elaborazione rallentata, povertà o scarsa flessibilità degli schemi in MLT, difficoltà nell&#x27;astrazione spontanea. L&#x27;esposizione ripetuta a compiti in sovraccarico alimenta un vissuto passivo e di <strong>impotenza appresa</strong> (4° livello di Ianes).</td><td style="text-align:left"><strong>Errore da evitare:</strong> assegnare compiti &quot;a scoperta libera&quot; privi di ancoraggi concreti e di <em>pre-training</em>, oppure al contrario offrire compiti eccessivamente infantilizzati e privi di sfida reale (<em>underload</em> e stigma).</td></tr></tbody>
+  </table>
+</div>
+<hr>
+</div>
+<div class="subsection-block" id="62-educare-gli-studenti-a-riconoscere-e-gestire-il-proprio-carico-cognitivo" tabindex="-1">
+<h3 id="title-62-educare-gli-studenti-a-riconoscere-e-gestire-il-proprio-carico-cognitivo">6.2 Educare gli studenti a riconoscere e gestire il proprio Carico Cognitivo</h3>
+<p>La relazione tra CLT e didattica metacognitiva non si esaurisce negli adattamenti progettati &quot;dall&#x27;alto&quot; dall&#x27;insegnante: lo studente stesso può essere educato a <strong>modulare e proteggere il proprio carico cognitivo</strong> (1°, 2° e 3° livello di Ianes).</p>
+<p>Nella tradizione della didattica metacognitiva (Cornoldi, 1995), questo passaggio è illustrato attraverso il noto test di metamemoria riportato da Cornoldi (1995): due immagini mostrano una bambina che tenta di ricordare i nomi di alcune figure prima in un ambiente silenzioso e poi in un ambiente rumoroso. Anche i bambini molto piccoli intuiscono facilmente il ruolo disturbante del rumore esterno sulla memoria; tuttavia, crescendo, molti adolescenti e studenti delle scuole secondarie cadono nell&#x27;illusione di poter studiare efficacemente in regime di multitasking estremo (ascoltando musica con testo, rispondendo a notifiche su smartphone e tenendo aperte più finestre digitali).</p>
+<p>Insegnare la <strong>consapevolezza dei tre tipi di impegno mentale</strong> trasforma la metacognizione in un potente <strong>regolatore attivo del carico cognitivo</strong>:</p>
+<ol><li><strong>La metacognizione decompone il carico intrinseco:</strong> strategie come il <em>chunking</em> intenzionale, l&#x27;interrogazione degli indici paratestuali (titoli, grassetti, figure) prima della lettura, l&#x27;analisi del compito (<em>task analysis</em>) e la rappresentazione grafica di un problema matematico prima di eseguire i calcoli riducono la quantità di elementi da tenere a mente simultaneamente.</li><li><strong>La metacognizione scherma dal carico estraneo:</strong> l&#x27;automonitoraggio dell&#x27;attenzione e dell&#x27;ambiente di studio consente allo studente di riconoscere i fattori di disturbo (<em>«Quando tengo il telefono sul banco ci metto il doppio del tempo e non ricordo nulla»</em>) e di inibirli.</li><li><strong>La metacognizione canalizza il carico rilevante:</strong> le autoistruzioni verbali (Meichenbaum) e le domande di autoverifica (<em>«Ho capito davvero questo paragrafo? So spiegarlo con parole mie senza guardare?»</em>) indirizzano lo sforzo verso l&#x27;integrazione degli schemi.</li></ol>
+<hr>
+</div>
+<article class="schema-card enrichment-block" data-schema-ref="schema-12" data-schema-cat="inclusione" aria-labelledby="schema-12-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 12 · Didattica Inclusiva</span>
+      <h4 class="schema-card-title" id="schema-12-title">Ponte dell'Adattamento Funzionale e Triade dell'Insegnamento Inclusivo</h4>
+      <p class="schema-card-subtitle">Rendere accessibili concetti astratti tramite esperienze quotidiane e modellare esplicitamente il controllo esecutivo.</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-12" aria-label="Espandi schema 12: Ponte dell&#x27;Adattamento Funzionale e Triade dell&#x27;Insegnamento Inclusivo">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Ponte dell&#x27;Adattamento Funzionale e Triade dell&#x27;Insegnamento Inclusivo">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">Ponte dell'Adattamento (Astratto → Quotidiano)</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">Triade Operativa Inclusiva</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 190" role="img" aria-label="Ponte tra concetto astratto ad alto carico e versione iper-accessibile ancorata all'esperienza quotidiana, ad esempio distinguere un fatto oggettivo da un desiderio o timore">
+  <rect x="18" y="26" width="210" height="136" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="123" y="54" text-anchor="middle" fill="#991b1b" font-size="12.5" font-weight="700">OSTACOLO ASTRATTO</text>
+  <text x="123" y="84" text-anchor="middle" fill="#7f1d1d" font-size="11">«Valuta la validità</text>
+  <text x="123" y="102" text-anchor="middle" fill="#7f1d1d" font-size="11">inferenziale e i bias</text>
+  <text x="123" y="120" text-anchor="middle" fill="#7f1d1d" font-size="11">emotivi delle premesse»</text>
+
+  <rect x="266" y="54" width="228" height="80" rx="40" fill="#1e3a8a"/>
+  <text x="380" y="90" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">PONTE FUNZIONALE</text>
+  <text x="380" y="110" text-anchor="middle" fill="#dbeafe" font-size="10.5">Esempio concreto + regola visiva</text>
+
+  <rect x="532" y="26" width="210" height="136" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+  <text x="637" y="54" text-anchor="middle" fill="#065f46" font-size="12.5" font-weight="700">IPER-ACCESSIBILITÀ</text>
+  <text x="637" y="84" text-anchor="middle" fill="#064e3b" font-size="11">«Questo è un FATTO</text>
+  <text x="637" y="102" text-anchor="middle" fill="#064e3b" font-size="11">che puoi mostrare o</text>
+  <text x="637" y="120" text-anchor="middle" fill="#064e3b" font-size="11">un DESIDERIO / PAURA?»</text>
+</svg></div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-compare-grid">
+  <div class="schema-mini-box"><strong>1. Insegna la Teoria</strong>Mostra allo studente perché la mente fatica (collo di bottiglia, distrazioni) in linguaggio chiaro e non colpevolizzante.</div>
+  <div class="schema-mini-box"><strong>2. Rendi Concreto</strong>Aggancia ogni strategia a una metafora visiva o fisica (es. la valigia dei chunk, il semaforo attentivo, la checklist di passo).</div>
+  <div class="schema-mini-box"><strong>3. Dimostra il Controllo</strong>Esegui ad alta voce (Think-Aloud) il momento esatto in cui ti fermi, controlli e correggi un errore.</div>
+</div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · Come evitare che l'adattamento iper-accessibile diventi infantilizzante per adolescenti?</summary>
+    <p>Mantenendo l'obiettivo disciplinare adulto e autentico (distinguere dati verificabili da inferenze emotive) e variando soltanto l'ancoraggio iniziale e la gradualità del linguaggio.</p>
+  </details>
+</article>
+
+<div class="subsection-block" id="63-accessibilità-strumenti-compensativi-e-universal-design-for-learning-udl-alla-luce-della-clt" tabindex="-1">
+<h3 id="title-63-accessibilità-strumenti-compensativi-e-universal-design-for-learning-udl-alla-luce-della-clt">6.3 Accessibilità, Strumenti Compensativi e Universal Design for Learning (UDL) alla luce della CLT</h3>
+<p>Alla luce della Teoria del Carico Cognitivo, si chiarisce un principio etico e metodologico essenziale per il docente di sostegno (e per la redazione di <strong>PEI</strong> e <strong>PDP</strong>):</p>
+<blockquote class="source-quote" id="quote-block-6"><p><strong>Rendere accessibile un compito scolastico mediante i principi della CLT e dell&#x27;Universal Design for Learning (UDL) NON significa «abbassare l&#x27;obiettivo cognitivo» né «regalare facilitazioni arbitrarie». Significa rimuovere le barriere di accesso e il carico estraneo affinché lo studente possa investire le proprie risorse cognitive sul vero obiettivo di apprendimento (carico pertinente).</strong></p></blockquote>
+<p>Si consideri un esempio concreto: se l&#x27;obiettivo di una lezione di Storia o Scienze è <em>«comprendere il rapporto di causa-effetto tra due fenomeni»</em>, e consegno a un alunno con dislessia severa un testo fittissimo in corpo 10 senza spaziature né sintesi vocale, la decodifica fonologica satura la sua Memoria di Lavoro al punto da impedirgli di ragionare sulle cause e sugli effetti. La barriera non risiede nell&#x27;obiettivo disciplinare, ma nel <strong>formato di presentazione</strong>. Fornire il testo accessibile (sintesi vocale, carattere leggibile, parole-chiave anticipate, organizzatore grafico causa-effetto) <strong>abbatte il carico estraneo della decodifica forzata</strong> e restituisce allo studente l&#x27;accesso pieno alla richiesta cognitiva autentica del compito.</p>
+<hr>
+
+</div>
+<article class="schema-card enrichment-block" data-schema-ref="schema-13" data-schema-cat="inclusione" aria-labelledby="schema-13-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 13 · Didattica Inclusiva</span>
+      <h4 class="schema-card-title" id="schema-13-title">Matrice BES · Colli di Bottiglia della WM e Leve UDL Compensative</h4>
+      <p class="schema-card-subtitle">Mappatura operativa tra profilo funzionale (DSA, ADHD, Disabilità Intellettiva/FIL), trappola estranea e leva di progettazione.</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-13" aria-label="Espandi schema 13: Matrice BES · Colli di Bottiglia della WM e Leve UDL Compensative">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Matrice BES · Colli di Bottiglia della WM e Leve UDL Compensative">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">Matrice Visuale BES × WM</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">3 Principi UDL tradotti in CLT</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 210" role="img" aria-label="Tre colonne operative per DSA, ADHD e Disabilità Intellettiva: da collo di bottiglia specifico a leva UDL mirata">
+  <rect x="14" y="16" width="234" height="178" rx="10" fill="#1e3a8a"/>
+  <text x="131" y="42" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">DSA (Dislessia / Disortografia)</text>
+  <text x="131" y="70" text-anchor="middle" fill="#dbeafe" font-size="11">Collo di bottiglia: decodifica /</text>
+  <text x="131" y="86" text-anchor="middle" fill="#dbeafe" font-size="11">compitazione non automatizzata</text>
+  <text x="131" y="122" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">Leva UDL / CLT:</text>
+  <text x="131" y="142" text-anchor="middle" fill="#93c5fd" font-size="10.5">Sintesi vocale, separazione fasi</text>
+  <text x="131" y="158" text-anchor="middle" fill="#93c5fd" font-size="10.5">ideazione vs ortografia, mappe</text>
+
+  <rect x="263" y="16" width="234" height="178" rx="10" fill="#0f766e"/>
+  <text x="380" y="42" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">ADHD / Funzioni Esecutive</text>
+  <text x="380" y="70" text-anchor="middle" fill="#ccfbf1" font-size="11">Collo di bottiglia: inibizione,</text>
+  <text x="380" y="86" text-anchor="middle" fill="#ccfbf1" font-size="11">mantenimento sequenze lunghe</text>
+  <text x="380" y="122" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">Leva UDL / CLT:</text>
+  <text x="380" y="142" text-anchor="middle" fill="#99f6e4" font-size="10.5">Micro-step visibili, timer</text>
+  <text x="380" y="158" text-anchor="middle" fill="#99f6e4" font-size="10.5">esplicito, setting privo di distrattori</text>
+
+  <rect x="512" y="16" width="234" height="178" rx="10" fill="#4338ca"/>
+  <text x="629" y="42" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Disabilità Intellettiva / FIL</text>
+  <text x="629" y="70" text-anchor="middle" fill="#e0e7ff" font-size="11">Collo di bottiglia: ridotta capienza</text>
+  <text x="629" y="86" text-anchor="middle" fill="#e0e7ff" font-size="11">simultanea e generalizzazione</text>
+  <text x="629" y="122" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">Leva UDL / CLT:</text>
+  <text x="629" y="142" text-anchor="middle" fill="#c7d2fe" font-size="10.5">Pre-training concreto, CAA,</text>
+  <text x="629" y="158" text-anchor="middle" fill="#c7d2fe" font-size="10.5">esempi variati &amp; sovra-apprendimento</text>
+</svg></div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-compare-grid">
+  <div class="schema-mini-box"><strong>Rappresentazione Multipla</strong>Sfrutta il principio di Modalità (audio + schema integrato) e abbatte le barriere percettive della singola scheda testuale.</div>
+  <div class="schema-mini-box"><strong>Azione ed Espressione</strong>Fornisce checklist esecutive, scalette visive e separazione delle sotto-abilità per non saturare la WM in uscita.</div>
+  <div class="schema-mini-box"><strong>Coinvolgimento</strong>Regola il livello di sfida tra overload e underload garantendo esperienze precoci di autoefficacia (Worked Examples + Fading).</div>
+</div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · In che senso uno strumento compensativo agisce come riduttore di carico estraneo?</summary>
+    <p>Automatizzando o vicariando la componente strumentale deficitaria (es. decodifica fonologica o calcolo tabellare), libera la Memoria di Lavoro affinché lo studente possa investire risorse sul nucleo concettuale del compito.</p>
+  </details>
+</article>
+
+</section>
+
+      <nav class="page-pager" aria-label="Navigazione tra pagine">
+        <a class="pager-link" href="multimedialita.html"><span class="pager-dir">← Pagina precedente</span><span class="pager-name">Multimedialità</span></a>
+        <a class="pager-link pager-next" href="laboratori.html"><span class="pager-dir">Pagina successiva →</span><span class="pager-name">Laboratori &amp; 3D</span></a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <strong>Carico Cognitivo &amp; Accessibilità</strong> · Risorsa scientifica e operativa per la didattica inclusiva
+      </div>
+      <div>
+        <a href="index.html">Fondamenti</a> · <a href="schemi-didattici.html">Schemi Didattici</a> · <a href="laboratori.html">Laboratori &amp; 3D</a> · <a href="valutazione-risorse.html">Valutazione &amp; Risorse</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="schema-modal" closedby="any" aria-labelledby="schema-modal-title">
+    <div class="schema-modal-shell">
+      <div class="schema-modal-head">
+        <h2 id="schema-modal-title" style="margin:0; font-size:1.02rem; color:var(--brand-navy);">Schema didattico</h2>
+        <div style="display:flex; gap:0.45rem; align-items:center;">
+          <button type="button" id="schema-modal-prev" class="ctrl-btn" aria-label="Schema precedente">← Prec</button>
+          <button type="button" id="schema-modal-next" class="ctrl-btn" aria-label="Schema successivo">Succ →</button>
+          <button type="button" id="schema-modal-close" class="ctrl-btn" autofocus aria-label="Chiudi finestra">Chiudi ✕</button>
+        </div>
+      </div>
+      <div id="schema-modal-body" class="schema-modal-body"></div>
+      <div class="schema-modal-foot">
+        <span id="schema-modal-caption" style="color:var(--text-muted);"></span>
+        <span style="font-size:0.78rem; color:var(--text-muted);">Esc per chiudere · Frecce ←/→ per navigare</span>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="search-index.js" defer></script>
+  
+  <script src="app.js" defer></script>
+  
+</body>
+</html>

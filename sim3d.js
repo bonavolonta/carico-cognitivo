@@ -24,7 +24,7 @@
       modality: 45,
       scaffolding: 20,
       caption:
-        "Come nell'esempio di Bonaiuti (Slide 39), per un novizio la formula chimica attiva 6+ elementi separati in WM simultaneamente, rischiando il sovraccarico."
+        "Come nell'esempio di Bonaiuti sull'acido acetilsalicilico, per un novizio la formula chimica attiva 6+ elementi separati in WM simultaneamente, rischiando il sovraccarico."
     },
     expert_aspirin: {
       name: "Esperto: Acido Acetilsalicilico (1 singolo chunk)",
@@ -44,7 +44,7 @@
       modality: 10,
       scaffolding: 40,
       caption:
-        "Testo lontano dalle figure, audio identico al testo su slide densa ed elementi decorativi saturano la WM di rosso: il carico rilevante crolla a zero."
+        "Testo lontano dalle figure, audio identico al testo su schermata densa ed elementi decorativi saturano la WM di rosso: il carico rilevante crolla a zero."
     },
     modality_gain: {
       name: "Effetto Modalità (Voce + Diagramma Integrati)",

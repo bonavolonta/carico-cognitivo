@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Atlante degli Schemi Didattici Interattivi — Carico Cognitivo</title>
+  <meta name="description" content="14 schemi visivi interattivi ad alta accessibilità con Dual Coding, autoverifiche guidate e filtri per modello cognitivo.">
+  <style id="standalone-schema-fallback">
+/* Fallback completo per consultazione o embed standalone senza styles.css */
+:where(:root) { color-scheme: light dark; --bg-page:#f4f7fb; --bg-surface:#ffffff; --bg-surface-alt:#f8fafc; --bg-tint:#eef5fc; --text-main:#1e293b; --text-muted:#475569; --text-accent:#0b4f6c; --border-subtle:#cbd5e1; --border-strong:#64748b; --brand-navy:#0f294a; --brand-teal:#0f766e; --load-intrinsic:#b45309; --load-extraneous:#dc2626; --load-germane:#0f766e; --radius-md:12px; --radius-sm:8px; --shadow-sm:0 2px 6px rgba(15,23,42,.06); --shadow-lg:0 14px 36px rgba(15,23,42,.18); }
+@media (prefers-color-scheme: dark) {
+  :where(:root) { --bg-page:#0b111e; --bg-surface:#131c2e; --bg-surface-alt:#19243b; --bg-tint:#1f2e4d; --text-main:#eef2ff; --text-muted:#b6c2d9; --text-accent:#bfdbfe; --border-subtle:#2b3a55; --border-strong:#4c6288; --load-intrinsic:#fbbf24; --load-extraneous:#fca5a5; --load-germane:#6ee7b7; }
+}
+html[data-standalone="true"] body { margin:0; font-family:system-ui,-apple-system,sans-serif; line-height:1.6; color:var(--text-main); background:var(--bg-page); }
+html[data-standalone="true"] .topbar,
+html[data-standalone="true"] .sidebar-nav,
+html[data-standalone="true"] .breadcrumb,
+html[data-standalone="true"] .page-pager,
+html[data-standalone="true"] .site-footer,
+html[data-standalone="true"] .skip-link,
+html[data-standalone="true"] .scroll-progress { display:none !important; }
+html[data-standalone="true"] .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+html[data-standalone="true"] .workspace-shell { max-width:1080px; margin:0 auto; padding:1.25rem 1rem 2.5rem; }
+html[data-standalone="true"] .chapter-card { background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:1.25rem; box-shadow:var(--shadow-sm); }
+html[data-standalone="true"] .chapter-title { margin:0 0 .65rem; font-size:1.5rem; color:var(--text-accent); border-bottom:2px solid var(--border-subtle); padding-bottom:.5rem; }
+html[data-standalone="true"] .lab-lead { margin:0 0 1rem; color:var(--text-muted); font-size:.95rem; }
+html[data-standalone="true"] .ctrl-btn,
+html[data-standalone="true"] .action-btn { display:inline-flex; align-items:center; gap:.35rem; padding:.42rem .75rem; border-radius:var(--radius-sm); border:1px solid var(--border-strong); background:var(--bg-surface-alt); color:var(--text-main); font-family:inherit; font-size:.84rem; font-weight:700; cursor:pointer; }
+html[data-standalone="true"] .ctrl-btn[aria-pressed="true"] { background:var(--brand-navy); color:#fff; border-color:var(--brand-navy); }
+html[data-standalone="true"] .enrichment-badge { display:inline-block; padding:.18rem .6rem; border-radius:999px; background:var(--bg-tint); color:var(--text-accent); font-size:.74rem; font-weight:800; text-transform:uppercase; letter-spacing:.04em; margin-bottom:.4rem; }
+html[data-standalone="true"] [hidden] { display:none !important; }
+html[data-standalone="true"] dialog#schema-modal { max-width:min(94vw,1080px); max-height:92vh; width:100%; padding:0; border:1px solid var(--border-strong); border-radius:var(--radius-md); background:var(--bg-surface); color:var(--text-main); box-shadow:var(--shadow-lg); }
+html[data-standalone="true"] dialog#schema-modal::backdrop { background:rgba(8,15,30,.78); }
+html[data-standalone="true"] .schema-modal-head,
+html[data-standalone="true"] .schema-modal-foot { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:.65rem; padding:.75rem 1rem; background:var(--bg-surface-alt); border-bottom:1px solid var(--border-subtle); }
+html[data-standalone="true"] .schema-modal-foot { border-bottom:0; border-top:1px solid var(--border-subtle); font-size:.86rem; }
+html[data-standalone="true"] .schema-modal-body { padding:1rem; overflow:auto; max-height:74vh; }
+:where(.schema-atlas-grid) { display:grid; gap:1.25rem; }
+:where(.schema-card) { background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:1rem 1.15rem; box-shadow:var(--shadow-sm); display:grid; gap:.85rem; }
+:where(.schema-card-head) { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:.65rem; }
+:where(.schema-card-title) { margin:0; font-size:1.08rem; color:var(--text-accent); }
+:where(.schema-card-subtitle) { margin:.25rem 0 0; font-size:.9rem; color:var(--text-muted); }
+:where(.schema-controls) { display:flex; flex-wrap:wrap; gap:.45rem; }
+:where(.schema-pill) { padding:.38rem .75rem; border-radius:999px; border:1px solid var(--border-strong); background:var(--bg-surface-alt); color:var(--text-main); font-size:.82rem; font-weight:700; cursor:pointer; }
+:where(.schema-pill[aria-pressed="true"]) { background:var(--brand-navy); color:#fff; border-color:var(--brand-navy); }
+:where(.schema-panel[hidden]) { display:none; }
+:where(.schema-compare-grid) { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr)); gap:.85rem; }
+:where(.schema-mini-box) { padding:.8rem .9rem; border-radius:var(--radius-sm); border:1px solid var(--border-subtle); background:var(--bg-surface-alt); font-size:.89rem; }
+:where(.schema-mini-box strong) { display:block; margin-bottom:.3rem; color:var(--text-accent); }
+:where(.schema-svg-wrap) { background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:.65rem; overflow-x:auto; }
+:where(.schema-svg-wrap svg) { display:block; width:100%; height:auto; }
+:where(.schema-selfcheck) { border:1px solid var(--border-subtle); border-radius:var(--radius-sm); background:var(--bg-tint); padding:.6rem .85rem; font-size:.88rem; }
+:where(.schema-selfcheck summary) { cursor:pointer; font-weight:700; color:var(--text-accent); }
+</style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Salta al contenuto principale</a>
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar"></div></div>
+
+  <header class="topbar">
+    <div class="topbar-nav-row">
+      <div class="topbar-brand">
+        <a class="topbar-home-link" href="index.html">
+          <span class="topbar-title">Carico Cognitivo &amp; Accessibilità</span>
+        </a>
+        <span class="topbar-title-sub">Didattica Speciale e Progettazione Inclusiva</span>
+      </div>
+
+      <button type="button" id="menu-toggle-btn" class="menu-toggle-btn" popovertarget="site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Apri menu di navigazione">
+        ☰ Menu
+      </button>
+
+      <nav id="site-nav" class="site-nav" popover="auto" aria-label="Navigazione principale del sito">
+          <a href="index.html">Fondamenti</a>
+          <a href="multimedialita.html">Multimedialità</a>
+          <a href="inclusione.html">Inclusione</a>
+          <a href="laboratori.html">Laboratori &amp; 3D</a>
+          <a href="schemi-didattici.html" aria-current="page">Schemi Didattici</a>
+          <a href="valutazione-risorse.html">Valutazione &amp; Risorse</a>
+      </nav>
+    </div>
+
+    <div class="topbar-udl-row">
+      <div class="topbar-controls" role="toolbar" aria-label="Controlli UDL di lettura e tema">
+        <button type="button" id="mobile-toc-toggle" class="ctrl-btn mobile-toc-btn" aria-expanded="false" aria-controls="sidebar-nav">Sezioni</button>
+        <button type="button" id="udl-font" class="ctrl-btn" aria-pressed="false" title="Attiva carattere ad alta leggibilità">Font Leggibile</button>
+        <button type="button" id="udl-spacing" class="ctrl-btn" aria-pressed="false" title="Aumenta interlinea e spaziatura">Spaziatura +</button>
+        <button type="button" id="udl-clean" class="ctrl-btn" aria-pressed="false" title="Nasconde i riquadri di approfondimento e schemi contestuali">Solo Testo</button>
+        <span aria-hidden="true" style="width:1px;height:20px;background:var(--border-subtle);margin:0 0.1rem;"></span>
+        <button type="button" id="theme-auto" class="ctrl-btn" aria-pressed="true">Auto</button>
+        <button type="button" id="theme-light" class="ctrl-btn" aria-pressed="false">Chiaro</button>
+        <button type="button" id="theme-dark" class="ctrl-btn" aria-pressed="false">Scuro</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="workspace-shell">
+    <aside class="sidebar-nav" id="sidebar-nav" aria-label="Indice di pagina e ricerca globale">
+      <div class="search-box">
+        <label for="doc-search-input" class="search-label">Cerca nel sito e in questa pagina</label>
+        <div class="search-input-row">
+          <input type="search" id="doc-search-input" class="search-input" placeholder="Es. split-attention, Ianes, fading..." autocomplete="off">
+          <button type="button" id="doc-search-clear" class="ctrl-btn" aria-label="Pulisci ricerca" title="Pulisci ricerca">✕</button>
+        </div>
+        <div id="doc-search-status" class="search-status" aria-live="polite"></div>
+        <div id="global-search-results" class="global-search-results" hidden aria-label="Risultati nelle altre pagine"></div>
+      </div>
+
+      <nav class="sidebar-pages" aria-label="Pagine del portale">
+        <a class="sidebar-page-link" href="index.html"><span>Fondamenti</span></a>
+        <a class="sidebar-page-link" href="multimedialita.html"><span>Multimedialità</span></a>
+        <a class="sidebar-page-link" href="inclusione.html"><span>Inclusione</span></a>
+        <a class="sidebar-page-link" href="laboratori.html"><span>Laboratori &amp; 3D</span></a>
+        <a class="sidebar-page-link" href="schemi-didattici.html" aria-current="page"><span>Schemi Didattici</span></a>
+        <a class="sidebar-page-link" href="valutazione-risorse.html"><span>Valutazione &amp; Risorse</span></a>
+      </nav>
+
+      <nav class="toc-nav" aria-label="Indice delle sezioni in questa pagina">
+        <ul class="toc-list">
+          <li><a class="" href="#atlante-schemi-didattici">Atlante degli Schemi Didattici Interattivi (14 Modelli)</a></li>
+          <li><a class="toc-sublink" href="#schema-01">Manuale d&#x27;Uso della Mente: I 5 Sottosistemi e il Modello a 4 Livelli (Ianes)</a></li>
+          <li><a class="toc-sublink" href="#schema-02">Collo di Bottiglia della Memoria di Lavoro, Chunking e Controllo Esecutivo</a></li>
+          <li><a class="toc-sublink" href="#schema-03">Curva dell&#x27;Oblio di Ebbinghaus, Sovra-apprendimento e Pratica Distribuita</a></li>
+          <li><a class="toc-sublink" href="#schema-04">Schemi in MLT (Novizio vs Esperto) e Ponte Analogico di Ausubel</a></li>
+          <li><a class="toc-sublink" href="#schema-05">Reti Semantiche (Willingham) ed Efficacia Empirica degli Organizzatori Grafici</a></li>
+          <li><a class="toc-sublink" href="#schema-06">Collo di Bottiglia WM, Interattività degli Elementi e Bilancia dei 3 Carichi</a></li>
+          <li><a class="toc-sublink" href="#schema-07">Architettura CTML a Doppio Canale e Tassonomia delle Relazioni (SP · TE · SE)</a></li>
+          <li><a class="toc-sublink" href="#schema-08">Principio di Coerenza, Design Integrato «Colpo di Frusta» e Setting d&#x27;Aula</a></li>
+          <li><a class="toc-sublink" href="#schema-09">Doppio Pannello delle Leve Progettuali: Intrinseco vs Rilevante (Germane)</a></li>
+          <li><a class="toc-sublink" href="#schema-10">Expertise Reversal Effect (Kalyuga) e Continuum di Autonomia a 4 Stadi</a></li>
+          <li><a class="toc-sublink" href="#schema-11">Metamemoria in Contesto (Cornoldi) e Regia Verbale con Wait Time</a></li>
+          <li><a class="toc-sublink" href="#schema-12">Ponte dell&#x27;Adattamento Funzionale e Triade dell&#x27;Insegnamento Inclusivo</a></li>
+          <li><a class="toc-sublink" href="#schema-13">Matrice BES · Colli di Bottiglia della WM e Leve UDL Compensative</a></li>
+          <li><a class="toc-sublink" href="#schema-14">Flusso Decisionale di Riprogettazione Inclusiva e Think-Aloud a 4 Mosse</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main id="main-content" class="content-column" tabindex="-1">
+      <h1 class="sr-only">Atlante degli Schemi Didattici Interattivi</h1>
+      <nav class="breadcrumb" aria-label="Percorso">
+  <a href="index.html">Fondamenti</a>
+  <span aria-hidden="true">/</span>
+  <span aria-current="page">Schemi Didattici</span>
+</nav>
+      <section class="chapter-card" id="atlante-schemi-didattici" tabindex="-1" aria-labelledby="atlante-title">
+  <h2 class="chapter-title" id="atlante-title">Atlante degli Schemi Didattici Interattivi (14 Modelli)</h2>
+  <p class="lab-lead">Raccolta unitaria di schemi originali progettati secondo i principi del Dual Coding, della contiguità spaziale e della regolazione metacognitiva. Filtra per area teorica, alterna le viste comparative o espandi ciascun modello per la proiezione in aula.</p>
+  <div style="display:flex; flex-wrap:wrap; gap:0.45rem; margin-bottom:1.15rem;" role="group" aria-label="Filtra schemi per area teorica">
+    <button type="button" class="ctrl-btn" data-schema-filter="all" aria-pressed="true">Tutti gli schemi (14)</button>
+    <button type="button" class="ctrl-btn" data-schema-filter="architettura" aria-pressed="false">Architettura &amp; Memoria (5)</button>
+    <button type="button" class="ctrl-btn" data-schema-filter="carichi" aria-pressed="false">Tripartizione CLT (1)</button>
+    <button type="button" class="ctrl-btn" data-schema-filter="multimedialita" aria-pressed="false">Multimedialità CTML (2)</button>
+    <button type="button" class="ctrl-btn" data-schema-filter="regolazione" aria-pressed="false">Regolazione &amp; Expertise (3)</button>
+    <button type="button" class="ctrl-btn" data-schema-filter="inclusione" aria-pressed="false">Inclusione &amp; Progettazione (3)</button>
+  </div>
+  <div class="schema-atlas-grid">
+    <article class="schema-card" id="schema-01" data-schema-cat="architettura" aria-labelledby="schema-01-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 01 · Architettura Mentale</span>
+      <h4 class="schema-card-title" id="schema-01-title">Manuale d'Uso della Mente: I 5 Sottosistemi e il Modello a 4 Livelli (Ianes)</h4>
+      <p class="schema-card-subtitle">Come tradurre il funzionamento cognitivo in consapevolezza accessibile prima e durante l'apprendimento.</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-01" aria-label="Espandi schema 01: Manuale d&#x27;Uso della Mente: I 5 Sottosistemi e il Modello a 4 Livelli (Ianes)">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Manuale d&#x27;Uso della Mente: I 5 Sottosistemi e il Modello a 4 Livelli (Ianes)">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">I 5 Moduli del Pensiero</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">4 Livelli di Ianes × Limite Individuale</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 225" role="img" aria-label="Schema dei 5 moduli cognitivi: Percezione e Attenzione, Memoria, Apprendimento, Emozioni e Ragionamento Logico">
+  <rect x="8" y="10" width="140" height="205" rx="10" fill="#1e3a8a"/>
+  <text x="78" y="38" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">1. Percezione</text>
+  <text x="78" y="55" text-anchor="middle" fill="#dbeafe" font-size="11">&amp; Attenzione</text>
+  <text x="78" y="88" text-anchor="middle" fill="#ffffff" font-size="10.5">Filtro selettivo</text>
+  <text x="78" y="106" text-anchor="middle" fill="#ffffff" font-size="10.5">Sostenuta vs</text>
+  <text x="78" y="122" text-anchor="middle" fill="#ffffff" font-size="10.5">Divisa / Selettiva</text>
+  <text x="78" y="160" text-anchor="middle" fill="#93c5fd" font-size="10">Porta d'ingresso</text>
+  <text x="78" y="176" text-anchor="middle" fill="#93c5fd" font-size="10">dell'informazione</text>
+
+  <rect x="159" y="10" width="140" height="205" rx="10" fill="#0f766e"/>
+  <text x="229" y="38" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">2. Memoria</text>
+  <text x="229" y="55" text-anchor="middle" fill="#ccfbf1" font-size="11">3 Fasi Attive</text>
+  <text x="229" y="88" text-anchor="middle" fill="#ffffff" font-size="10.5">Codifica (Chunking)</text>
+  <text x="229" y="106" text-anchor="middle" fill="#ffffff" font-size="10.5">Immagazzinamento</text>
+  <text x="229" y="122" text-anchor="middle" fill="#ffffff" font-size="10.5">Recupero (Loci)</text>
+  <text x="229" y="160" text-anchor="middle" fill="#99f6e4" font-size="10">WM: 4±1 slot</text>
+  <text x="229" y="176" text-anchor="middle" fill="#99f6e4" font-size="10">MLT: illimitata</text>
+
+  <rect x="310" y="10" width="140" height="205" rx="10" fill="#0369a1"/>
+  <text x="380" y="38" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">3. Apprendimento</text>
+  <text x="380" y="55" text-anchor="middle" fill="#e0f2fe" font-size="11">Ciclo di Cambio</text>
+  <text x="380" y="88" text-anchor="middle" fill="#ffffff" font-size="10.5">Acquisizione</text>
+  <text x="380" y="106" text-anchor="middle" fill="#ffffff" font-size="10.5">Consolidamento</text>
+  <text x="380" y="122" text-anchor="middle" fill="#ffffff" font-size="10.5">Applicazione</text>
+  <text x="380" y="160" text-anchor="middle" fill="#bae6fd" font-size="10">Costruzione di</text>
+  <text x="380" y="176" text-anchor="middle" fill="#bae6fd" font-size="10">nuovi schemi</text>
+
+  <rect x="461" y="10" width="140" height="205" rx="10" fill="#9a3412"/>
+  <text x="531" y="38" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">4. Emozioni</text>
+  <text x="531" y="55" text-anchor="middle" fill="#ffedd5" font-size="11">Motore &amp; Filtro</text>
+  <text x="531" y="88" text-anchor="middle" fill="#ffffff" font-size="10.5">Attivanti (Gioia,</text>
+  <text x="531" y="106" text-anchor="middle" fill="#ffffff" font-size="10.5">Curiosità) vs</text>
+  <text x="531" y="122" text-anchor="middle" fill="#ffffff" font-size="10.5">Bloccanti (Ansia)</text>
+  <text x="531" y="160" text-anchor="middle" fill="#fed7aa" font-size="10">Riducono o saturano</text>
+  <text x="531" y="176" text-anchor="middle" fill="#fed7aa" font-size="10">la WM disponibile</text>
+
+  <rect x="612" y="10" width="140" height="205" rx="10" fill="#4338ca"/>
+  <text x="682" y="38" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">5. Ragionamento</text>
+  <text x="682" y="55" text-anchor="middle" fill="#e0e7ff" font-size="11">Logica &amp; Critica</text>
+  <text x="682" y="88" text-anchor="middle" fill="#ffffff" font-size="10.5">Premesse + Dati</text>
+  <text x="682" y="106" text-anchor="middle" fill="#ffffff" font-size="10.5">Evidenze vs Bias</text>
+  <text x="682" y="122" text-anchor="middle" fill="#ffffff" font-size="10.5">Transfer attivo</text>
+  <text x="682" y="160" text-anchor="middle" fill="#c7d2fe" font-size="10">Monitoraggio degli</text>
+  <text x="682" y="176" text-anchor="middle" fill="#c7d2fe" font-size="10">errori cognitivi</text>
+</svg></div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-compare-grid">
+  <div class="schema-mini-box"><strong>Architettura Universale (Norma)</strong>Tutti gli studenti condividono gli stessi sistemi di memoria, filtro attentivo e collo di bottiglia esecutivo: spiegare «come funziona la mente» demistifica l'errore come segnale di progetto, non come colpa personale.</div>
+  <div class="schema-mini-box"><strong>Variabilità Individuale (Limite)</strong>Capacità attentiva, velocità di decodifica o automatismi variano fortemente: il docente specializzato trasforma i 4 livelli di Ianes (conoscenze → autoconsapevolezza → autoregolazione → locus/autoefficacia) in supporti tarati sul profilo reale.</div>
+</div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · Perché il 1° livello di Ianes è propedeutico all'autoregolazione?</summary>
+    <p>Perché nessuno può regolare efficacemente attenzione, memoria o ansia (3° livello) senza possedere prima una rappresentazione chiara dei limiti fisiologici e dei meccanismi con cui la mente codifica e recupera (1° livello).</p>
+  </details>
+</article>
+<article class="schema-card" id="schema-02" data-schema-cat="architettura" aria-labelledby="schema-02-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 02 · Architettura Mentale</span>
+      <h4 class="schema-card-title" id="schema-02-title">Collo di Bottiglia della Memoria di Lavoro, Chunking e Controllo Esecutivo</h4>
+      <p class="schema-card-subtitle">Dalla dispersione di 15 elementi isolati al raggruppamento in 3 chunk governato dal triangolo metacognitivo.</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-02" aria-label="Espandi schema 02: Collo di Bottiglia della Memoria di Lavoro, Chunking e Controllo Esecutivo">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Collo di Bottiglia della Memoria di Lavoro, Chunking e Controllo Esecutivo">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">Prima vs Dopo: Raggruppamento (Chunking)</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">Motore Esecutivo (Cornoldi & Caponi, 1991)</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 215" role="img" aria-label="Confronto tra 15 elementi sparsi che saturano la Memoria di Lavoro e 3 chunk organizzati che rientrano nel limite 4 più o meno 1">
+  <rect x="12" y="12" width="350" height="190" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="187" y="38" text-anchor="middle" fill="#991b1b" font-size="13" font-weight="700">PRIMA: 15 elementi isolati → SOVRACCARICO</text>
+  <circle cx="52" cy="74" r="14" fill="#ef4444"/><circle cx="110" cy="88" r="14" fill="#f59e0b"/>
+  <rect x="155" y="64" width="24" height="24" fill="#2563eb"/><circle cx="232" cy="78" r="14" fill="#ef4444"/>
+  <polygon points="295,62 311,90 279,90" fill="#10b981"/>
+  <rect x="44" y="114" width="24" height="24" fill="#2563eb"/><polygon points="118,112 134,140 102,140" fill="#10b981"/>
+  <circle cx="176" cy="126" r="14" fill="#f59e0b"/><rect x="220" y="114" width="24" height="24" fill="#2563eb"/>
+  <circle cx="298" cy="126" r="14" fill="#f59e0b"/>
+  <text x="187" y="176" text-anchor="middle" fill="#991b1b" font-size="11.5" font-weight="700">Supera i 4±1 slot attivi · Decadimento 20–30 s</text>
+
+  <line x1="366" y1="107" x2="386" y2="107" stroke="#0f766e" stroke-width="4"/><polygon points="385,99 398,107 385,115" fill="#0f766e"/>
+  <rect x="398" y="12" width="350" height="190" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+  <text x="573" y="38" text-anchor="middle" fill="#065f46" font-size="13" font-weight="700">DOPO: 3 Chunk Categoriali → LIBERTÀ IN WM</text>
+  <rect x="418" y="56" width="96" height="92" rx="8" fill="#ffffff" stroke="#059669"/>
+  <text x="466" y="74" text-anchor="middle" fill="#065f46" font-size="11" font-weight="700">Chunk A</text>
+  <circle cx="448" cy="100" r="10" fill="#ef4444"/><circle cx="484" cy="100" r="10" fill="#ef4444"/><circle cx="466" cy="128" r="10" fill="#ef4444"/>
+  <rect x="526" y="56" width="96" height="92" rx="8" fill="#ffffff" stroke="#059669"/>
+  <text x="574" y="74" text-anchor="middle" fill="#065f46" font-size="11" font-weight="700">Chunk B</text>
+  <rect x="546" y="90" width="18" height="18" fill="#2563eb"/><rect x="582" y="90" width="18" height="18" fill="#2563eb"/><rect x="564" y="118" width="18" height="18" fill="#2563eb"/>
+  <rect x="634" y="56" width="96" height="92" rx="8" fill="#ffffff" stroke="#059669"/>
+  <text x="682" y="74" text-anchor="middle" fill="#065f46" font-size="11" font-weight="700">Chunk C</text>
+  <polygon points="660,90 672,110 648,110" fill="#10b981"/><polygon points="698,90 710,110 686,110" fill="#10b981"/><circle cx="679" cy="128" r="9" fill="#f59e0b"/>
+  <text x="573" y="176" text-anchor="middle" fill="#065f46" font-size="11.5" font-weight="700">3 unità su 4 slot · Resta spazio per ragionare</text>
+</svg></div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-compare-grid">
+  <div class="schema-mini-box"><strong>1. Conoscenza Metacognitiva</strong>Consapevolezza del proprio funzionamento mnestico (limiti 7±2 e 4±1, decadimento rapido senza ripasso) e del repertorio di strategie possibili.</div>
+  <div class="schema-mini-box"><strong>2. Processi di Controllo Esecutivo</strong>Previsione della difficoltà, pianificazione del chunking, monitoraggio in itinere dell'attenzione e correzione di rotta.</div>
+  <div class="schema-mini-box"><strong>3. Attività Cognitiva &amp; Prestazione</strong>Codifica profonda, organizzazione e transfer verso la Memoria a Lungo Termine con riduzione dello sforzo sprecato.</div>
+</div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · Che differenza passa tra la stima 7±2 (Miller) e 4±1 (Cowan)?</summary>
+    <p>7±2 misura la ritenzione immediata passiva (es. ripetere una sequenza appena ascoltata); 4±1 riguarda gli elementi nuovi che la WM riesce a manipolare, confrontare e integrare simultaneamente durante un ragionamento attivo.</p>
+  </details>
+</article>
+<article class="schema-card" id="schema-03" data-schema-cat="architettura" aria-labelledby="schema-03-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 03 · Architettura Mentale</span>
+      <h4 class="schema-card-title" id="schema-03-title">Curva dell'Oblio di Ebbinghaus, Sovra-apprendimento e Pratica Distribuita</h4>
+      <p class="schema-card-subtitle">Come il recupero spaziato trasforma il decadimento esponenziale in ritenzione stabile a lungo termine.</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-03" aria-label="Espandi schema 03: Curva dell&#x27;Oblio di Ebbinghaus, Sovra-apprendimento e Pratica Distribuita">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Curva dell&#x27;Oblio di Ebbinghaus, Sovra-apprendimento e Pratica Distribuita">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">Confronto Grafico Oblio vs Recupero Spaziato</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">Regole Operative per il Ripasso in Classe</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 220" role="img" aria-label="Curva dell'oblio di Ebbinghaus con studio concentrato che decade rapidamente rispetto a richiami distribuiti che stabilizzano il ricordo">
+  <line x1="65" y1="180" x2="720" y2="180" stroke="#64748b" stroke-width="2"/>
+  <line x1="65" y1="22" x2="65" y2="180" stroke="#64748b" stroke-width="2"/>
+  <text x="34" y="34" text-anchor="middle" fill="var(--text-muted)" font-size="11">100%</text>
+  <text x="34" y="180" text-anchor="middle" fill="var(--text-muted)" font-size="11">0%</text>
+  <text x="392" y="205" text-anchor="middle" fill="var(--text-muted)" font-size="11">Tempo dal primo apprendimento (Giorno 0 → Giorno 1 → Giorno 7 → Giorno 30)</text>
+  <path d="M65 34 Q140 135 280 156 T710 166" fill="none" stroke="var(--load-extraneous, #dc2626)" stroke-width="3" stroke-dasharray="7 5"/>
+  <text x="720" y="148" text-anchor="end" fill="var(--load-extraneous, #dc2626)" font-size="11.5" font-weight="700">Studio concentrato (Massed): decadimento rapido</text>
+  <path d="M65 34 Q115 95 160 108 L165 36 Q240 65 315 78 L320 38 Q440 50 540 56 L545 40 Q640 44 710 47" fill="none" stroke="var(--load-germane, #0f766e)" stroke-width="3.5"/>
+  <circle cx="165" cy="36" r="5" fill="var(--load-germane, #0f766e)"/><circle cx="320" cy="38" r="5" fill="var(--load-germane, #0f766e)"/><circle cx="545" cy="40" r="5" fill="var(--load-germane, #0f766e)"/>
+  <text x="720" y="26" text-anchor="end" fill="var(--load-germane, #0f766e)" font-size="12" font-weight="700">Recupero distribuito (Spaced Retrieval + Overlearning)</text>
+</svg></div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-compare-grid">
+  <div class="schema-mini-box"><strong>Pratica Distribuita (d = 0,71)</strong>Frazionare il ripasso in brevi sessioni di recupero attivo distanziate nel tempo (1°, 3°, 7°, 21° giorno) stabilizza le tracce sinaptiche senza saturare la WM.</div>
+  <div class="schema-mini-box"><strong>Pratica Intervallata e Variata (Interleaving)</strong>Alternare tipologie diverse di problemi o concetti impedisce l'illusione di competenza meccanica e potenzia la discriminazione degli schemi in MLT.</div>
+</div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · Perché il sovra-apprendimento (overlearning) moderato aiuta il carico cognitivo futuro?</summary>
+    <p>Perché consolida gli schemi di base oltre la soglia minima di riuscita, rendendone il recupero automatico e liberando slot della Memoria di Lavoro per i compiti complessi successivi.</p>
+  </details>
+</article>
+<article class="schema-card" id="schema-04" data-schema-cat="architettura" aria-labelledby="schema-04-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 04 · Architettura Mentale</span>
+      <h4 class="schema-card-title" id="schema-04-title">Schemi in MLT (Novizio vs Esperto) e Ponte Analogico di Ausubel</h4>
+      <p class="schema-card-subtitle">Come gli schemi compressi abbattono il peso in WM e come l'analogia ancora il nuovo sapere alle preconoscenze.</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-04" aria-label="Espandi schema 04: Schemi in MLT (Novizio vs Esperto) e Ponte Analogico di Ausubel">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Schemi in MLT (Novizio vs Esperto) e Ponte Analogico di Ausubel">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">Occupazione WM: Novizio vs Esperto</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">Ponte Analogico (Idraulica ↔ Elettricità)</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 210" role="img" aria-label="Novizio con 4 slot di WM saturati da micro-elementi isolati rispetto all'Esperto che occupa 1 solo slot con uno schema automatizzato dalla MLT">
+  <rect x="14" y="14" width="352" height="182" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="190" y="38" text-anchor="middle" fill="#9a3412" font-size="13" font-weight="700">NOVIZIO · WM SATURA (4/4 slot occupati)</text>
+  <rect x="34" y="54" width="72" height="62" rx="6" fill="#fed7aa" stroke="#ea580c"/>
+  <text x="70" y="88" text-anchor="middle" fill="#7c2d12" font-size="11" font-weight="700">Elem. 1</text>
+  <rect x="114" y="54" width="72" height="62" rx="6" fill="#fed7aa" stroke="#ea580c"/>
+  <text x="150" y="88" text-anchor="middle" fill="#7c2d12" font-size="11" font-weight="700">Elem. 2</text>
+  <rect x="194" y="54" width="72" height="62" rx="6" fill="#fed7aa" stroke="#ea580c"/>
+  <text x="230" y="88" text-anchor="middle" fill="#7c2d12" font-size="11" font-weight="700">Elem. 3</text>
+  <rect x="274" y="54" width="72" height="62" rx="6" fill="#fed7aa" stroke="#ea580c"/>
+  <text x="310" y="88" text-anchor="middle" fill="#7c2d12" font-size="11" font-weight="700">Elem. 4</text>
+  <text x="190" y="145" text-anchor="middle" fill="#9a3412" font-size="11">Nessuno schema unitario in MLT: alta fatica di</text>
+  <text x="190" y="162" text-anchor="middle" fill="#9a3412" font-size="11">ricerca mezzi-fini e rischio blocco operativo.</text>
+
+  <rect x="394" y="14" width="352" height="182" rx="10" fill="#f0fdf4" stroke="#15803d" stroke-width="2"/>
+  <text x="570" y="38" text-anchor="middle" fill="#14532d" font-size="13" font-weight="700">ESPERTO · SCHEMA AUTOMATIZZATO (1/4 slot)</text>
+  <rect x="414" y="54" width="102" height="62" rx="6" fill="#15803d"/>
+  <text x="465" y="82" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">1 Schema MLT</text>
+  <text x="465" y="98" text-anchor="middle" fill="#dcfce7" font-size="10">(contiene E1..E6)</text>
+  <rect x="526" y="54" width="66" height="62" rx="6" fill="#ffffff" stroke="#86efac" stroke-dasharray="4 3"/>
+  <text x="559" y="89" text-anchor="middle" fill="#166534" font-size="10">Libero</text>
+  <rect x="600" y="54" width="66" height="62" rx="6" fill="#ffffff" stroke="#86efac" stroke-dasharray="4 3"/>
+  <text x="633" y="89" text-anchor="middle" fill="#166534" font-size="10">Libero</text>
+  <rect x="674" y="54" width="56" height="62" rx="6" fill="#ffffff" stroke="#86efac" stroke-dasharray="4 3"/>
+  <text x="702" y="89" text-anchor="middle" fill="#166534" font-size="10">Libero</text>
+  <text x="570" y="145" text-anchor="middle" fill="#14532d" font-size="11">3 slot restano liberi per pianificare strategie,</text>
+  <text x="570" y="162" text-anchor="middle" fill="#14532d" font-size="11">controllare eccezioni e trasferire il sapere.</text>
+</svg></div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-compare-grid">
+  <div class="schema-mini-box"><strong>Dominio Noto (Circuito Idraulico)</strong>Pompa che spinge l'acqua · Dislivello di pressione (<em>h</em>) · Portata d'acqua nei tubi · Turbina che gira.</div>
+  <div class="schema-mini-box"><strong>Nuovo Dominio Ancorato (Circuito Elettrico)</strong>Generatore/Pila che spinge le cariche · Differenza di potenziale (<em>ΔV</em>) · Intensità di corrente nei cavi · Lampadina/Utilizzatore.</div>
+</div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · Cosa rende efficace un organizzatore anticipato prima della lezione?</summary>
+    <p>Attivare uno schema preesistente nella MLT (es. l'esperienza concreta con l'acqua) a cui il nuovo concetto astratto (potenziale e corrente) si aggancia immediatamente riducendo l'interattività percepita.</p>
+  </details>
+</article>
+<article class="schema-card" id="schema-05" data-schema-cat="architettura" aria-labelledby="schema-05-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 05 · Architettura Mentale</span>
+      <h4 class="schema-card-title" id="schema-05-title">Reti Semantiche (Willingham) ed Efficacia Empirica degli Organizzatori Grafici</h4>
+      <p class="schema-card-subtitle">Come rappresentare visivamente le relazioni tra concetti in base alle evidenze sperimentali (d di Cohen).</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-05" aria-label="Espandi schema 05: Reti Semantiche (Willingham) ed Efficacia Empirica degli Organizzatori Grafici">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Reti Semantiche (Willingham) ed Efficacia Empirica degli Organizzatori Grafici">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">Rete Semantica Attivata</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">9 Tipologie & Effect Size Empirici</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 215" role="img" aria-label="Rete semantica centrata su un concetto che collega attributi percettivi, funzionali e confronti disciplinari">
+  <line x1="380" y1="108" x2="155" y2="48" stroke="#0f766e" stroke-width="2.5"/>
+  <line x1="380" y1="108" x2="155" y2="168" stroke="#0f766e" stroke-width="2.5"/>
+  <line x1="380" y1="108" x2="605" y2="48" stroke="#1e3a8a" stroke-width="2.5"/>
+  <line x1="380" y1="108" x2="605" y2="168" stroke="#1e3a8a" stroke-width="2.5"/>
+  <rect x="290" y="76" width="180" height="64" rx="32" fill="#1e3a8a"/>
+  <text x="380" y="105" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">CONCETTO CHIAVE</text>
+  <text x="380" y="123" text-anchor="middle" fill="#dbeafe" font-size="11">es. «Pianoforte» / «Fotosintesi»</text>
+  <rect x="35" y="22" width="185" height="52" rx="8" fill="#0f766e"/>
+  <text x="127" y="46" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Aspetto &amp; Suono</text>
+  <text x="127" y="63" text-anchor="middle" fill="#ccfbf1" font-size="10.5">Ancora sensoriale diretta</text>
+  <rect x="35" y="142" width="185" height="52" rx="8" fill="#0f766e"/>
+  <text x="127" y="166" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Funzione &amp; Uso</text>
+  <text x="127" y="183" text-anchor="middle" fill="#ccfbf1" font-size="10.5">Dove e come si applica</text>
+  <rect x="540" y="22" width="185" height="52" rx="8" fill="#0369a1"/>
+  <text x="632" y="46" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Confronti &amp; Differenze</text>
+  <text x="632" y="63" text-anchor="middle" fill="#e0f2fe" font-size="10.5">Analogia / opposizione</text>
+  <rect x="540" y="142" width="185" height="52" rx="8" fill="#4338ca"/>
+  <text x="632" y="166" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Esempi Guidati</text>
+  <text x="632" y="183" text-anchor="middle" fill="#e0e7ff" font-size="10.5">Casi prototipici concreti</text>
+</svg></div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-compare-grid">
+  <div class="schema-mini-box"><strong>Effect Size Documentati (Hattie / Marzano)</strong><ul><li><strong>Organizzatori grafici integrati:</strong> d = 1,07</li><li><strong>Grafi orientati causa-effetto:</strong> d = 0,62</li><li><strong>Mappe concettuali strutturate:</strong> d = 0,57</li><li><strong>Disegni esplicativi pertinenti:</strong> d = 0,40</li></ul></div>
+  <div class="schema-mini-box"><strong>Le 9 Forme Didattiche Utili</strong>Linea del tempo · Tabella comparativa · Diagramma di flusso · Mappa gerarchica · Schema a raggiera · Diagramma di Venn · Matrice T · Mappa causa-effetto · Organizzatore anticipato visivo.</div>
+</div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · Quando un organizzatore grafico rischia di produrre effetto inverso?</summary>
+    <p>Quando è troppo denso, privo di legami espliciti tra nodi o privo di parole-legame: in quel caso diventa ricerca visiva dispersiva (carico estraneo) anziché scaffolding.</p>
+  </details>
+</article>
+<article class="schema-card" id="schema-06" data-schema-cat="carichi" aria-labelledby="schema-06-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 06 · Tripartizione CLT</span>
+      <h4 class="schema-card-title" id="schema-06-title">Collo di Bottiglia WM, Interattività degli Elementi e Bilancia dei 3 Carichi</h4>
+      <p class="schema-card-subtitle">Perché la stessa nozione pesa 1 chunk per l'esperto e satura la WM del novizio.</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-06" aria-label="Espandi schema 06: Collo di Bottiglia WM, Interattività degli Elementi e Bilancia dei 3 Carichi">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Collo di Bottiglia WM, Interattività degli Elementi e Bilancia dei 3 Carichi">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">1 Chunk («Cioccolato») vs Alta Interattività («Acido Acetilsalicilico»)</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">Bilancia Dinamica della Tripartizione CLT</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-compare-grid">
+  <div class="schema-mini-box"><strong>Bassa Interattività / Schema Noto: «Cioccolato»</strong>Uno studente conosce già cosa significa «cioccolato» come singolo blocco unitario (<strong>1 chunk</strong>): la formula o il concetto viene manipolato senza costi aggiuntivi e lascia spazio per nuovi ragionamenti.</div>
+  <div class="schema-mini-box"><strong>Alta Interattività / Novizio: «Acido Acetilsalicilico»</strong>Per chi non possiede gli schemi chimici pregressi, anello benzenico + gruppo carbossilico + gruppo estere + valenze atomiche agiscono come <strong>6+ elementi interdipendenti</strong>: la WM satura prima di collegarli.</div>
+</div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 215" role="img" aria-label="Bilancia dei tre carichi cognitivi entro il tetto fisso della Memoria di Lavoro: ridurre il carico estraneo e governare l'intrinseco per liberare spazio al carico rilevante">
+  <rect x="20" y="18" width="720" height="28" rx="6" fill="#0f172a"/>
+  <text x="380" y="37" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">LIMITE BIOLOGICO FISSO DELLA MEMORIA DI LAVORO (100% DISPONIBILE)</text>
+  <rect x="20" y="64" width="340" height="128" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="190" y="88" text-anchor="middle" fill="#991b1b" font-size="12.5" font-weight="700">PROGETTAZIONE DISPERSIVA (OVERLOAD)</text>
+  <rect x="36" y="102" width="150" height="38" rx="4" fill="#dc2626"/>
+  <text x="111" y="125" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">Estraneo (45%)</text>
+  <rect x="190" y="102" width="150" height="38" rx="4" fill="#d97706"/>
+  <text x="265" y="125" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">Intrinseco (45%)</text>
+  <rect x="36" y="148" width="304" height="28" rx="4" fill="#94a3b8"/>
+  <text x="188" y="166" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="700">Rilevante / Germane soffocato (10%)</text>
+
+  <rect x="400" y="64" width="340" height="128" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+  <text x="570" y="88" text-anchor="middle" fill="#065f46" font-size="12.5" font-weight="700">PROGETTAZIONE CALIBRATA (OTTIMALE)</text>
+  <rect x="416" y="102" width="48" height="38" rx="4" fill="#dc2626"/>
+  <text x="440" y="125" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">Est. 8%</text>
+  <rect x="468" y="102" width="124" height="38" rx="4" fill="#d97706"/>
+  <text x="530" y="125" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">Intrinseco (38%)</text>
+  <rect x="596" y="102" width="128" height="38" rx="4" fill="#059669"/>
+  <text x="660" y="125" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">Rilevante (54%)</text>
+  <text x="570" y="166" text-anchor="middle" fill="#065f46" font-size="11" font-weight="700">Più risorse libere per costruire schemi stabili!</text>
+</svg></div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · Si può ridurre il carico intrinseco tagliando via la parte difficile del concetto fin dall'inizio?</summary>
+    <p>No: va governato tramite pre-training, segmentazione e sequenziamento graduale (semplice → complesso), mantenendo però integro il traguardo disciplinare finale.</p>
+  </details>
+</article>
+<article class="schema-card" id="schema-07" data-schema-cat="multimedialita" aria-labelledby="schema-07-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 07 · CTML & Multimedialità</span>
+      <h4 class="schema-card-title" id="schema-07-title">Architettura CTML a Doppio Canale e Tassonomia delle Relazioni (SP · TE · SE)</h4>
+      <p class="schema-card-subtitle">Integrare parola e immagine attraverso relazioni spaziali, temporali e semantiche evitando errori di canale.</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-07" aria-label="Espandi schema 07: Architettura CTML a Doppio Canale e Tassonomia delle Relazioni (SP · TE · SE)">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Architettura CTML a Doppio Canale e Tassonomia delle Relazioni (SP · TE · SE)">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">Mappa Relazioni SP · TE · SE</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">3 Scenari Tipici di Errore Progettuale</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 220" role="img" aria-label="Relazioni spaziali, temporali e semantiche tra Immagine, Testo Scritto, Testo Parlato e Animazione">
+  <rect x="40" y="20" width="220" height="62" rx="8" fill="#1e3a8a"/>
+  <text x="150" y="48" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Immagine / Grafico</text>
+  <text x="150" y="66" text-anchor="middle" fill="#dbeafe" font-size="10.5">Canale Visivo-Pittorico</text>
+
+  <rect x="500" y="20" width="220" height="62" rx="8" fill="#0f766e"/>
+  <text x="610" y="48" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Testo Scritto / Etichette</text>
+  <text x="610" y="66" text-anchor="middle" fill="#ccfbf1" font-size="10.5">Ingresso Visivo → Elaborazione Verbale</text>
+
+  <rect x="40" y="138" width="220" height="62" rx="8" fill="#0369a1"/>
+  <text x="150" y="166" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Animazione / Simulazione</text>
+  <text x="150" y="184" text-anchor="middle" fill="#e0f2fe" font-size="10.5">Dinamica temporale (Transitorietà)</text>
+
+  <rect x="500" y="138" width="220" height="62" rx="8" fill="#4338ca"/>
+  <text x="610" y="166" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Testo Parlato (Narrazione)</text>
+  <text x="610" y="184" text-anchor="middle" fill="#e0e7ff" font-size="10.5">Canale Uditivo-Verbale</text>
+
+  <line x1="260" y1="51" x2="500" y2="51" stroke="#0f766e" stroke-width="3"/>
+  <rect x="315" y="37" width="130" height="26" rx="13" fill="#ecfdf5" stroke="#0f766e"/>
+  <text x="380" y="54" text-anchor="middle" fill="#065f46" font-size="10.5" font-weight="700">SP · Contiguità Spaziale</text>
+
+  <line x1="260" y1="169" x2="500" y2="169" stroke="#4338ca" stroke-width="3"/>
+  <rect x="310" y="155" width="140" height="26" rx="13" fill="#eef2ff" stroke="#4338ca"/>
+  <text x="380" y="172" text-anchor="middle" fill="#312e81" font-size="10.5" font-weight="700">TE · Sincronia Temporale</text>
+
+  <line x1="260" y1="75" x2="500" y2="148" stroke="#d97706" stroke-width="2.5" stroke-dasharray="5 4"/>
+  <rect x="302" y="96" width="156" height="26" rx="13" fill="#fffbeb" stroke="#d97706"/>
+  <text x="380" y="113" text-anchor="middle" fill="#92400e" font-size="10.5" font-weight="700">SE · Coerenza Semantica</text>
+</svg></div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-compare-grid">
+  <div class="schema-mini-box"><strong>Scenario 1 · Sovraccarico Visivo (Modality Violation)</strong>Animazione complessa + lungo blocco di testo scritto sullo stesso schermo senza audio: il solo canale visivo gestisce due flussi simultanei.</div>
+  <div class="schema-mini-box"><strong>Scenario 2 · Ridondanza Nociva (Redundancy)</strong>Narrazione orale + sottotitolo/testo integrale identico proiettato parola per parola: lo studente spreca risorse cercando di allineare lettura e ascolto.</div>
+  <div class="schema-mini-box"><strong>Scenario 3 · Attenzione Divisa (Split-Attention)</strong>Grafico o schema da un lato e legenda numerata lontana o su pagina separata: va integrata l'etichetta direttamente sull'elemento visivo.</div>
+</div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · Quando l'abbinamento voce + breve testo scritto è utile anziché ridondante?</summary>
+    <p>Quando sullo schermo compaiono SOLO parole-chiave essenziali, simboli tecnici o brevi segnalatori (signaling), oppure nel caso di studenti con difficoltà di ascolto/comprensione linguistica che necessitano di supporto visivo sintetico.</p>
+  </details>
+</article>
+<article class="schema-card" id="schema-08" data-schema-cat="multimedialita" aria-labelledby="schema-08-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 08 · CTML & Multimedialità</span>
+      <h4 class="schema-card-title" id="schema-08-title">Principio di Coerenza, Design Integrato «Colpo di Frusta» e Setting d'Aula</h4>
+      <p class="schema-card-subtitle">Sostituire descrizioni separate con schemi integrati a 3 fasi e ripulire l'ambiente fisico e digitale dal rumore.</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-08" aria-label="Espandi schema 08: Principio di Coerenza, Design Integrato «Colpo di Frusta» e Setting d&#x27;Aula">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Principio di Coerenza, Design Integrato «Colpo di Frusta» e Setting d&#x27;Aula">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">Prima (Split-Attention) vs Dopo (Integrato)</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">4 Fonti di Carico Estraneo in Aula</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 210" role="img" aria-label="Esempio di integrazione spaziale sul modello del colpo di frusta: tre fasi sequenziali con brevi etichette integrate invece di una legenda esterna">
+  <rect x="16" y="16" width="225" height="178" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="128" y="42" text-anchor="middle" fill="#991b1b" font-size="12" font-weight="700">DA EVITARE (Split + Decorazione)</text>
+  <rect x="32" y="56" width="193" height="52" rx="6" fill="#ffffff" stroke="#fca5a5"/>
+  <text x="128" y="80" text-anchor="middle" fill="#7f1d1d" font-size="11">Grafico numerato 1, 2, 3</text>
+  <text x="128" y="96" text-anchor="middle" fill="#7f1d1d" font-size="10">+ clipart decorativa</text>
+  <rect x="32" y="118" width="193" height="62" rx="6" fill="#ffffff" stroke="#fca5a5"/>
+  <text x="128" y="140" text-anchor="middle" fill="#7f1d1d" font-size="10.5">Legenda lontana in prosa</text>
+  <text x="128" y="156" text-anchor="middle" fill="#7f1d1d" font-size="10.5">con 95 parole identiche</text>
+  <text x="128" y="170" text-anchor="middle" fill="#7f1d1d" font-size="10.5">all'audio del docente</text>
+
+  <rect x="260" y="16" width="484" height="178" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+  <text x="502" y="42" text-anchor="middle" fill="#065f46" font-size="12.5" font-weight="700">DESIGN INTEGRATO (Contiguità + Modalità + Coerenza)</text>
+  <rect x="278" y="60" width="142" height="114" rx="8" fill="#ffffff" stroke="#059669"/>
+  <text x="349" y="84" text-anchor="middle" fill="#065f46" font-size="11.5" font-weight="700">Fase 1 · Urto</text>
+  <text x="349" y="106" text-anchor="middle" fill="#334155" font-size="10.5">Spinta anteriore</text>
+  <text x="349" y="124" text-anchor="middle" fill="#334155" font-size="10.5">del sedile sul tronco</text>
+  <text x="349" y="158" text-anchor="middle" fill="#0f766e" font-size="10" font-weight="700">Etichetta sul punto</text>
+
+  <rect x="431" y="60" width="142" height="114" rx="8" fill="#ffffff" stroke="#059669"/>
+  <text x="502" y="84" text-anchor="middle" fill="#065f46" font-size="11.5" font-weight="700">Fase 2 · Estensione</text>
+  <text x="502" y="106" text-anchor="middle" fill="#334155" font-size="10.5">Inerzia del capo</text>
+  <text x="502" y="124" text-anchor="middle" fill="#334155" font-size="10.5">e iperestensione</text>
+  <text x="502" y="158" text-anchor="middle" fill="#0f766e" font-size="10" font-weight="700">+ Audio narrato</text>
+
+  <rect x="584" y="60" width="142" height="114" rx="8" fill="#ffffff" stroke="#059669"/>
+  <text x="655" y="84" text-anchor="middle" fill="#065f46" font-size="11.5" font-weight="700">Fase 3 · Flessione</text>
+  <text x="655" y="106" text-anchor="middle" fill="#334155" font-size="10.5">Rimbalzo in avanti</text>
+  <text x="655" y="124" text-anchor="middle" fill="#334155" font-size="10.5">e controllo cervicale</text>
+  <text x="655" y="158" text-anchor="middle" fill="#0f766e" font-size="10" font-weight="700">Zero dettagli superflui</text>
+</svg></div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-compare-grid">
+  <div class="schema-mini-box"><strong>1. Rumore &amp; Sovraffollamento Acustico</strong>Brusio costante, riverbero e interruzioni drenano risorse attentive dalla WM uditiva.</div>
+  <div class="schema-mini-box"><strong>2. Transitorietà &amp; Ritmo Eccessivo</strong>Spiegare rapidamente senza pause o appigli visivi permanenti fa decadere i dati entro 20–30 s.</div>
+  <div class="schema-mini-box"><strong>3. Consegne Ambigue o Dispersive</strong>Istruzioni multi-step tutte insieme costringono a ricordare la procedura invece di eseguire il compito.</div>
+  <div class="schema-mini-box"><strong>4. Dettagli Seducenti (Seductive Details)</strong>Aneddoti spettacolari, musica di sottofondo o animazioni non pertinenti competono con l'idea centrale.</div>
+</div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · Perché le animazioni decorative non pertinenti danneggiano anche studenti motivati?</summary>
+    <p>Perché catturano automaticamente l'orientamento attentivo visivo, consumando slot finiti della Memoria di Lavoro senza contribuire alla costruzione dello schema disciplinare.</p>
+  </details>
+</article>
+<article class="schema-card" id="schema-09" data-schema-cat="regolazione" aria-labelledby="schema-09-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 09 · Regolazione & Expertise</span>
+      <h4 class="schema-card-title" id="schema-09-title">Doppio Pannello delle Leve Progettuali: Intrinseco vs Rilevante (Germane)</h4>
+      <p class="schema-card-subtitle">Le 5 azioni per rendere gestibile la complessità (Intrinseco) e le 5 per stimolare schemi durevoli (Rilevante).</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-09" aria-label="Espandi schema 09: Doppio Pannello delle Leve Progettuali: Intrinseco vs Rilevante (Germane)">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Doppio Pannello delle Leve Progettuali: Intrinseco vs Rilevante (Germane)">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">5 Leve sul Carico Intrinseco</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">5 Leve sul Carico Rilevante (Germane)</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 190" role="img" aria-label="Cinque leve sul carico intrinseco: Pre-training, Chunking, Sequencing, Pacing controllato dallo studente e Modalità uditivo-visiva">
+  <rect x="12" y="20" width="138" height="150" rx="8" fill="#b45309"/>
+  <text x="81" y="48" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Pre-training</text>
+  <text x="81" y="78" text-anchor="middle" fill="#fef3c7" font-size="10.5">Nomi e concetti base</text>
+  <text x="81" y="96" text-anchor="middle" fill="#fef3c7" font-size="10.5">prima della procedura</text>
+  <rect x="161" y="20" width="138" height="150" rx="8" fill="#b45309"/>
+  <text x="230" y="48" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Chunking</text>
+  <text x="230" y="78" text-anchor="middle" fill="#fef3c7" font-size="10.5">Segmenti brevi</text>
+  <text x="230" y="96" text-anchor="middle" fill="#fef3c7" font-size="10.5">con micro-pause</text>
+  <rect x="310" y="20" width="138" height="150" rx="8" fill="#b45309"/>
+  <text x="379" y="48" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Sequencing</text>
+  <text x="379" y="78" text-anchor="middle" fill="#fef3c7" font-size="10.5">Dal semplice al</text>
+  <text x="379" y="96" text-anchor="middle" fill="#fef3c7" font-size="10.5">complesso interattivo</text>
+  <rect x="459" y="20" width="138" height="150" rx="8" fill="#b45309"/>
+  <text x="528" y="48" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Pacing</text>
+  <text x="528" y="78" text-anchor="middle" fill="#fef3c7" font-size="10.5">Ritmo controllabile</text>
+  <text x="528" y="96" text-anchor="middle" fill="#fef3c7" font-size="10.5">da chi apprende</text>
+  <rect x="608" y="20" width="140" height="150" rx="8" fill="#b45309"/>
+  <text x="678" y="48" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Modalità</text>
+  <text x="678" y="78" text-anchor="middle" fill="#fef3c7" font-size="10.5">Voce + Schema visivo</text>
+  <text x="678" y="96" text-anchor="middle" fill="#fef3c7" font-size="10.5">anziché solo testo</text>
+</svg></div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 190" role="img" aria-label="Cinque leve sul carico rilevante: Worked Examples, Esempi Variati, Goal-Free Problems, Autospiegazione e Pratica di Recupero">
+  <rect x="12" y="20" width="138" height="150" rx="8" fill="#047857"/>
+  <text x="81" y="48" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Worked Examples</text>
+  <text x="81" y="78" text-anchor="middle" fill="#d1fae5" font-size="10.5">Esempi svolti</text>
+  <text x="81" y="96" text-anchor="middle" fill="#d1fae5" font-size="10.5">passo dopo passo</text>
+  <rect x="161" y="20" width="138" height="150" rx="8" fill="#047857"/>
+  <text x="230" y="48" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Variabilità</text>
+  <text x="230" y="78" text-anchor="middle" fill="#d1fae5" font-size="10.5">Cambiare il contesto</text>
+  <text x="230" y="96" text-anchor="middle" fill="#d1fae5" font-size="10.5">superficiale del caso</text>
+  <rect x="310" y="20" width="138" height="150" rx="8" fill="#047857"/>
+  <text x="379" y="48" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Goal-Free</text>
+  <text x="379" y="78" text-anchor="middle" fill="#d1fae5" font-size="10.5">«Calcola ciò che</text>
+  <text x="379" y="96" text-anchor="middle" fill="#d1fae5" font-size="10.5">puoi dai dati»</text>
+  <rect x="459" y="20" width="138" height="150" rx="8" fill="#047857"/>
+  <text x="528" y="48" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Autospiegazione</text>
+  <text x="528" y="78" text-anchor="middle" fill="#d1fae5" font-size="10.5">Giustificare il perché</text>
+  <text x="528" y="96" text-anchor="middle" fill="#d1fae5" font-size="10.5">di ciascun passaggio</text>
+  <rect x="608" y="20" width="140" height="150" rx="8" fill="#047857"/>
+  <text x="678" y="48" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Spaced Retrieval</text>
+  <text x="678" y="78" text-anchor="middle" fill="#d1fae5" font-size="10.5">Richiamo attivo</text>
+  <text x="678" y="96" text-anchor="middle" fill="#d1fae5" font-size="10.5">senza appunti aperti</text>
+</svg></div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · Quando si passa dall'esempio svolto (Worked Example) al problema autonomo?</summary>
+    <p>Gradualmente tramite problemi a completamento (Backward Fading): prima tutti i passi svolti, poi l'ultimo lasciato allo studente, poi gli ultimi due, fino alla piena autonomia.</p>
+  </details>
+</article>
+<article class="schema-card" id="schema-10" data-schema-cat="regolazione" aria-labelledby="schema-10-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 10 · Regolazione & Expertise</span>
+      <h4 class="schema-card-title" id="schema-10-title">Expertise Reversal Effect (Kalyuga) e Continuum di Autonomia a 4 Stadi</h4>
+      <p class="schema-card-subtitle">Calibrare la struttura didattica in funzione della competenza raggiunta, dall'acqua bassa all'acqua alta.</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-10" aria-label="Espandi schema 10: Expertise Reversal Effect (Kalyuga) e Continuum di Autonomia a 4 Stadi">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Expertise Reversal Effect (Kalyuga) e Continuum di Autonomia a 4 Stadi">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">Curva Expertise Reversal & Fading</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">Continuum a 4 Stadi (Bathurst-Hunt & MacKenzie)</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 210" role="img" aria-label="Incrocio tra Novizi ed Esperti nell'Expertise Reversal Effect: alta guida aiuta il novizio ma penalizza l'esperto">
+  <line x1="65" y1="175" x2="720" y2="175" stroke="#64748b" stroke-width="2"/>
+  <line x1="65" y1="22" x2="65" y2="175" stroke="#64748b" stroke-width="2"/>
+  <text x="390" y="198" text-anchor="middle" fill="var(--text-muted)" font-size="11">Livello di Expertise dello Studente (Novizio → Esperto)</text>
+  <path d="M90 46 C260 65 460 115 690 156" fill="none" stroke="var(--text-accent, #1e3a8a)" stroke-width="3.5"/>
+  <text x="105" y="40" fill="var(--text-accent, #1e3a8a)" font-size="12" font-weight="700">Guida Esplicita / Worked Examples (aiuta i novizi)</text>
+  <path d="M90 154 C270 132 460 80 690 42" fill="none" stroke="var(--load-germane, #0f766e)" stroke-width="3.5"/>
+  <text x="740" y="34" text-anchor="end" fill="var(--load-germane, #0f766e)" font-size="12" font-weight="700">Compito Aperto / Esplorazione (aiuta gli esperti)</text>
+  <circle cx="385" cy="100" r="6" fill="var(--load-intrinsic, #d97706)"/>
+  <text x="385" y="124" text-anchor="middle" fill="var(--load-intrinsic, #b45309)" font-size="11" font-weight="700">Zona di Inversione (Apply Backward Fading)</text>
+</svg></div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-compare-grid">
+  <div class="schema-mini-box"><strong>1. Strutturato («Acqua bassa»)</strong>Tutti gli studenti seguono la procedura dimostrata passo passo dal docente (modeling + guida esplicita).</div>
+  <div class="schema-mini-box"><strong>2. Controllato (Compito comune)</strong>Il docente assegna l'obiettivo e le risorse essenziali; gli alunni applicano con lista di controllo parziale.</div>
+  <div class="schema-mini-box"><strong>3. Guidato (Scelta del metodo)</strong>Il tema resta comune, ma lo studente pianifica strategie, diagrammi e sequenza di risoluzione.</div>
+  <div class="schema-mini-box"><strong>4. Aperto («Acqua alta» / Libero)</strong>Lo studente formula la domanda d'indagine, seleziona le fonti e argomenta autonomamente i risultati.</div>
+</div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · Che errore si commette mantenendo sempre lo Stadio 1 per tutto l'anno?</summary>
+    <p>Si genera noia, passività e sovraccarico ridondante negli studenti ormai competenti (Expertise Reversal Effect), impedendo il passaggio verso la padronanza autoregolata.</p>
+  </details>
+</article>
+<article class="schema-card" id="schema-11" data-schema-cat="regolazione" aria-labelledby="schema-11-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 11 · Regolazione & Expertise</span>
+      <h4 class="schema-card-title" id="schema-11-title">Metamemoria in Contesto (Cornoldi) e Regia Verbale con Wait Time</h4>
+      <p class="schema-card-subtitle">Mostrare agli studenti l'impatto del rumore sulla Memoria di Lavoro e proteggere i tempi di recupero in aula.</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-11" aria-label="Espandi schema 11: Metamemoria in Contesto (Cornoldi) e Regia Verbale con Wait Time">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Metamemoria in Contesto (Cornoldi) e Regia Verbale con Wait Time">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">Esperimento Silenzio vs Distrattori</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">Protocollo Wait Time (Rowe, 1986)</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-compare-grid">
+  <div class="schema-mini-box"><strong>Condizione A · Silenzio &amp; Focus</strong>Lista di parole o consegna breve letta in silenzio: la WM usa interamente i propri slot per raggruppare e codificare (ritenzione alta + consapevolezza strategica).</div>
+  <div class="schema-mini-box"><strong>Condizione B · Rumore / Multitasking</strong>Medesima lista presentata con interferenza acustica o doppia richiesta parallela: crollo immediato della rievocazione (dimostrazione diretta agli studenti del valore dell'ecologia attentiva).</div>
+</div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 155" role="img" aria-label="Ciclo in quattro fasi del Wait Time di Rowe: Domanda chiara, Pausa di 3-5 secondi senza interruzioni, Risposta dello studente e Pausa post-risposta per elaborazione collettiva">
+  <rect x="16" y="25" width="166" height="104" rx="8" fill="#1e3a8a"/>
+  <text x="99" y="55" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">1. Domanda Singola</text>
+  <text x="99" y="78" text-anchor="middle" fill="#dbeafe" font-size="10.5">Una consegna chiara</text>
+  <text x="99" y="95" text-anchor="middle" fill="#dbeafe" font-size="10.5">senza riformulazioni</text>
+
+  <rect x="202" y="25" width="166" height="104" rx="8" fill="#0f766e"/>
+  <text x="285" y="55" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">2. Silenzio 3–5 sec</text>
+  <text x="285" y="78" text-anchor="middle" fill="#ccfbf1" font-size="10.5">Tempo necessario per</text>
+  <text x="285" y="95" text-anchor="middle" fill="#ccfbf1" font-size="10.5">recuperare da MLT</text>
+
+  <rect x="388" y="25" width="166" height="104" rx="8" fill="#0369a1"/>
+  <text x="471" y="55" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">3. Risposta Alunno</text>
+  <text x="471" y="78" text-anchor="middle" fill="#e0f2fe" font-size="10.5">Frasi più articolate</text>
+  <text x="471" y="95" text-anchor="middle" fill="#e0f2fe" font-size="10.5">e maggiore qualità</text>
+
+  <rect x="574" y="25" width="170" height="104" rx="8" fill="#4338ca"/>
+  <text x="659" y="55" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">4. Pausa Post-Risposta</text>
+  <text x="659" y="78" text-anchor="middle" fill="#e0e7ff" font-size="10.5">3 sec per integrare e</text>
+  <text x="659" y="95" text-anchor="middle" fill="#e0e7ff" font-size="10.5">collegare interventi</text>
+</svg></div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · Cosa succede se il docente riformula la domanda dopo 1 secondo di silenzio?</summary>
+    <p>Interrompe il recupero in corso nella WM dello studente costringendolo a ripartire dall'inizio e raddoppiando il carico cognitivo estraneo.</p>
+  </details>
+</article>
+<article class="schema-card" id="schema-12" data-schema-cat="inclusione" aria-labelledby="schema-12-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 12 · Didattica Inclusiva</span>
+      <h4 class="schema-card-title" id="schema-12-title">Ponte dell'Adattamento Funzionale e Triade dell'Insegnamento Inclusivo</h4>
+      <p class="schema-card-subtitle">Rendere accessibili concetti astratti tramite esperienze quotidiane e modellare esplicitamente il controllo esecutivo.</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-12" aria-label="Espandi schema 12: Ponte dell&#x27;Adattamento Funzionale e Triade dell&#x27;Insegnamento Inclusivo">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Ponte dell&#x27;Adattamento Funzionale e Triade dell&#x27;Insegnamento Inclusivo">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">Ponte dell'Adattamento (Astratto → Quotidiano)</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">Triade Operativa Inclusiva</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 190" role="img" aria-label="Ponte tra concetto astratto ad alto carico e versione iper-accessibile ancorata all'esperienza quotidiana, ad esempio distinguere un fatto oggettivo da un desiderio o timore">
+  <rect x="18" y="26" width="210" height="136" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="123" y="54" text-anchor="middle" fill="#991b1b" font-size="12.5" font-weight="700">OSTACOLO ASTRATTO</text>
+  <text x="123" y="84" text-anchor="middle" fill="#7f1d1d" font-size="11">«Valuta la validità</text>
+  <text x="123" y="102" text-anchor="middle" fill="#7f1d1d" font-size="11">inferenziale e i bias</text>
+  <text x="123" y="120" text-anchor="middle" fill="#7f1d1d" font-size="11">emotivi delle premesse»</text>
+
+  <rect x="266" y="54" width="228" height="80" rx="40" fill="#1e3a8a"/>
+  <text x="380" y="90" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">PONTE FUNZIONALE</text>
+  <text x="380" y="110" text-anchor="middle" fill="#dbeafe" font-size="10.5">Esempio concreto + regola visiva</text>
+
+  <rect x="532" y="26" width="210" height="136" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+  <text x="637" y="54" text-anchor="middle" fill="#065f46" font-size="12.5" font-weight="700">IPER-ACCESSIBILITÀ</text>
+  <text x="637" y="84" text-anchor="middle" fill="#064e3b" font-size="11">«Questo è un FATTO</text>
+  <text x="637" y="102" text-anchor="middle" fill="#064e3b" font-size="11">che puoi mostrare o</text>
+  <text x="637" y="120" text-anchor="middle" fill="#064e3b" font-size="11">un DESIDERIO / PAURA?»</text>
+</svg></div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-compare-grid">
+  <div class="schema-mini-box"><strong>1. Insegna la Teoria</strong>Mostra allo studente perché la mente fatica (collo di bottiglia, distrazioni) in linguaggio chiaro e non colpevolizzante.</div>
+  <div class="schema-mini-box"><strong>2. Rendi Concreto</strong>Aggancia ogni strategia a una metafora visiva o fisica (es. la valigia dei chunk, il semaforo attentivo, la checklist di passo).</div>
+  <div class="schema-mini-box"><strong>3. Dimostra il Controllo</strong>Esegui ad alta voce (Think-Aloud) il momento esatto in cui ti fermi, controlli e correggi un errore.</div>
+</div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · Come evitare che l'adattamento iper-accessibile diventi infantilizzante per adolescenti?</summary>
+    <p>Mantenendo l'obiettivo disciplinare adulto e autentico (distinguere dati verificabili da inferenze emotive) e variando soltanto l'ancoraggio iniziale e la gradualità del linguaggio.</p>
+  </details>
+</article>
+<article class="schema-card" id="schema-13" data-schema-cat="inclusione" aria-labelledby="schema-13-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 13 · Didattica Inclusiva</span>
+      <h4 class="schema-card-title" id="schema-13-title">Matrice BES · Colli di Bottiglia della WM e Leve UDL Compensative</h4>
+      <p class="schema-card-subtitle">Mappatura operativa tra profilo funzionale (DSA, ADHD, Disabilità Intellettiva/FIL), trappola estranea e leva di progettazione.</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-13" aria-label="Espandi schema 13: Matrice BES · Colli di Bottiglia della WM e Leve UDL Compensative">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Matrice BES · Colli di Bottiglia della WM e Leve UDL Compensative">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">Matrice Visuale BES × WM</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">3 Principi UDL tradotti in CLT</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 210" role="img" aria-label="Tre colonne operative per DSA, ADHD e Disabilità Intellettiva: da collo di bottiglia specifico a leva UDL mirata">
+  <rect x="14" y="16" width="234" height="178" rx="10" fill="#1e3a8a"/>
+  <text x="131" y="42" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">DSA (Dislessia / Disortografia)</text>
+  <text x="131" y="70" text-anchor="middle" fill="#dbeafe" font-size="11">Collo di bottiglia: decodifica /</text>
+  <text x="131" y="86" text-anchor="middle" fill="#dbeafe" font-size="11">compitazione non automatizzata</text>
+  <text x="131" y="122" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">Leva UDL / CLT:</text>
+  <text x="131" y="142" text-anchor="middle" fill="#93c5fd" font-size="10.5">Sintesi vocale, separazione fasi</text>
+  <text x="131" y="158" text-anchor="middle" fill="#93c5fd" font-size="10.5">ideazione vs ortografia, mappe</text>
+
+  <rect x="263" y="16" width="234" height="178" rx="10" fill="#0f766e"/>
+  <text x="380" y="42" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">ADHD / Funzioni Esecutive</text>
+  <text x="380" y="70" text-anchor="middle" fill="#ccfbf1" font-size="11">Collo di bottiglia: inibizione,</text>
+  <text x="380" y="86" text-anchor="middle" fill="#ccfbf1" font-size="11">mantenimento sequenze lunghe</text>
+  <text x="380" y="122" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">Leva UDL / CLT:</text>
+  <text x="380" y="142" text-anchor="middle" fill="#99f6e4" font-size="10.5">Micro-step visibili, timer</text>
+  <text x="380" y="158" text-anchor="middle" fill="#99f6e4" font-size="10.5">esplicito, setting privo di distrattori</text>
+
+  <rect x="512" y="16" width="234" height="178" rx="10" fill="#4338ca"/>
+  <text x="629" y="42" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Disabilità Intellettiva / FIL</text>
+  <text x="629" y="70" text-anchor="middle" fill="#e0e7ff" font-size="11">Collo di bottiglia: ridotta capienza</text>
+  <text x="629" y="86" text-anchor="middle" fill="#e0e7ff" font-size="11">simultanea e generalizzazione</text>
+  <text x="629" y="122" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">Leva UDL / CLT:</text>
+  <text x="629" y="142" text-anchor="middle" fill="#c7d2fe" font-size="10.5">Pre-training concreto, CAA,</text>
+  <text x="629" y="158" text-anchor="middle" fill="#c7d2fe" font-size="10.5">esempi variati &amp; sovra-apprendimento</text>
+</svg></div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-compare-grid">
+  <div class="schema-mini-box"><strong>Rappresentazione Multipla</strong>Sfrutta il principio di Modalità (audio + schema integrato) e abbatte le barriere percettive della singola scheda testuale.</div>
+  <div class="schema-mini-box"><strong>Azione ed Espressione</strong>Fornisce checklist esecutive, scalette visive e separazione delle sotto-abilità per non saturare la WM in uscita.</div>
+  <div class="schema-mini-box"><strong>Coinvolgimento</strong>Regola il livello di sfida tra overload e underload garantendo esperienze precoci di autoefficacia (Worked Examples + Fading).</div>
+</div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · In che senso uno strumento compensativo agisce come riduttore di carico estraneo?</summary>
+    <p>Automatizzando o vicariando la componente strumentale deficitaria (es. decodifica fonologica o calcolo tabellare), libera la Memoria di Lavoro affinché lo studente possa investire risorse sul nucleo concettuale del compito.</p>
+  </details>
+</article>
+<article class="schema-card" id="schema-14" data-schema-cat="inclusione" aria-labelledby="schema-14-title">
+  <div class="schema-card-head">
+    <div>
+      <span class="enrichment-badge">Schema 14 · Progettazione Operativa</span>
+      <h4 class="schema-card-title" id="schema-14-title">Flusso Decisionale di Riprogettazione Inclusiva e Think-Aloud a 4 Mosse</h4>
+      <p class="schema-card-subtitle">Come trasformare una consegna opaca in un percorso strutturato preservando l'obiettivo cognitivo.</p>
+    </div>
+    <div class="schema-card-actions">
+      <button type="button" class="action-btn action-btn-secondary" data-schema-expand="schema-14" aria-label="Espandi schema 14: Flusso Decisionale di Riprogettazione Inclusiva e Think-Aloud a 4 Mosse">Espandi vista</button>
+    </div>
+  </div>
+  <div class="schema-controls" role="group" aria-label="Viste interattive per Flusso Decisionale di Riprogettazione Inclusiva e Think-Aloud a 4 Mosse">
+    <button type="button" class="schema-pill" data-schema-switch="a" aria-pressed="true">Flusso Barriera vs Obiettivo</button>
+    <button type="button" class="schema-pill" data-schema-switch="b" aria-pressed="false">Think-Aloud in 4 Mosse (Ciclo EEF)</button>
+  </div>
+  <div class="schema-panel" data-schema-panel="a">
+    <div class="schema-svg-wrap"><svg viewBox="0 0 760 170" role="img" aria-label="Flusso decisionale in 4 stadi: Isola l'obiettivo autentico, Individua le barriere estranee, Governa l'intrinseco con pre-training ed esempi svolti, Verifica e applica fading">
+  <rect x="14" y="25" width="166" height="120" rx="8" fill="#1e3a8a"/>
+  <text x="97" y="55" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">1. Obiettivo Autentico</text>
+  <text x="97" y="80" text-anchor="middle" fill="#dbeafe" font-size="10.5">Cosa deve saper</text>
+  <text x="97" y="96" text-anchor="middle" fill="#dbeafe" font-size="10.5">pensare lo studente?</text>
+
+  <rect x="202" y="25" width="166" height="120" rx="8" fill="#b91c1c"/>
+  <text x="285" y="55" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">2. Taglia l'Estraneo</text>
+  <text x="285" y="80" text-anchor="middle" fill="#fee2e2" font-size="10.5">Elimina split-attention,</text>
+  <text x="285" y="96" text-anchor="middle" fill="#fee2e2" font-size="10.5">ambiguità e rumore</text>
+
+  <rect x="390" y="25" width="166" height="120" rx="8" fill="#b45309"/>
+  <text x="473" y="55" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">3. Modula Intrinseco</text>
+  <text x="473" y="80" text-anchor="middle" fill="#fef3c7" font-size="10.5">Pre-training, chunk</text>
+  <text x="473" y="96" text-anchor="middle" fill="#fef3c7" font-size="10.5">e Worked Examples</text>
+
+  <rect x="578" y="25" width="168" height="120" rx="8" fill="#047857"/>
+  <text x="662" y="55" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">4. Fading &amp; Verifica</text>
+  <text x="662" y="80" text-anchor="middle" fill="#d1fae5" font-size="10.5">Rimuovi gli aiuti</text>
+  <text x="662" y="96" text-anchor="middle" fill="#d1fae5" font-size="10.5">quando cresce la MLT</text>
+</svg></div>
+  </div>
+  <div class="schema-panel" data-schema-panel="b" hidden>
+    <div class="schema-compare-grid">
+  <div class="schema-mini-box"><strong>Mossa 1 · Pianificazione</strong>«Prima di iniziare, che cosa ci chiede esattamente il compito? Quali parole devo capire subito?»</div>
+  <div class="schema-mini-box"><strong>Mossa 2 · Selezione Strategica</strong>«Quale schema o esempio guida uso per non dover tenere tutto a mente insieme?»</div>
+  <div class="schema-mini-box"><strong>Mossa 3 · Monitoraggio &amp; Correzione</strong>«Qui mi fermo: sto ancora rispondendo alla domanda iniziale o mi sono perso in un dettaglio?»</div>
+  <div class="schema-mini-box"><strong>Mossa 4 · Autovalutazione</strong>«Questo risultato ha senso rispetto ai dati? Cosa terrei come regola per la prossima volta?»</div>
+</div>
+  </div>
+  <details class="schema-selfcheck">
+    <summary>Autoverifica lampo · Qual è il criterio per distinguere un buon adattamento da una semplificazione impropria?</summary>
+    <p>Il buon adattamento elimina le barriere accessorie di lettura, formato e procedura lasciando intatta e leggibile la sfida cognitiva disciplinare.</p>
+  </details>
+</article>
+  </div>
+</section>
+
+      <nav class="page-pager" aria-label="Navigazione tra pagine">
+        <a class="pager-link" href="laboratori.html"><span class="pager-dir">← Pagina precedente</span><span class="pager-name">Laboratori &amp; 3D</span></a>
+        <a class="pager-link pager-next" href="valutazione-risorse.html"><span class="pager-dir">Pagina successiva →</span><span class="pager-name">Valutazione &amp; Risorse</span></a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <strong>Carico Cognitivo &amp; Accessibilità</strong> · Risorsa scientifica e operativa per la didattica inclusiva
+      </div>
+      <div>
+        <a href="index.html">Fondamenti</a> · <a href="schemi-didattici.html">Schemi Didattici</a> · <a href="laboratori.html">Laboratori &amp; 3D</a> · <a href="valutazione-risorse.html">Valutazione &amp; Risorse</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="schema-modal" closedby="any" aria-labelledby="schema-modal-title">
+    <div class="schema-modal-shell">
+      <div class="schema-modal-head">
+        <h2 id="schema-modal-title" style="margin:0; font-size:1.02rem; color:var(--brand-navy);">Schema didattico</h2>
+        <div style="display:flex; gap:0.45rem; align-items:center;">
+          <button type="button" id="schema-modal-prev" class="ctrl-btn" aria-label="Schema precedente">← Prec</button>
+          <button type="button" id="schema-modal-next" class="ctrl-btn" aria-label="Schema successivo">Succ →</button>
+          <button type="button" id="schema-modal-close" class="ctrl-btn" autofocus aria-label="Chiudi finestra">Chiudi ✕</button>
+        </div>
+      </div>
+      <div id="schema-modal-body" class="schema-modal-body"></div>
+      <div class="schema-modal-foot">
+        <span id="schema-modal-caption" style="color:var(--text-muted);"></span>
+        <span style="font-size:0.78rem; color:var(--text-muted);">Esc per chiudere · Frecce ←/→ per navigare</span>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="search-index.js" defer></script>
+  
+  <script src="app.js" defer></script>
+  <script id="standalone-schema-fallback-js">
+window.addEventListener("load", function () {
+  var cssLoaded = getComputedStyle(document.documentElement).getPropertyValue("--brand-navy-mid").trim() !== "";
+  if (!cssLoaded) {
+    document.documentElement.setAttribute("data-standalone", "true");
+  }
+  if (window.__ccAppLoaded) return;
+  var filterBtns = Array.prototype.slice.call(document.querySelectorAll("[data-schema-filter]"));
+  var cards = Array.prototype.slice.call(document.querySelectorAll("[data-schema-cat]"));
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var cat = btn.getAttribute("data-schema-filter");
+      filterBtns.forEach(function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+      cards.forEach(function (c) { c.hidden = !(cat === "all" || c.getAttribute("data-schema-cat") === cat); });
+    });
+  });
+  function bindSwitches(root) {
+    var btns = Array.prototype.slice.call(root.querySelectorAll("[data-schema-switch]"));
+    var panels = Array.prototype.slice.call(root.querySelectorAll("[data-schema-panel]"));
+    btns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var target = btn.getAttribute("data-schema-switch");
+        btns.forEach(function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+        panels.forEach(function (p) { p.hidden = p.getAttribute("data-schema-panel") !== target; });
+      });
+    });
+  }
+  document.querySelectorAll(".schema-card").forEach(bindSwitches);
+
+  var dialog = document.getElementById("schema-modal");
+  var bodyEl = document.getElementById("schema-modal-body");
+  var titleEl = document.getElementById("schema-modal-title");
+  var capEl = document.getElementById("schema-modal-caption");
+  var closeBtn = document.getElementById("schema-modal-close");
+  var prevBtn = document.getElementById("schema-modal-prev");
+  var nextBtn = document.getElementById("schema-modal-next");
+  var triggers = Array.prototype.slice.call(document.querySelectorAll("[data-schema-expand]"));
+  var curTrigger = null;
+
+  function visibleTriggers() {
+    return triggers.filter(function (el) { return !el.closest("[hidden]"); });
+  }
+  function openModal(btn) {
+    if (!dialog || !btn) return;
+    var card = btn.closest(".schema-card");
+    if (!card) return;
+    curTrigger = btn;
+    var t = card.querySelector(".schema-card-title");
+    var s = card.querySelector(".schema-card-subtitle");
+    if (titleEl) titleEl.textContent = t ? t.textContent.trim() : "Schema didattico";
+    if (capEl) capEl.textContent = s ? s.textContent.trim() : "";
+    if (bodyEl) {
+      bodyEl.innerHTML = "";
+      var stack = document.createElement("div");
+      stack.style.display = "grid";
+      stack.style.gap = "0.85rem";
+      var ctrls = card.querySelector(".schema-controls");
+      if (ctrls) stack.appendChild(ctrls.cloneNode(true));
+      card.querySelectorAll(".schema-panel").forEach(function (p) { stack.appendChild(p.cloneNode(true)); });
+      bindSwitches(stack);
+      bodyEl.appendChild(stack);
+    }
+    if (!dialog.open && typeof dialog.showModal === "function") dialog.showModal();
+  }
+  function step(delta) {
+    var pool = visibleTriggers();
+    if (pool.length <= 1) return;
+    var idx = pool.indexOf(curTrigger);
+    if (idx === -1) idx = 0;
+    openModal(pool[(idx + delta + pool.length) % pool.length]);
+  }
+  triggers.forEach(function (btn) { btn.addEventListener("click", function () { openModal(btn); }); });
+  if (closeBtn && dialog) closeBtn.addEventListener("click", function () { dialog.close(); });
+  if (prevBtn) prevBtn.addEventListener("click", function () { step(-1); });
+  if (nextBtn) nextBtn.addEventListener("click", function () { step(1); });
+  if (dialog) {
+    dialog.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+    });
+  }
+});
+</script>
+</body>
+</html>

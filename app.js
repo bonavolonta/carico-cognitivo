@@ -1,20 +1,21 @@
 /* ==========================================================================
-   app.js — Didactic Interactive Labs, Navigation, Search, Lightbox & UDL UX
+   app.js — Didactic Interactive Labs, Multi-Page Navigation, Global Search,
+            Interactive Schemas & UDL UX
    Zero external dependencies | Modern Web Guidance compliant
    ========================================================================== */
 (function () {
   "use strict";
 
   const QUIZ_KEY = [
-    { q: 1, ans: "b", exp: "Miller (1956): 7 ± 2 chunk nella ritenzione immediata e decadimento 20–30 s senza reiterazione; Cowan/Sweller: 4 ± 1 elementi nella manipolazione attiva simultanea (Slide 17)." },
-    { q: 2, ans: "c", exp: "David Ausubel (1968): il singolo fattore più importante che influenza l'apprendimento sono le conoscenze che lo studente già possiede (Slide 26)." },
-    { q: 3, ans: "c", exp: "Il carico intrinseco nasce dall'interazione tra la complessità (interattività degli elementi) del contenuto e il livello di expertise dello studente (Slide 36 e 39)." },
-    { q: 4, ans: "b", exp: "La capienza biologica della WM è simile tra novizi ed esperti; l'esperto richiama dalla MLT interi schemi automatizzati come singolo chunk (Slide 21–23, 32)." },
-    { q: 5, ans: "b", exp: "Pre-training, chunking (segmentazione), sequencing graduale e verifiche continue della comprensione governano il carico cognitivo intrinseco senza eliminare l'obiettivo (Slide 38)." },
+    { q: 1, ans: "b", exp: "Miller (1956): 7 ± 2 chunk nella ritenzione immediata e decadimento 20–30 s senza reiterazione; Cowan (2001)/Sweller: 4 ± 1 elementi nella manipolazione attiva simultanea." },
+    { q: 2, ans: "c", exp: "David Ausubel (1968): il singolo fattore più importante che influenza l'apprendimento sono le conoscenze che lo studente già possiede (apprendimento significativo per ancoraggio)." },
+    { q: 3, ans: "c", exp: "Il carico intrinseco nasce dall'interazione tra la complessità (interattività degli elementi) del contenuto e il livello di expertise dello studente (Sweller, 1998)." },
+    { q: 4, ans: "b", exp: "La capienza biologica della WM è simile tra novizi ed esperti; l'esperto richiama dalla MLT interi schemi automatizzati come singolo chunk (Sweller, 2003)." },
+    { q: 5, ans: "b", exp: "Pre-training, chunking (segmentazione), sequencing graduale e verifiche continue della comprensione governano il carico cognitivo intrinseco senza eliminare l'obiettivo (van Merriënboer & Sweller, 2005)." },
     { q: 6, ans: "b", exp: "La separazione spaziale tra figura, misure e legenda genera l'Effetto dell'Attenzione Divisa (Split-Attention Effect; Landriscina, 2007; Mayer, 2021)." },
-    { q: 7, ans: "b", exp: "Animazioni non pertinenti (coerenza), lettura identica di testo a schermo (ridondanza), rumore (Slide 40) e ritmo elevato (transitorietà) sommano carico estraneo bloccando il germane." },
-    { q: 8, ans: "b", exp: "Expertise Reversal Effect (Kalyuga et al., 2003; Slide 42): guide dettagliate per novizi diventano carico estraneo per l'esperto; occorre applicare guidance fading e differenziazione." },
-    { q: 9, ans: "c", exp: "Separare la fase ideativa/argomentativa dalla revisione ortografica libera la WM dal controllo non automatizzato nella disortografia, preservando l'obiettivo storico (Cap. 6–7)." },
+    { q: 7, ans: "b", exp: "Animazioni non pertinenti (coerenza), lettura identica di testo a schermo (ridondanza), rumore ambientale (Bonaiuti, 2014) e ritmo elevato (transitorietà) sommano carico estraneo bloccando il germane." },
+    { q: 8, ans: "b", exp: "Expertise Reversal Effect (Kalyuga et al., 2003): guide dettagliate progettate per novizi diventano carico estraneo per l'esperto; occorre applicare guidance fading e differenziazione." },
+    { q: 9, ans: "c", exp: "Separare la fase ideativa/argomentativa dalla revisione ortografica libera la WM dal controllo non automatizzato nella disortografia, preservando l'obiettivo storico (Cornoldi, 2007; Ianes, 1996)." },
     { q: 10, ans: "b", exp: "L'adattamento efficace rimuove le barriere (carico estraneo), mantiene intatto ed esplicito l'obiettivo cognitivo autentico e sostiene le strategie autoregolative (Ianes, 1996)." }
   ];
 
@@ -54,26 +55,90 @@
     const toggleSpacing = document.getElementById("udl-spacing");
     const toggleClean = document.getElementById("udl-clean");
 
-    function bindBodyToggle(btn, attr, valOn, onToggle) {
+    function bindBodyToggle(btn, attr, valOn, storageKey, onToggle) {
       if (!btn) return;
+      let saved = false;
+      try { saved = localStorage.getItem(storageKey) === "true"; } catch (_) {}
+      if (saved) {
+        body.setAttribute(attr, valOn);
+        btn.setAttribute("aria-pressed", "true");
+      } else {
+        body.removeAttribute(attr);
+        btn.setAttribute("aria-pressed", "false");
+      }
       btn.addEventListener("click", () => {
         const cur = body.getAttribute(attr) === valOn;
-        if (cur) {
-          body.removeAttribute(attr);
-          btn.setAttribute("aria-pressed", "false");
-        } else {
+        const next = !cur;
+        if (next) {
           body.setAttribute(attr, valOn);
           btn.setAttribute("aria-pressed", "true");
+        } else {
+          body.removeAttribute(attr);
+          btn.setAttribute("aria-pressed", "false");
         }
-        if (typeof onToggle === "function") onToggle(!cur);
+        try { localStorage.setItem(storageKey, String(next)); } catch (_) {}
+        if (typeof onToggle === "function") onToggle(next);
       });
     }
 
-    bindBodyToggle(toggleReadable, "data-font", "readable");
-    bindBodyToggle(toggleSpacing, "data-spacing", "wide");
-    bindBodyToggle(toggleClean, "data-clean-mode", "true", (enabled) => {
+    bindBodyToggle(toggleReadable, "data-font", "readable", "cc-font");
+    bindBodyToggle(toggleSpacing, "data-spacing", "wide", "cc-spacing");
+    bindBodyToggle(toggleClean, "data-clean-mode", "true", "cc-clean", (enabled) => {
       document.dispatchEvent(new CustomEvent("cc:clean-mode-change", { detail: { enabled } }));
     });
+  }
+
+  function setupResponsiveNavbar() {
+    const topbar = document.querySelector(".topbar");
+    const navRow = document.querySelector(".topbar-nav-row");
+    const menuBtn = document.getElementById("menu-toggle-btn");
+    const nav = document.getElementById("site-nav");
+    if (!topbar || !navRow || !nav) return;
+
+    const supportsPopover = "popover" in HTMLElement.prototype;
+
+    function syncWideState() {
+      const wide = navRow.getBoundingClientRect().width >= 1000;
+      topbar.classList.toggle("is-wide", wide);
+      if (supportsPopover) {
+        if (wide) {
+          try {
+            if (typeof nav.hidePopover === "function" && nav.matches(":popover-open")) {
+              nav.hidePopover();
+            }
+          } catch (_) {}
+          nav.removeAttribute("popover");
+          nav.classList.remove("is-popover-open");
+          if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
+        } else {
+          nav.setAttribute("popover", "auto");
+        }
+      } else if (wide) {
+        nav.classList.remove("is-popover-open");
+        if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
+      }
+    }
+
+    syncWideState();
+    if ("ResizeObserver" in window) {
+      new ResizeObserver(syncWideState).observe(navRow);
+    } else {
+      window.addEventListener("resize", syncWideState, { passive: true });
+    }
+
+    if (menuBtn) {
+      if (supportsPopover) {
+        nav.addEventListener("toggle", (e) => {
+          menuBtn.setAttribute("aria-expanded", String(e.newState === "open"));
+        });
+      } else {
+        menuBtn.removeAttribute("popovertarget");
+        menuBtn.addEventListener("click", () => {
+          const open = nav.classList.toggle("is-popover-open");
+          menuBtn.setAttribute("aria-expanded", String(open));
+        });
+      }
+    }
   }
 
   function setupScrollProgressAndSpy() {
@@ -122,7 +187,7 @@
 
     function isTargetVisible(el) {
       if (!el || !el.isConnected) return false;
-      if (document.body.getAttribute("data-clean-mode") === "true" && el.closest(".enrichment-block")) {
+      if (document.body.getAttribute("data-clean-mode") === "true" && el.closest(".enrichment-block:not(.keep-in-clean)")) {
         return false;
       }
       if (el.closest("[hidden]:not([hidden='until-found' i])")) return false;
@@ -269,8 +334,11 @@
     const input = document.getElementById("doc-search-input");
     const clearBtn = document.getElementById("doc-search-clear");
     const status = document.getElementById("doc-search-status");
+    const globalBox = document.getElementById("global-search-results");
     const main = document.getElementById("main-content");
     if (!input || !main) return;
+
+    const currentFile = (window.location.pathname.split("/").pop() || "index.html") || "index.html";
 
     function clearHighlights() {
       main.querySelectorAll("mark.search-hit").forEach((m) => {
@@ -281,12 +349,53 @@
       });
     }
 
+    function renderGlobalResults(q) {
+      if (!globalBox) return;
+      globalBox.innerHTML = "";
+      const index = Array.isArray(window.CC_SEARCH_INDEX) ? window.CC_SEARCH_INDEX : [];
+      if (q.length < 2 || !index.length) {
+        globalBox.hidden = true;
+        return;
+      }
+      const lq = q.toLowerCase();
+      const hits = index
+        .filter((item) => {
+          const hay = (item.title + " " + item.snippet + " " + (item.keywords || "")).toLowerCase();
+          return hay.includes(lq);
+        })
+        .slice(0, 12);
+
+      if (!hits.length) {
+        globalBox.hidden = true;
+        return;
+      }
+
+      hits.forEach((item) => {
+        const a = document.createElement("a");
+        a.className = "global-search-hit";
+        const samePage = item.page === currentFile;
+        a.href = samePage
+          ? `#${item.id}`
+          : `${item.page}?q=${encodeURIComponent(q)}#${item.id}`;
+        const badge = document.createElement("span");
+        badge.className = "global-search-hit-page";
+        badge.textContent = samePage ? `${item.pageLabel} (pagina corrente)` : item.pageLabel;
+        const title = document.createElement("span");
+        title.textContent = item.title;
+        a.appendChild(badge);
+        a.appendChild(title);
+        globalBox.appendChild(a);
+      });
+      globalBox.hidden = false;
+    }
+
     let lastCleanState = document.body.getAttribute("data-clean-mode") === "true";
 
     function runSearch(opts) {
       const shouldScroll = !opts || opts.scroll !== false;
       clearHighlights();
       const q = input.value.trim();
+      renderGlobalResults(q);
       if (q.length < 2) {
         if (status) status.textContent = q.length ? "Digita almeno 2 caratteri." : "";
         return;
@@ -302,7 +411,7 @@
           if (p.closest("svg, math, script, style, noscript, mark, textarea, input, button, select, option")) {
             return NodeFilter.FILTER_REJECT;
           }
-          if (isCleanMode && p.closest(".enrichment-block")) {
+          if (isCleanMode && p.closest(".enrichment-block:not(.keep-in-clean)")) {
             return NodeFilter.FILTER_REJECT;
           }
           if (p.closest("[hidden]:not([hidden='until-found' i])")) {
@@ -365,9 +474,11 @@
       if (status) {
         status.textContent = totalMatches
           ? totalMatches > highlighted
-            ? `${highlighted} evidenziate su ${totalMatches} corrispondenze trovate`
-            : `${totalMatches} corrispondenze trovate`
-          : "Nessuna corrispondenza trovata.";
+            ? `${highlighted} evidenziate in questa pagina (su ${totalMatches})`
+            : `${totalMatches} in questa pagina`
+          : (globalBox && !globalBox.hidden
+            ? "Nessuna occorrenza qui; vedi i risultati nelle altre pagine."
+            : "Nessuna corrispondenza trovata.");
       }
     }
 
@@ -380,12 +491,16 @@
       clearBtn.addEventListener("click", () => {
         input.value = "";
         clearHighlights();
+        if (globalBox) {
+          globalBox.innerHTML = "";
+          globalBox.hidden = true;
+        }
         if (status) status.textContent = "";
         input.focus();
       });
     }
     document.addEventListener("cc:clean-mode-change", () => runSearch({ scroll: false }));
-    document.addEventListener("cc:gallery-filter-change", () => runSearch({ scroll: false }));
+    document.addEventListener("cc:schema-filter-change", () => runSearch({ scroll: false }));
     if ("MutationObserver" in window) {
       new MutationObserver(() => {
         const nowClean = document.body.getAttribute("data-clean-mode") === "true";
@@ -395,59 +510,93 @@
         }
       }).observe(document.body, { attributes: true, attributeFilter: ["data-clean-mode"] });
     }
+
+    try {
+      const urlQ = new URLSearchParams(window.location.search).get("q");
+      if (urlQ && urlQ.trim().length >= 2) {
+        input.value = urlQ.trim();
+        runSearch({ scroll: !window.location.hash });
+      }
+    } catch (_) {}
   }
 
-  function setupLightbox() {
-    const dialog = document.getElementById("slide-lightbox");
+  function setupSchemaModal() {
+    const dialog = document.getElementById("schema-modal");
     if (!dialog) return;
 
-    const imgEl = document.getElementById("lightbox-img");
-    const titleEl = document.getElementById("lightbox-title");
-    const capEl = document.getElementById("lightbox-caption");
-    const closeBtn = document.getElementById("lightbox-close");
-    const prevBtn = document.getElementById("lightbox-prev");
-    const nextBtn = document.getElementById("lightbox-next");
+    const bodyEl = document.getElementById("schema-modal-body");
+    const titleEl = document.getElementById("schema-modal-title");
+    const capEl = document.getElementById("schema-modal-caption");
+    const closeBtn = document.getElementById("schema-modal-close");
+    const prevBtn = document.getElementById("schema-modal-prev");
+    const nextBtn = document.getElementById("schema-modal-next");
 
-    const allTriggers = Array.from(document.querySelectorAll("[data-lightbox-src]"));
+    const allTriggers = Array.from(document.querySelectorAll("[data-schema-expand]"));
     let currentTrigger = null;
-    let activeScope = null;
     let lastInvoker = null;
 
     function isTriggerVisible(el) {
       if (!el || !el.isConnected) return false;
-      if (document.body.getAttribute("data-clean-mode") === "true" && el.closest(".enrichment-block")) {
+      if (document.body.getAttribute("data-clean-mode") === "true" && el.closest(".enrichment-block:not(.keep-in-clean)")) {
         return false;
       }
       if (el.closest("[hidden]")) return false;
-      let cur = el;
-      while (cur && cur !== document.documentElement) {
-        const cs = window.getComputedStyle(cur);
-        if (cs.display === "none" || cs.visibility === "hidden") return false;
-        cur = cur.parentElement;
-      }
-      return true;
+      return el.getClientRects().length > 0;
     }
 
-    function getVisibleTriggers(scopeRoot) {
-      const root = scopeRoot || document;
-      return Array.from(root.querySelectorAll("[data-lightbox-src]")).filter(isTriggerVisible);
+    function getVisibleTriggers() {
+      return allTriggers.filter(isTriggerVisible);
     }
 
-    function openTrigger(el, invoker) {
-      if (!el || !isTriggerVisible(el)) return;
-      currentTrigger = el;
-      if (invoker) {
-        lastInvoker = invoker;
-        activeScope = invoker.closest("#galleria-slide");
-      }
-      if (imgEl) {
-        imgEl.src = el.getAttribute("data-lightbox-src") || "";
-        imgEl.alt = el.getAttribute("data-lightbox-alt") || "";
-      }
-      if (titleEl) titleEl.textContent = el.getAttribute("data-lightbox-title") || "Slide del corso";
-      if (capEl) capEl.textContent = el.getAttribute("data-lightbox-caption") || "";
+    function openTrigger(btn, invoker) {
+      if (!btn || !isTriggerVisible(btn)) return;
+      const card = btn.closest(".schema-card");
+      if (!card) return;
+      currentTrigger = btn;
+      if (invoker) lastInvoker = invoker;
 
-      const pool = getVisibleTriggers(activeScope);
+      const cardTitle = card.querySelector(".schema-card-title");
+      const cardSub = card.querySelector(".schema-card-subtitle");
+      const controls = card.querySelector(".schema-controls");
+      const panels = Array.from(card.querySelectorAll(".schema-panel"));
+
+      if (titleEl) titleEl.textContent = cardTitle ? cardTitle.textContent.trim() : "Schema didattico";
+      if (capEl) capEl.textContent = cardSub ? cardSub.textContent.trim() : "";
+      if (bodyEl) {
+        bodyEl.innerHTML = "";
+        if (panels.length) {
+          const stack = document.createElement("div");
+          stack.style.display = "grid";
+          stack.style.gap = "0.85rem";
+          if (controls) {
+            stack.appendChild(controls.cloneNode(true));
+          }
+          panels.forEach((p) => stack.appendChild(p.cloneNode(true)));
+          const modalSwitches = Array.from(stack.querySelectorAll("[data-schema-switch]"));
+          const modalPanels = Array.from(stack.querySelectorAll("[data-schema-panel]"));
+          modalSwitches.forEach((sw) => {
+            sw.addEventListener("click", () => {
+              const target = sw.getAttribute("data-schema-switch");
+              modalSwitches.forEach((b) => b.setAttribute("aria-pressed", String(b === sw)));
+              modalPanels.forEach((mp) => {
+                mp.hidden = mp.getAttribute("data-schema-panel") !== target;
+              });
+            });
+          });
+          bodyEl.appendChild(stack);
+        } else {
+          const svgWrap = card.querySelector(".schema-svg-wrap");
+          if (svgWrap) {
+            bodyEl.appendChild(svgWrap.cloneNode(true));
+          } else {
+            const clone = card.cloneNode(true);
+            clone.querySelectorAll("button").forEach((b) => b.remove());
+            bodyEl.appendChild(clone);
+          }
+        }
+      }
+
+      const pool = getVisibleTriggers();
       const single = pool.length <= 1;
       if (prevBtn) prevBtn.disabled = single;
       if (nextBtn) nextBtn.disabled = single;
@@ -458,7 +607,7 @@
     }
 
     function step(delta) {
-      const pool = getVisibleTriggers(activeScope);
+      const pool = getVisibleTriggers();
       if (pool.length <= 1) return;
       let idx = pool.indexOf(currentTrigger);
       if (idx === -1) idx = 0;
@@ -475,13 +624,12 @@
     if (nextBtn) nextBtn.addEventListener("click", () => step(1));
 
     dialog.addEventListener("close", () => {
-      if (imgEl) imgEl.removeAttribute("src");
+      if (bodyEl) bodyEl.innerHTML = "";
       if (lastInvoker && isTriggerVisible(lastInvoker) && typeof lastInvoker.focus === "function") {
         lastInvoker.focus();
       }
     });
 
-    // Backdrop click fallback ONLY when native closedby="any" is unsupported (tracks pointerdown+pointerup outside dialog bounds)
     if (!("closedBy" in HTMLDialogElement.prototype)) {
       let pointerDownOutside = false;
       const isOutsideDialog = (e) => {
@@ -900,29 +1048,49 @@
     updateScore();
   }
 
-  function setupGalleryFilters() {
-    const filterBtns = Array.from(document.querySelectorAll("[data-gallery-filter]"));
-    const cards = Array.from(document.querySelectorAll("[data-gallery-cat]"));
-    if (!filterBtns.length || !cards.length) return;
-
-    filterBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const cat = btn.getAttribute("data-gallery-filter");
-        filterBtns.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
-        cards.forEach((c) => {
-          const match = cat === "all" || c.getAttribute("data-gallery-cat") === cat;
-          c.hidden = !match;
+  function setupSchemasInteractive() {
+    // Category filtering on schemi-didattici.html
+    const filterBtns = Array.from(document.querySelectorAll("[data-schema-filter]"));
+    const cards = Array.from(document.querySelectorAll("[data-schema-cat]"));
+    if (filterBtns.length && cards.length) {
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const cat = btn.getAttribute("data-schema-filter");
+          filterBtns.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+          cards.forEach((c) => {
+            const match = cat === "all" || c.getAttribute("data-schema-cat") === cat;
+            c.hidden = !match;
+          });
+          document.dispatchEvent(new CustomEvent("cc:schema-filter-change", { detail: { category: cat } }));
         });
-        document.dispatchEvent(new CustomEvent("cc:gallery-filter-change", { detail: { category: cat } }));
+      });
+    }
+
+    // Multi-panel interactive switches inside every schema card
+    document.querySelectorAll(".schema-card").forEach((card) => {
+      const switchBtns = Array.from(card.querySelectorAll("[data-schema-switch]"));
+      const panels = Array.from(card.querySelectorAll("[data-schema-panel]"));
+      if (!switchBtns.length || !panels.length) return;
+
+      switchBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-schema-switch");
+          switchBtns.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+          panels.forEach((p) => {
+            p.hidden = p.getAttribute("data-schema-panel") !== target;
+          });
+        });
       });
     });
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    window.__ccAppLoaded = true;
     setupThemeAndReadingControls();
+    setupResponsiveNavbar();
     setupScrollProgressAndSpy();
     setupDocumentSearch();
-    setupLightbox();
+    setupSchemaModal();
     setupAriaTabs();
     setupChunkingAndSchemaLab();
     setupForgettingCurveLab();
@@ -930,6 +1098,6 @@
     setupAuditChecklist();
     setupCopyButtons();
     setupInteractiveQuiz();
-    setupGalleryFilters();
+    setupSchemasInteractive();
   });
 })();
